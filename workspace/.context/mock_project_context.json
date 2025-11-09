@@ -1,0 +1,66 @@
+{
+  "project_id": "mock_project",
+  "project_name": "mock_project",
+  "requirements": "Create a simple API",
+  "project_type": "backend_api",
+  "complexity_level": "medium",
+  "functional_requirements": [],
+  "non_functional_requirements": [],
+  "technology_stack": {
+    "backend": [],
+    "frontend": [],
+    "database": [],
+    "devops": []
+  },
+  "architecture_pattern": null,
+  "component_specifications": [],
+  "data_models": [],
+  "generated_files": [],
+  "test_results": {},
+  "test_coverage": 0.0,
+  "security_report": {},
+  "deployment_strategy": null,
+  "domain": "general",
+  "blueprint": {
+    "explanation": "Mock FastAPI app",
+    "folder_structure": [
+      "app/models",
+      "app/services",
+      "app"
+    ],
+    "build_plan": [
+      {
+        "path": "app/models/user.py",
+        "purpose": "User model",
+        "dependencies": []
+      },
+      {
+        "path": "app/services/user_service.py",
+        "purpose": "User service",
+        "dependencies": [
+          "app/models/user.py"
+        ]
+      },
+      {
+        "path": "app/main.py",
+        "purpose": "Main FastAPI app",
+        "dependencies": [
+          "app/services/user_service.py"
+        ]
+      },
+      {
+        "path": "requirements.txt",
+        "purpose": "Aggregate dependencies",
+        "dependencies": []
+      },
+      {
+        "path": "README.md",
+        "purpose": "Project README",
+        "dependencies": []
+      }
+    ]
+  },
+  "project_root": "./workspace/mock_project",
+  "estimated_timeline": null,
+  "updated_at": "2025-11-09T17:46:09.459768"
+}

@@ -1,0 +1,8 @@
+/* Main UI styles for AI-SOL */
+.stApp header {display:none}
+.title {font-size:28px; font-weight:700; margin-bottom: 8px}
+.sidebar .stButton>button{background-color:#0b5cff;color:white;border-radius:6px}
+.stButton>button:disabled{opacity:0.6}
+.log-entry {font-family:monospace; font-size:12px;}
+.agent-card {border-radius:8px;padding:12px;margin-bottom:8px;background:#f7f9ff}
+.progress-bar {height:10px;border-radius:6px;background:#e6eefc}

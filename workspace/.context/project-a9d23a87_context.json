@@ -1,0 +1,122 @@
+{
+  "project_id": "project-a9d23a87",
+  "project_name": "project-a9d23a87",
+  "requirements": "Project: \"SimpleTask\" To-Do App\n\nTech: FastAPI (Python) backend + Vanilla HTML/CSS/JS frontend.\n\nDatabase: None. Use an in-memory list on the backend.\n\nBackend:\n\nServe the HTML/CSS/JS files.\n\nProvide JSON API for:\n\nGET /api/tasks (Get all tasks)\n\nPOST /api/tasks (Create a new task)\n\nPUT /api/tasks/{id} (Mark task as complete)\n\nDELETE /api/tasks/{id} (Delete a task)\n\nFrontend:\n\nOn load: Fetch and display all tasks from the API.\n\nInput field + \"Add\" button to create a new task (POST to API).\n\n\"Complete\" button on each task (PUT to API).\n\n\"Delete\" button on each task (DELETE to API).\n\nList must update instantly after add, complete, or delete (no page reload).\n\nCompleted tasks should be visually marked (e.g., line-through).",
+  "project_type": "web_application",
+  "complexity_level": "low",
+  "functional_requirements": [
+    {
+      "id": "FR-001",
+      "description": "The system shall display a list of all tasks when the application is opened.",
+      "priority": "high",
+      "acceptance_criteria": [
+        "When the application loads, an API call to GET /api/tasks is made.",
+        "The tasks returned from the API are rendered as a list on the page.",
+        "Each task in the list displays its description and current status."
+      ]
+    },
+    {
+      "id": "FR-002",
+      "description": "The system shall allow a user to add a new task to the list.",
+      "priority": "high",
+      "acceptance_criteria": [
+        "The user can type a task description into an input field.",
+        "Clicking the 'Add' button sends a POST request to /api/tasks with the task description.",
+        "The new task immediately appears in the list without a page refresh.",
+        "The input field is cleared after the task is successfully added."
+      ]
+    },
+    {
+      "id": "FR-003",
+      "description": "The system shall allow a user to mark a task as complete.",
+      "priority": "high",
+      "acceptance_criteria": [
+        "Each task in the list has a 'Complete' button or similar control.",
+        "Clicking the 'Complete' button sends a PUT request to /api/tasks/{id}.",
+        "The task is visually marked as complete (e.g., with a line-through) without a page refresh."
+      ]
+    },
+    {
+      "id": "FR-004",
+      "description": "The system shall allow a user to delete a task.",
+      "priority": "high",
+      "acceptance_criteria": [
+        "Each task in the list has a 'Delete' button.",
+        "Clicking the 'Delete' button sends a DELETE request to /api/tasks/{id}.",
+        "The task is immediately removed from the list without a page refresh."
+      ]
+    },
+    {
+      "id": "FR-005",
+      "description": "The backend shall provide a JSON API for task management.",
+      "priority": "high",
+      "acceptance_criteria": [
+        "GET /api/tasks returns a JSON array of all tasks.",
+        "POST /api/tasks accepts a JSON object and creates a new task.",
+        "PUT /api/tasks/{id} updates the status of a specific task to complete.",
+        "DELETE /api/tasks/{id} removes a specific task."
+      ]
+    },
+    {
+      "id": "FR-006",
+      "description": "The backend server shall serve the static frontend files (HTML, CSS, JS).",
+      "priority": "high",
+      "acceptance_criteria": [
+        "Accessing the root URL of the server loads the index.html file.",
+        "The HTML file correctly links and loads the required CSS and JavaScript files."
+      ]
+    }
+  ],
+  "non_functional_requirements": [
+    {
+      "category": "performance",
+      "description": "The application should provide immediate feedback for user actions.",
+      "metrics": [
+        "API responses must be returned in under 500ms.",
+        "UI updates (add, complete, delete) must appear instantaneous to the user (<100ms)."
+      ]
+    },
+    {
+      "category": "usability",
+      "description": "The application must be simple and intuitive to use.",
+      "metrics": [
+        "A new user can add, complete, and delete a task without instructions.",
+        "All interactive elements (buttons, input fields) are clearly identifiable."
+      ]
+    },
+    {
+      "category": "reliability",
+      "description": "The application will function as specified, with the understanding that data is not persistent.",
+      "metrics": [
+        "The application state is lost upon server restart, as per requirements.",
+        "The API endpoints will be available as long as the server is running."
+      ]
+    }
+  ],
+  "technology_stack": {
+    "backend": [
+      "FastAPI (Python)"
+    ],
+    "frontend": [
+      "HTML5",
+      "CSS3",
+      "JavaScript (Vanilla)"
+    ],
+    "database": [
+      "In-memory Python list"
+    ],
+    "infrastructure": []
+  },
+  "architecture_pattern": null,
+  "component_specifications": [],
+  "data_models": [],
+  "generated_files": [],
+  "test_results": {},
+  "test_coverage": 0.0,
+  "security_report": {},
+  "deployment_strategy": null,
+  "domain": "general",
+  "blueprint": null,
+  "estimated_timeline": "20 hours",
+  "updated_at": "2025-10-30T10:16:55.018587"
+}

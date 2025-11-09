@@ -1,45 +1,48 @@
-# AISDAP Platform - Complete Dependencies
+# AI-SOL Dependencies
 
-# Core Framework
-python-dotenv==1.0.0
-pydantic==2.5.3
-pydantic-settings==2.1.0
-
-# AI/ML Framework - LangChain & LangGraph
+# LangChain and LangGraph - Updated versions
 langchain
 langchain-anthropic
+langchain-openai
+langchain-xai
+langchain-google-genai
+langchain-mistralai
 langchain-core
-langchain-community
-langgraph==0.0.20
-anthropic
+langgraph==0.2.28
 
-# Web Search & HTTP
-duckduckgo-search==4.1.1
-requests==2.31.0
-httpx==0.26.0
+# Anthropic API
+anthropic==0.34.2
 
-# Git & GitHub
-GitPython==3.1.40
+# Pydantic - Compatible version
+pydantic==2.9.2
 
-# CLI & Terminal UI
+# CLI
 click==8.1.7
-rich==13.7.0
 
-# Logging and Monitoring
-structlog==24.1.0
+# Web Search
+duckduckgo-search==6.2.13
 
-# Utilities
-asyncio==3.4.3
+# HTTP Requests
+requests==2.31.0
 
-# Optional but recommended
-# Database (for future features)
-# sqlalchemy==2.0.25
-# psycopg2-binary==2.9.9
-# redis==5.0.1
+# Git Integration
+GitPython==3.1.43
 
-# Development and Testing
-pytest==7.4.4
-pytest-asyncio==0.23.3
-black==23.12.1
-isort==5.13.2
-flake8==7.0.0
+# Environment Variables
+python-dotenv==1.0.1
+
+# Web app
+streamlit==1.29.0
+
+# Testing (for generated projects)
+pytest==8.3.3
+pytest-cov==5.0.0
+flake8==7.1.1
+
+# Logging
+structlog==24.4.0
+
+# Additional dependencies
+langsmith==0.1.129
+typing-extensions==4.12.2
+tiktoken==0.7.0

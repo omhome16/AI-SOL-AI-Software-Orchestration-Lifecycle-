@@ -1,0 +1,12 @@
+{
+  "id": "mock_project_file_README.md_20251109T174609",
+  "project_id": "mock_project",
+  "step": "file:README.md",
+  "timestamp": "2025-11-09T17:46:09.439485+05:30",
+  "payload": {
+    "file": "README.md",
+    "path_on_disk": "workspace\\mock_project\\README.md",
+    "preview": "# Mock Project\n\nA simple FastAPI mock app.\n\n## Setup\n\n```bash\npip install -r requirements.txt\n```\n",
+    "qa": null
+  }
+}

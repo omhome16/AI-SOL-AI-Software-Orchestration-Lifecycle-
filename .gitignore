@@ -1,4 +1,10 @@
 venv
 /vev
 .venv
-
+__pycache__/
+/agents/__pycache__/
+ai-sol-venv/
+ai-sol-venv2/
+/ai-sol-venv
+/ai-sol-venv2
+.env

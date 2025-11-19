@@ -1221,7 +1221,7 @@ Respond with JSON."""
         except Exception as e:
             self.log(f"Failed to write checkpoint {cid}: {e}", "warning")
 
-        return {"id": cid, "path": str(cp_path), "summary": payload.get('file')}
+        return {"id": cid, "step": step, "path": str(cp_path), "summary": payload.get('file')}
 
     def _compile_and_fix(self, project_root: str, generated_files: List[str]) -> Dict[str, Any]:
         """Compile python files and attempt automated fixes using the file manager and LLM.

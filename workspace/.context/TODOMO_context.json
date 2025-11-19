@@ -1,0 +1,28 @@
+{
+  "project_id": "TODOMO",
+  "project_name": "TODOMO",
+  "requirements": "create a todo list website with aesthetic frontend and backend, to create, delete, add and remove and other options, like calender timetable etc.",
+  "project_type": "web_application",
+  "complexity_level": "medium",
+  "functional_requirements": [],
+  "non_functional_requirements": [],
+  "technology_stack": {
+    "backend": [],
+    "frontend": [],
+    "database": [],
+    "devops": []
+  },
+  "architecture_pattern": null,
+  "component_specifications": [],
+  "data_models": [],
+  "generated_files": [],
+  "test_results": {},
+  "test_coverage": 0.0,
+  "security_report": {},
+  "deployment_strategy": null,
+  "domain": "general",
+  "blueprint": null,
+  "project_root": ".",
+  "estimated_timeline": null,
+  "updated_at": "2025-11-19T17:15:05.866797"
+}

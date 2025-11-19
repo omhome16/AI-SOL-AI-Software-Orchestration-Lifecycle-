@@ -39,6 +39,15 @@ def _normalize_payload(obj: Any) -> Any:
         return {k: _normalize_payload(v) for k, v in obj.items()}
 
     # Pydantic models
+    if hasattr(obj, "model_dump"):
+        try:
+            d = obj.model_dump()
+            # normalize nested entries
+            return _normalize_payload(d)
+        except Exception:
+            # Fallback to dict() or other
+            pass
+
     if hasattr(obj, "dict"):
         try:
             d = obj.dict()
@@ -239,6 +248,9 @@ class BaseAgent:
 
     async def call_llm(self, prompt: str, output_schema: Optional[BaseModel] = None) -> Any:
         """Make LLM call with current system prompt, optionally with structured output"""
+        if self.llm is None:
+            raise RuntimeError(f"LLM not initialized for agent {self.name}. Check configuration and dependencies.")
+
         truncated_prompt = self._truncate_prompt(prompt, 60000)
         template = self.create_prompt(self.system_prompt)
 

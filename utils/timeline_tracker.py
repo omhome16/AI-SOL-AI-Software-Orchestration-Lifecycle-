@@ -40,7 +40,9 @@ class TimelineManager:
     def save_timeline(self, timeline: ProjectTimeline):
         timeline.updated_at = datetime.now(self.tz).isoformat()
         with open(self._get_timeline_path(timeline.project_id), "w") as f:
-            json.dump(timeline.dict(), f, indent=2)
+            # Use model_dump for Pydantic v2
+            data = timeline.model_dump() if hasattr(timeline, 'model_dump') else timeline.dict()
+            json.dump(data, f, indent=2)
 
     def load_timeline(self, project_id: str) -> Optional[ProjectTimeline]:
         timeline_path = self._get_timeline_path(project_id)

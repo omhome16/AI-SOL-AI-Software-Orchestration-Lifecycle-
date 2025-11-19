@@ -58,23 +58,6 @@ class DeveloperAgent(BaseAgent):
         self._code_fence_re = re.compile(r"```(?:[a-zA-Z0-9#+\-]*)\n(?P<code>.*?)\n```", re.DOTALL)
         self._tilde_fence_re = re.compile(r"~~~(?:[a-zA-Z0-9#+\-]*)\n(?P<code>.*?)\n~~~", re.DOTALL)
 
-    async def _generate_files_in_parallel(self, project_id, context, file_tasks):
-    # Group by dependency level
-        levels = self._organize_by_dependency_level(file_tasks)
-    
-    # Generate each level in parallel
-        for level in levels:
-            tasks = [
-                self._generate_single_file(project_id, task, context, code_cache)
-                for task in level
-            ]
-            results = await asyncio.gather(*tasks)
-        
-        # Update cache
-            for result in results:
-                if result.success:
-                    code_cache[result.path] = result.content
-
     async def execute(self, state: Dict[str, Any]) -> Dict[str, Any]:
         """Main execution method - Cursor-style code generation"""
         self.log("Starting Cursor-style code generation", "info")
@@ -203,8 +186,12 @@ class DeveloperAgent(BaseAgent):
             
             self.log(f"[{idx+1}/{total_files}] Generating: {file_task.path}", "info")
             
-            result = await self._generate_single_file(
-                project_id, file_task, context, code_cache
+            # Call public generate_file method
+            result = await self.generate_file(
+                file_task=file_task, 
+                context=context, 
+                code_cache=code_cache,
+                project_id=project_id
             )
             
             results.append(result)
@@ -215,15 +202,21 @@ class DeveloperAgent(BaseAgent):
         
         return results
 
-    async def _generate_single_file(
+    async def generate_file(
         self,
-        project_id: str,
         file_task: FileTask,
         context: AgentContext,
-        code_cache: Dict[str, str]
+        code_cache: Dict[str, str],
+        project_id: str = None
     ) -> FileGenerationResult:
-        """Generate a single file with full context awareness"""
+        """Generate a single file with full context awareness.
         
+        This is the public method called by Orchestrator or internal loop.
+        """
+        # Fallback for project_id if called from Orchestrator
+        if not project_id:
+            project_id = context.project_name
+            
         try:
             # Build comprehensive prompt
             prompt = self._build_file_generation_prompt(
@@ -472,12 +465,14 @@ class DeveloperAgent(BaseAgent):
         
         # Check for common imports based on tech stack
         if file_ext == '.py':
-            if 'Flask' in context.technology_stack.backend:
+            # Case-insensitive check for Flask
+            if any(t.lower() == 'flask' for t in context.technology_stack.backend):
                 if 'from flask import' not in code and 'import flask' not in code:
                     if 'app' in code.lower():
                         missing_imports.append("Flask import might be missing")
             
-            if 'FastAPI' in context.technology_stack.backend:
+            # Case-insensitive check for FastAPI
+            if any(t.lower() == 'fastapi' for t in context.technology_stack.backend):
                 if 'from fastapi import' not in code and 'import fastapi' not in code:
                     if 'app' in code.lower() or '@' in code:
                         missing_imports.append("FastAPI import might be missing")

@@ -40,7 +40,7 @@ class TechnologyStack(BaseModel):
     backend: List[str] = Field(description="Backend technologies")
     frontend: List[str] = Field(description="Frontend technologies")
     database: List[str] = Field(description="Database technologies")
-    infrastructure: Optional[List[str]] = Field(default_factory=list, description="Infrastructure tools")
+    devops: Optional[List[str]] = Field(default_factory=list, description="DevOps/Infrastructure tools")
 
     def to_dict(self) -> Dict[str, Any]:
         """Convert to a JSON-serializable dictionary"""
@@ -48,7 +48,7 @@ class TechnologyStack(BaseModel):
             "backend": self.backend,
             "frontend": self.frontend,
             "database": self.database,
-            "infrastructure": self.infrastructure
+            "devops": self.devops
         }
 
 
@@ -567,7 +567,7 @@ Generate domain-specific requirements analysis:"""
                 backend=tech_recommendations.get("backend", []),
                 frontend=tech_recommendations.get("frontend", []),
                 database=tech_recommendations.get("database", []),
-                infrastructure=tech_recommendations.get("infrastructure", [])
+                devops=tech_recommendations.get("infrastructure", [])
             ),
             project_structure=ProjectStructure(
                 folders=self._get_default_project_structure(classification.project_type.value)
@@ -731,7 +731,7 @@ Generate domain-specific requirements analysis:"""
         doc += f"**Backend:** {', '.join(tech.backend)}\n"
         doc += f"**Frontend:** {', '.join(tech.frontend)}\n"
         doc += f"**Database:** {', '.join(tech.database)}\n"
-        doc += f"**Infrastructure:** {', '.join(tech.infrastructure)}\n\n"
+        doc += f"**DevOps:** {', '.join(tech.devops)}\n\n"
 
         doc += "## Project Structure\n\n"
         for folder, files in analysis.project_structure.folders.items():

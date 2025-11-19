@@ -1,8 +1,136 @@
-/* Main UI styles for AI-SOL */
-.stApp header {display:none}
-.title {font-size:28px; font-weight:700; margin-bottom: 8px}
-.sidebar .stButton>button{background-color:#0b5cff;color:white;border-radius:6px}
-.stButton>button:disabled{opacity:0.6}
-.log-entry {font-family:monospace; font-size:12px;}
-.agent-card {border-radius:8px;padding:12px;margin-bottom:8px;background:#f7f9ff}
-.progress-bar {height:10px;border-radius:6px;background:#e6eefc}
+/* Modern UI styles for AI-SOL */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --error-color: #ef4444;
+    --code-bg: #1e293b;
+    --code-text: #e2e8f0;
+}
+
+/* Streamlit overrides */
+.stApp {
+    background-color: var(--bg-color);
+    font-family: 'Inter', sans-serif;
+}
+
+.stApp header {
+    display: none !important;
+}
+
+/* Sidebar */
+.css-1d391kg, .css-163ttbj {
+    background-color: #fff;
+    border-right: 1px solid var(--border-color);
+}
+
+/* Buttons */
+.stButton>button {
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 8px;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.stButton>button:hover {
+    background-color: var(--primary-hover);
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.1), 0 2px 4px -1px rgba(37, 99, 235, 0.06);
+}
+
+.stButton>button:disabled {
+    background-color: var(--text-secondary);
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Cards and Containers */
+.agent-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+/* Typography */
+h1, h2, h3 {
+    color: var(--text-primary);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.5rem; margin-top: 2rem; }
+h3 { font-size: 1.25rem; }
+
+p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Code blocks */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background-color: #f1f5f9;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    color: #0f172a;
+}
+
+.stCodeBlock {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Logs */
+.log-container {
+    background: #1e1e1e;
+    border-radius: 8px;
+    padding: 1rem;
+    max-height: 400px;
+    overflow-y: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+}
+
+.log-entry {
+    margin-bottom: 4px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 4px;
+}
+
+.log-info { color: #60a5fa; }
+.log-success { color: #34d399; }
+.log-warning { color: #fbbf24; }
+.log-error { color: #f87171; }
+
+/* Progress Bar */
+.stProgress > div > div > div > div {
+    background-color: var(--primary-color);
+}
+
+/* Metrics */
+div[data-testid="stMetricValue"] {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+div[data-testid="stMetricLabel"] {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}

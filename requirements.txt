@@ -6,6 +6,7 @@ langchain-anthropic
 langchain-openai
 langchain-xai
 langchain-google-genai
+google-generativeai
 langchain-mistralai
 langchain-core
 langgraph==0.2.28

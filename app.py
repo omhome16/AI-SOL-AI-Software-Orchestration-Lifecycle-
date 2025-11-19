@@ -3,8 +3,17 @@ import streamlit as st
 import asyncio
 import json
 import uuid
+import sys
 from pathlib import Path
 from dotenv import load_dotenv
+
+# Debug environment
+print(f"Streamlit Python Executable: {sys.executable}")
+try:
+    import langchain_google_genai
+    print("SUCCESS: langchain_google_genai imported in app.py")
+except ImportError as e:
+    print(f"ERROR: langchain_google_genai import failed in app.py: {e}")
 
 from agents.architect import ArchitectAgent
 from agents.developer import DeveloperAgent
@@ -185,12 +194,17 @@ if st.session_state.workflow_running and st.session_state.workflow_stage != "idl
     if st.session_state.get('awaiting_user_action'):
         cp = st.session_state.get('checkpoint')
         if cp:
-            st.warning(f"✋ Checkpoint: {cp['step']}")
+            # Display checkpoint
+            step_name = cp.get('step', 'unknown')
+            st.warning(f"✋ Checkpoint: {step_name}")
             
             with st.expander("Inspect Generated Content", expanded=True):
                 payload = cp.get('payload', {})
                 if payload.get('preview'):
                     st.code(payload.get('preview'), language='python')
+                elif payload.get('output_summary'):
+                     # If it's a dict/json summary
+                     st.json(payload.get('output_summary'))
                 else:
                     st.json(payload)
 
@@ -202,6 +216,11 @@ if st.session_state.workflow_running and st.session_state.workflow_stage != "idl
                 st.rerun()
             
             if c2.button("🔁 Retry Step"):
+                 # Clear the step from completed list to force re-run
+                 current_step = st.session_state.workflow_stage
+                 if current_step in st.session_state.current_state.get("steps_completed", []):
+                     st.session_state.current_state["steps_completed"].remove(current_step)
+                 
                  orchestrator.resume_checkpoint(cp['id'], 'retry_agent', {})
                  st.session_state.awaiting_user_action = False
                  st.session_state.checkpoint = None
@@ -223,6 +242,11 @@ if st.session_state.workflow_running and st.session_state.workflow_stage != "idl
              st.rerun()
 
         elif st.session_state.workflow_stage == "requirements":
+            # Skip if already done
+            if "requirements" in st.session_state.current_state.get("steps_completed", []):
+                st.session_state.workflow_stage = "architecture"
+                st.rerun()
+                
             with st.spinner("Analysing Requirements..."):
                 agent = RequirementsAgent(tools)
                 output = loop.run_until_complete(agent.execute(st.session_state.current_state))
@@ -242,6 +266,10 @@ if st.session_state.workflow_running and st.session_state.workflow_stage != "idl
                 st.rerun()
 
         elif st.session_state.workflow_stage == "architecture":
+            if "architecture" in st.session_state.current_state.get("steps_completed", []):
+                st.session_state.workflow_stage = "developer"
+                st.rerun()
+                
             with st.spinner("Designing Architecture..."):
                 agent = ArchitectAgent(tools)
                 output = loop.run_until_complete(agent.execute(st.session_state.current_state))
@@ -260,6 +288,10 @@ if st.session_state.workflow_running and st.session_state.workflow_stage != "idl
                 st.rerun()
 
         elif st.session_state.workflow_stage == "developer":
+            if "developer" in st.session_state.current_state.get("steps_completed", []):
+                st.session_state.workflow_stage = "qa"
+                st.rerun()
+
             with st.spinner("Generating Code..."):
                 # Register agents for orchestrator to use
                 dev_agent = DeveloperAgent(tools)
@@ -282,6 +314,10 @@ if st.session_state.workflow_running and st.session_state.workflow_stage != "idl
                 st.rerun()
 
         elif st.session_state.workflow_stage == "qa":
+            if "qa" in st.session_state.current_state.get("steps_completed", []):
+                st.session_state.workflow_stage = "devops"
+                st.rerun()
+
             with st.spinner("Running QA..."):
                 agent = QAAgent(tools)
                 output = loop.run_until_complete(agent.execute(st.session_state.current_state))
@@ -299,6 +335,10 @@ if st.session_state.workflow_running and st.session_state.workflow_stage != "idl
                 st.rerun()
 
         elif st.session_state.workflow_stage == "devops":
+            if "devops" in st.session_state.current_state.get("steps_completed", []):
+                st.session_state.workflow_stage = "finalize"
+                st.rerun()
+
             with st.spinner("Configuring DevOps..."):
                 agent = DevOpsAgent(tools)
                 output = loop.run_until_complete(agent.execute(st.session_state.current_state))

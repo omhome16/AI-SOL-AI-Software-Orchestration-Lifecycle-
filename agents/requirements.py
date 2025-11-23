@@ -365,20 +365,6 @@ CRITICAL: Respond with ONLY valid JSON matching the RequirementsAnalysis schema.
                     {"category": "security", "description": "Bank-grade security and encryption"},
                     {"category": "compliance", "description": "SOX, PCI DSS, and other financial regulations"},
                     {"category": "performance", "description": "High-frequency transaction processing"}
-                ],
-                "tech_recommendations": {
-                    "backend": ["Java", "C#", "Go"],
-                    "frontend": ["React", "Angular"],
-                    "database": ["Oracle", "PostgreSQL", "Redis"],
-                    "infrastructure": ["AWS", "Azure", "Kubernetes"]
-                }
-            }
-        # Create functional requirements from patterns
-        functional_reqs = []
-        for i, pattern in enumerate(functional_patterns[:5], 1):
-            functional_reqs.append(FunctionalRequirement(
-                id=f"FR-{i:03d}",
-                description=pattern,
                 priority="high" if i <= 2 else "medium",
                 acceptance_criteria=[f"System implements {pattern.lower()}"]
             ))

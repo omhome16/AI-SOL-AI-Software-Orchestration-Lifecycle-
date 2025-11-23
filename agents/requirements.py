@@ -378,19 +378,6 @@ CRITICAL: Respond with ONLY valid JSON matching the RequirementsAnalysis schema.
                     "Student management",
                     "Course catalog and enrollment",
                     "Learning management system",
-                    "Assessment and grading",
-                    "Communication tools",
-                    "Resource management",
-                    "Analytics and reporting"
-                ],
-                "non_functional_patterns": [
-                    {"category": "usability", "description": "Intuitive interface for students and teachers"},
-                    {"category": "scalability", "description": "Support multiple schools and districts"},
-
-        # Use domain template for fallback
-        functional_patterns = domain_template.get("functional_patterns", [
-            "Core functionality implementation",
-            "User interface and experience",
             "Data management and storage"
         ])
 

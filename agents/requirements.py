@@ -367,32 +367,6 @@ CRITICAL: Respond with ONLY valid JSON matching the RequirementsAnalysis schema.
                     {"category": "performance", "description": "High-frequency transaction processing"}
                 ],
                 "tech_recommendations": {
-                    "backend": ["Java", "C#", "Go"],
-                    "frontend": ["React", "Angular"],
-                    "database": ["Oracle", "PostgreSQL", "Redis"],
-                    "infrastructure": ["AWS", "Azure", "Kubernetes"]
-                }
-            },
-            "education": {
-                "functional_patterns": [
-                    "Student management",
-                    "Course catalog and enrollment",
-                    "Learning management system",
-            "Data management and storage"
-        ])
-
-        non_functional_patterns = domain_template.get("non_functional_patterns", [
-            {"category": "performance", "description": "System performance requirements"},
-            {"category": "security", "description": "Security and data protection"}
-        ])
-
-        tech_recommendations = domain_template.get("tech_recommendations", {
-            "backend": ["Python", "Node.js"],
-            "frontend": ["React", "Vue.js"],
-            "database": ["PostgreSQL", "MongoDB"],
-            "infrastructure": ["Docker", "AWS"]
-        })
-
         # Create functional requirements from patterns
         functional_reqs = []
         for i, pattern in enumerate(functional_patterns[:5], 1):

@@ -22,6 +22,11 @@ class GenerateFieldsRequest(BaseModel):
     image_path: Optional[str] = None
 
 
+class SaveConfigRequest(BaseModel):
+    configuration: Dict[str, Any]
+
+
+
 @router.post("/projects/{project_id}/generate-config-fields")
 async def generate_configuration_fields(project_id: str, req: GenerateFieldsRequest):
     """LLM generates configuration fields based on project type and requirements"""

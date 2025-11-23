@@ -1,0 +1,28 @@
+{
+  "project_id": "proj-1763898422",
+  "name": "stom",
+  "project_name": "stom",
+  "type": "website",
+  "requirements": "Basic To-Do List Website Requirements\r\nUser Interface:\r\n\r\nSimple input field to add new tasks quickly.\r\n\r\nList display area showing tasks clearly.\r\n\r\nCheckboxes or toggles to mark tasks as completed.\r\n\r\nEdit and delete options for existing tasks.\r\n\r\nResponsive design for use on both desktop and mobile devices.\r\n\r\nTask Management:\r\n\r\nAbility to add, edit, and delete tasks.\r\n\r\nMark tasks as complete or incomplete.\r\n\r\nOption to prioritize or categorize tasks.\r\n\r\nSave tasks persistently (local storage or backend database).\r\n\r\nUser Experience:\r\n\r\nClear visual differentiation between completed and pending tasks.\r\n\r\nEasy navigation and intuitive controls.\r\n\r\nOption to reorder tasks by drag and drop or priority.\r\n\r\nTechnical Requirements:\r\n\r\nResponsive front-end using HTML, CSS, and JavaScript.\r\n\r\nOptional backend for user authentication and task storage (using database).\r\n\r\nCross-browser compatibility.\r\n\r\nPerformance optimized for fast load and smooth interactions.",
+  "status": "created",
+  "created_at": "2025-11-23T17:17:02.055683",
+  "updated_at": "2025-11-23T17:17:02.055683",
+  "steps": [],
+  "steps_completed": [],
+  "logs": [],
+  "files": [],
+  "generated_files": [],
+  "current_step": null,
+  "completed": false,
+  "user_context": {
+    "project_name": "stom",
+    "project_type": "website",
+    "requirements": "Basic To-Do List Website Requirements\r\nUser Interface:\r\n\r\nSimple input field to add new tasks quickly.\r\n\r\nList display area showing tasks clearly.\r\n\r\nCheckboxes or toggles to mark tasks as completed.\r\n\r\nEdit and delete options for existing tasks.\r\n\r\nResponsive design for use on both desktop and mobile devices.\r\n\r\nTask Management:\r\n\r\nAbility to add, edit, and delete tasks.\r\n\r\nMark tasks as complete or incomplete.\r\n\r\nOption to prioritize or categorize tasks.\r\n\r\nSave tasks persistently (local storage or backend database).\r\n\r\nUser Experience:\r\n\r\nClear visual differentiation between completed and pending tasks.\r\n\r\nEasy navigation and intuitive controls.\r\n\r\nOption to reorder tasks by drag and drop or priority.\r\n\r\nTechnical Requirements:\r\n\r\nResponsive front-end using HTML, CSS, and JavaScript.\r\n\r\nOptional backend for user authentication and task storage (using database).\r\n\r\nCross-browser compatibility.\r\n\r\nPerformance optimized for fast load and smooth interactions."
+  },
+  "enable_github": false,
+  "github_username": "",
+  "github_token": "",
+  "generate_tests": true,
+  "generate_devops": true,
+  "last_saved": "2025-11-23T17:17:02.055683+05:30"
+}

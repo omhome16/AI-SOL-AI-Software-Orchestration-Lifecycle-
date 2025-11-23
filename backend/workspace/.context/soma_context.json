@@ -1,0 +1,300 @@
+{
+  "project_id": "soma",
+  "project_name": "soma",
+  "requirements": "Basic To-Do List Website Requirements\r\nUser Interface:\r\n\r\nSimple input field to add new tasks quickly.\r\n\r\nList display area showing tasks clearly.\r\n\r\nCheckboxes or toggles to mark tasks as completed.\r\n\r\nEdit and delete options for existing tasks.\r\n\r\nResponsive design for use on both desktop and mobile devices.\r\n\r\nTask Management:\r\n\r\nAbility to add, edit, and delete tasks.\r\n\r\nMark tasks as complete or incomplete.\r\n\r\nOption to prioritize or categorize tasks.\r\n\r\nSave tasks persistently (local storage or backend database).\r\n\r\nUser Experience:\r\n\r\nClear visual differentiation between completed and pending tasks.\r\n\r\nEasy navigation and intuitive controls.\r\n\r\nOption to reorder tasks by drag and drop or priority.\r\n\r\nTechnical Requirements:\r\n\r\nResponsive front-end using HTML, CSS, and JavaScript.\r\n\r\nOptional backend for user authentication and task storage (using database).\r\n\r\nCross-browser compatibility.\r\n\r\nPerformance optimized for fast load and smooth interactions.",
+  "project_type": "web_application",
+  "complexity_level": "medium",
+  "functional_requirements": [],
+  "non_functional_requirements": [],
+  "technology_stack": {
+    "backend": [],
+    "frontend": [],
+    "database": [],
+    "devops": []
+  },
+  "architecture_pattern": null,
+  "component_specifications": [],
+  "data_models": [],
+  "generated_files": [],
+  "test_results": {},
+  "test_coverage": 0.0,
+  "security_report": {},
+  "deployment_strategy": null,
+  "domain": "general",
+  "blueprint": {
+    "explanation": "The 'soma' project is designed as a modern, full-stack web application within a single repository. The architecture consists of a React/TypeScript frontend and a Node.js/TypeScript backend, ensuring type-safety and maintainability. The backend follows a layered, service-oriented pattern (Controllers, Services, Repositories) with Express.js, making it scalable and easy to maintain. Data persistence is handled by a PostgreSQL database accessed via the Prisma ORM for type-safe queries. The frontend is a Single Page Application (SPA) built with React and Vite, utilizing a component-based architecture with a feature-sliced organization. Communication is handled via a RESTful API, with security implemented through JWT-based authentication. The entire application is containerized with Docker for consistent development and is designed for a cloud-native deployment.",
+    "folder_structure": [
+      ".github/workflows",
+      "prisma",
+      "src/client",
+      "src/server",
+      "tests"
+    ],
+    "build_plan": [
+      {
+        "path": ".gitignore",
+        "purpose": "Specifies intentionally untracked files to ignore by Git. Includes node_modules, .env, build artifacts, and OS-specific files.",
+        "dependencies": []
+      },
+      {
+        "path": "package.json",
+        "purpose": "Root package file for the project. Defines project metadata, scripts (for client, server, prisma), and shared devDependencies like TypeScript, Prettier, and ESLint.",
+        "dependencies": []
+      },
+      {
+        "path": "tsconfig.base.json",
+        "purpose": "Base TypeScript configuration for the entire project. Sets common compiler options like 'target', 'module', 'strict' mode, and 'esModuleInterop'. Specific client and server tsconfig files will extend this.",
+        "dependencies": []
+      },
+      {
+        "path": "prisma/schema.prisma",
+        "purpose": "Defines the database schema using Prisma's schema language. Includes data source (PostgreSQL), generator (Prisma Client), and models for 'User' (id, email, passwordHash) and 'Note' (id, title, content, authorId).",
+        "dependencies": []
+      },
+      {
+        "path": "src/server/.env.example",
+        "purpose": "Example environment variables file for the server. Includes DATABASE_URL, JWT_SECRET, and PORT. To be copied to .env and filled in.",
+        "dependencies": []
+      },
+      {
+        "path": "src/server/tsconfig.json",
+        "purpose": "TypeScript configuration specific to the Node.js server. Extends the base tsconfig and sets server-specific options like 'moduleResolution' to 'node' and output directory.",
+        "dependencies": [
+          "tsconfig.base.json"
+        ]
+      },
+      {
+        "path": "src/server/config/index.ts",
+        "purpose": "Centralized configuration management for the server. Loads environment variables from .env using 'dotenv' and exports them in a type-safe manner.",
+        "dependencies": [
+          "src/server/.env.example"
+        ]
+      },
+      {
+        "path": "src/server/lib/prisma.ts",
+        "purpose": "Initializes and exports a singleton instance of the Prisma Client. This ensures a single database connection pool is used throughout the application.",
+        "dependencies": [
+          "prisma/schema.prisma"
+        ]
+      },
+      {
+        "path": "src/server/utils/apiError.ts",
+        "purpose": "Defines a custom Error class 'ApiError' for consistent HTTP error handling. It includes a status code and a message.",
+        "dependencies": []
+      },
+      {
+        "path": "src/server/middleware/errorHandler.ts",
+        "purpose": "Global Express error handling middleware. Catches errors (especially ApiError instances) and sends a standardized JSON error response to the client.",
+        "dependencies": [
+          "src/server/utils/apiError.ts"
+        ]
+      },
+      {
+        "path": "src/server/api/auth/auth.schema.ts",
+        "purpose": "Defines Zod schemas for validating authentication-related data structures, such as registration and login request bodies.",
+        "dependencies": []
+      },
+      {
+        "path": "src/server/api/users/user.model.ts",
+        "purpose": "Defines the TypeScript types and interfaces for the User entity, often derived from the Prisma generated types for public-facing data.",
+        "dependencies": [
+          "prisma/schema.prisma"
+        ]
+      },
+      {
+        "path": "src/server/api/users/user.repository.ts",
+        "purpose": "Data Access Layer for Users. Encapsulates all database operations for the User model using Prisma Client (e.g., findByEmail, createUser).",
+        "dependencies": [
+          "src/server/lib/prisma.ts",
+          "src/server/api/users/user.model.ts"
+        ]
+      },
+      {
+        "path": "src/server/api/auth/auth.service.ts",
+        "purpose": "Contains the business logic for authentication. Implements user registration (hashing passwords with bcrypt) and login (verifying credentials, generating JWTs).",
+        "dependencies": [
+          "src/server/api/users/user.repository.ts",
+          "src/server/config/index.ts",
+          "src/server/utils/apiError.ts",
+          "src/server/api/auth/auth.schema.ts"
+        ]
+      },
+      {
+        "path": "src/server/api/auth/auth.controller.ts",
+        "purpose": "Handles incoming HTTP requests for authentication routes. Calls the AuthService to perform business logic and sends back HTTP responses (e.g., JWT tokens or error messages).",
+        "dependencies": [
+          "src/server/api/auth/auth.service.ts"
+        ]
+      },
+      {
+        "path": "src/server/api/auth/auth.routes.ts",
+        "purpose": "Defines the Express router for authentication endpoints. Maps routes like POST /register and POST /login to the corresponding controller functions.",
+        "dependencies": [
+          "src/server/api/auth/auth.controller.ts"
+        ]
+      },
+      {
+        "path": "src/server/middleware/authHandler.ts",
+        "purpose": "Express middleware to protect routes. It verifies the JWT from the Authorization header, decodes it, and attaches the user payload to the request object.",
+        "dependencies": [
+          "src/server/config/index.ts",
+          "src/server/utils/apiError.ts"
+        ]
+      },
+      {
+        "path": "src/server/api/notes/note.schema.ts",
+        "purpose": "Defines Zod schemas for validating note creation and update request bodies (e.g., requires 'title' and 'content').",
+        "dependencies": []
+      },
+      {
+        "path": "src/server/api/notes/note.repository.ts",
+        "purpose": "Data Access Layer for Notes. Encapsulates all Prisma Client operations for the Note model (create, findById, findByAuthor, update, delete).",
+        "dependencies": [
+          "src/server/lib/prisma.ts"
+        ]
+      },
+      {
+        "path": "src/server/api/notes/note.service.ts",
+        "purpose": "Contains business logic for notes. Handles CRUD operations, ensuring that users can only access or modify their own notes.",
+        "dependencies": [
+          "src/server/api/notes/note.repository.ts",
+          "src/server/utils/apiError.ts"
+        ]
+      },
+      {
+        "path": "src/server/api/notes/note.controller.ts",
+        "purpose": "Handles HTTP requests for note-related routes (GET /, POST /, GET /:id, etc.). Calls the NoteService to execute logic.",
+        "dependencies": [
+          "src/server/api/notes/note.service.ts"
+        ]
+      },
+      {
+        "path": "src/server/api/notes/note.routes.ts",
+        "purpose": "Defines the Express router for note endpoints. All routes are protected by the authHandler middleware.",
+        "dependencies": [
+          "src/server/api/notes/note.controller.ts",
+          "src/server/middleware/authHandler.ts"
+        ]
+      },
+      {
+        "path": "src/server/router.ts",
+        "purpose": "Main Express router. Aggregates all feature-specific routers (auth, notes) and mounts them under a common prefix, like /api/v1.",
+        "dependencies": [
+          "src/server/api/auth/auth.routes.ts",
+          "src/server/api/notes/note.routes.ts"
+        ]
+      },
+      {
+        "path": "src/server/index.ts",
+        "purpose": "The main entry point for the server application. Initializes the Express app, applies middleware (CORS, JSON parser), mounts the main router, adds the global error handler, and starts the server.",
+        "dependencies": [
+          "src/server/config/index.ts",
+          "src/server/router.ts",
+          "src/server/middleware/errorHandler.ts"
+        ]
+      },
+      {
+        "path": "src/client/public/index.html",
+        "purpose": "The main HTML file for the React SPA. Contains the root div element where the React application will be mounted.",
+        "dependencies": []
+      },
+      {
+        "path": "src/client/tsconfig.json",
+        "purpose": "TypeScript configuration for the React client. Extends the base tsconfig and includes settings for JSX and DOM libraries.",
+        "dependencies": [
+          "tsconfig.base.json"
+        ]
+      },
+      {
+        "path": "src/client/vite.config.ts",
+        "purpose": "Configuration file for the Vite build tool. Sets up the React plugin and configures the development server, including proxying /api requests to the backend server.",
+        "dependencies": []
+      },
+      {
+        "path": "src/client/src/lib/apiClient.ts",
+        "purpose": "Configures and exports a singleton instance of Axios. Sets the base URL for API requests and includes interceptors to automatically add the JWT Authorization header to requests.",
+        "dependencies": []
+      },
+      {
+        "path": "src/client/src/main.tsx",
+        "purpose": "The entry point for the React application. Renders the root App component into the DOM.",
+        "dependencies": [
+          "src/client/public/index.html"
+        ]
+      },
+      {
+        "path": "src/client/src/App.tsx",
+        "purpose": "The root component of the application. Sets up global context providers (e.g., for authentication) and the main router.",
+        "dependencies": [
+          "src/client/src/main.tsx"
+        ]
+      },
+      {
+        "path": "src/client/src/router/index.tsx",
+        "purpose": "Defines the application's routing using 'react-router-dom'. Includes public routes (Login, Register) and protected routes that require authentication.",
+        "dependencies": [
+          "src/client/src/App.tsx"
+        ]
+      },
+      {
+        "path": "src/client/src/components/common/Button.tsx",
+        "purpose": "A reusable, styled Button component for consistent UI across the application.",
+        "dependencies": []
+      },
+      {
+        "path": "src/client/src/features/auth/contexts/AuthContext.tsx",
+        "purpose": "React Context for managing global authentication state (user, token, loading status) and providing auth functions (login, logout) to the component tree.",
+        "dependencies": [
+          "src/client/src/lib/apiClient.ts"
+        ]
+      },
+      {
+        "path": "src/client/src/pages/LoginPage.tsx",
+        "purpose": "The login page component. Contains the login form and uses the AuthContext to handle the login logic.",
+        "dependencies": [
+          "src/client/src/features/auth/contexts/AuthContext.tsx",
+          "src/client/src/components/common/Button.tsx"
+        ]
+      },
+      {
+        "path": "src/client/src/pages/NotesDashboardPage.tsx",
+        "purpose": "A protected page that displays a list of the user's notes. Fetches data from the backend using the apiClient.",
+        "dependencies": [
+          "src/client/src/lib/apiClient.ts"
+        ]
+      },
+      {
+        "path": "Dockerfile.server",
+        "purpose": "Multi-stage Dockerfile to build and run the Node.js server. It installs dependencies, builds the TypeScript code, and creates a minimal production image.",
+        "dependencies": [
+          "src/server/index.ts"
+        ]
+      },
+      {
+        "path": "Dockerfile.client",
+        "purpose": "Multi-stage Dockerfile to build the React client. It builds the static assets using Vite and serves them from a lightweight Nginx server.",
+        "dependencies": [
+          "src/client/src/main.tsx"
+        ]
+      },
+      {
+        "path": "docker-compose.yml",
+        "purpose": "Defines the multi-container Docker application for local development. It sets up services for the backend server, frontend client, and a PostgreSQL database, linking them together.",
+        "dependencies": [
+          "Dockerfile.server",
+          "Dockerfile.client"
+        ]
+      },
+      {
+        "path": ".github/workflows/ci-cd.yml",
+        "purpose": "GitHub Actions workflow for continuous integration and deployment. On push to main, it runs tests, builds Docker images, pushes them to a container registry (e.g., ECR), and deploys to the cloud (e.g., AWS ECS).",
+        "dependencies": [
+          "docker-compose.yml"
+        ]
+      }
+    ]
+  },
+  "project_root": ".",
+  "estimated_timeline": null,
+  "updated_at": "2025-11-23T00:30:45.923481"
+}

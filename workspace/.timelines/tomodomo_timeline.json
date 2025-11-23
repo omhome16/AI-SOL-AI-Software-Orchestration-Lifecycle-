@@ -1,0 +1,160 @@
+{
+  "project_id": "tomodomo",
+  "stages": [
+    {
+      "name": "requirements",
+      "progress": 60,
+      "status": "in_progress",
+      "started_at": "2025-11-19T20:13:03.993601+05:30",
+      "completed_at": null,
+      "estimated_duration": null,
+      "actual_duration": null,
+      "milestones": [
+        {
+          "name": "Initialization",
+          "timestamp": "2025-11-19T20:13:03.970392+05:30",
+          "description": null
+        },
+        {
+          "name": "Project Classification",
+          "timestamp": "2025-11-19T20:13:03.993601+05:30",
+          "description": null
+        },
+        {
+          "name": "Domain Research",
+          "timestamp": "2025-11-19T20:13:04.016610+05:30",
+          "description": null
+        },
+        {
+          "name": "Requirements Generation",
+          "timestamp": "2025-11-19T20:13:06.742565+05:30",
+          "description": null
+        },
+        {
+          "name": "Initialization",
+          "timestamp": "2025-11-19T20:13:49.896376+05:30",
+          "description": null
+        },
+        {
+          "name": "Project Classification",
+          "timestamp": "2025-11-19T20:13:49.919501+05:30",
+          "description": null
+        },
+        {
+          "name": "Domain Research",
+          "timestamp": "2025-11-19T20:13:49.962030+05:30",
+          "description": null
+        },
+        {
+          "name": "Requirements Generation",
+          "timestamp": "2025-11-19T20:13:52.272288+05:30",
+          "description": null
+        },
+        {
+          "name": "Initialization",
+          "timestamp": "2025-11-19T20:14:27.886764+05:30",
+          "description": null
+        },
+        {
+          "name": "Project Classification",
+          "timestamp": "2025-11-19T20:14:27.911371+05:30",
+          "description": null
+        },
+        {
+          "name": "Domain Research",
+          "timestamp": "2025-11-19T20:14:27.933732+05:30",
+          "description": null
+        },
+        {
+          "name": "Requirements Generation",
+          "timestamp": "2025-11-19T20:14:29.774167+05:30",
+          "description": null
+        },
+        {
+          "name": "Initialization",
+          "timestamp": "2025-11-19T20:15:04.459403+05:30",
+          "description": null
+        },
+        {
+          "name": "Project Classification",
+          "timestamp": "2025-11-19T20:15:04.482732+05:30",
+          "description": null
+        },
+        {
+          "name": "Domain Research",
+          "timestamp": "2025-11-19T20:15:04.506998+05:30",
+          "description": null
+        },
+        {
+          "name": "Requirements Generation",
+          "timestamp": "2025-11-19T20:15:06.313762+05:30",
+          "description": null
+        },
+        {
+          "name": "Initialization",
+          "timestamp": "2025-11-19T20:15:40.795660+05:30",
+          "description": null
+        },
+        {
+          "name": "Project Classification",
+          "timestamp": "2025-11-19T20:15:40.820014+05:30",
+          "description": null
+        },
+        {
+          "name": "Domain Research",
+          "timestamp": "2025-11-19T20:15:40.845942+05:30",
+          "description": null
+        },
+        {
+          "name": "Requirements Generation",
+          "timestamp": "2025-11-19T20:15:42.504814+05:30",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "architecture",
+      "progress": 0.0,
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "estimated_duration": null,
+      "actual_duration": null,
+      "milestones": []
+    },
+    {
+      "name": "development",
+      "progress": 0.0,
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "estimated_duration": null,
+      "actual_duration": null,
+      "milestones": []
+    },
+    {
+      "name": "qa",
+      "progress": 0.0,
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "estimated_duration": null,
+      "actual_duration": null,
+      "milestones": []
+    },
+    {
+      "name": "devops",
+      "progress": 0.0,
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "estimated_duration": null,
+      "actual_duration": null,
+      "milestones": []
+    }
+  ],
+  "overall_progress": 12.0,
+  "estimated_completion": "2025-11-19T20:35:05.279211+05:30",
+  "created_at": "2025-11-19T20:13:03.944669+05:30",
+  "updated_at": "2025-11-19T20:15:42.504814+05:30"
+}

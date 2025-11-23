@@ -13,11 +13,26 @@ class FunctionalRequirement(BaseModel):
     priority: str = Field(description="Priority of the requirement (e.g., high, medium, low)")
     acceptance_criteria: List[str] = Field(description="List of acceptance criteria for the requirement")
 
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "id": self.id,
+            "description": self.description,
+            "priority": self.priority,
+            "acceptance_criteria": self.acceptance_criteria
+        }
+
 
 class NonFunctionalRequirement(BaseModel):
     category: str = Field(description="Category of the non-functional requirement (e.g., performance, security)")
     description: str = Field(description="Detailed description of the non-functional requirement")
     metrics: List[str] = Field(description="Measurable metrics for the non-functional requirement")
+
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "category": self.category,
+            "description": self.description,
+            "metrics": self.metrics
+        }
 
 
 class TechnologyStack(BaseModel):
@@ -43,7 +58,6 @@ class ComponentSpecification(BaseModel):
     dependencies: List[str] = Field(default_factory=list, description="Other components or services it depends on")
 
 
-# New schemas requested by the refactor: FileTask and ProjectBlueprint / ProjectBlueprint
 class FileTask(BaseModel):
     path: str = Field(..., description="The full relative path to the file (e.g., 'src/models/user_model.py')")
     purpose: str = Field(..., description="A clear, LLM-generated one-sentence purpose for this file.")
@@ -57,33 +71,52 @@ class ProjectBlueprint(BaseModel):
 
 
 class AgentContext(BaseModel):
+    """
+    Central context object that stores all project information and is passed between agents.
+    """
+    # Core project information
     project_id: str = Field(description="Unique identifier for the project")
     project_name: str = Field(description="Name of the project")
     requirements: str = Field(description="Original user requirements")
     project_type: ProjectType = Field(description="Classified project type")
     complexity_level: ComplexityLevel = Field(description="Classified complexity level")
+    
+    # Requirements and specifications
     functional_requirements: List[FunctionalRequirement] = Field(default_factory=list)
     non_functional_requirements: List[NonFunctionalRequirement] = Field(default_factory=list)
     technology_stack: TechnologyStack = Field(default_factory=TechnologyStack)
+    
+    # Architecture
     architecture_pattern: Optional[str] = Field(default=None)
     component_specifications: List[ComponentSpecification] = Field(default_factory=list)
     data_models: List[Dict[str, Any]] = Field(default_factory=list)
+    blueprint: Optional[ProjectBlueprint] = Field(default=None, description="Project blueprint from architect")
+    
+    # Generated artifacts
     generated_files: List[str] = Field(default_factory=list)
+    
+    # Testing and quality
     test_results: Dict[str, Any] = Field(default_factory=dict)
     test_coverage: float = Field(default=0.0)
     security_report: Dict[str, Any] = Field(default_factory=dict)
+    
+    # Deployment
     deployment_strategy: Optional[str] = Field(default=None)
+    
+    # Domain information
     domain: Optional[str] = Field(default=None)
-    # store the project blueprint produced by the ArchitectAgent
-    blueprint: Optional[ProjectBlueprint] = Field(default=None)
-
-    # Optional project root on disk where generated files will be written
+    
+    # Project filesystem
     project_root: Optional[str] = Field(default='.', description="Filesystem path used as project root for generated files")
-
-    # --- THIS IS THE FIX ---
+    
+    # Timeline
     estimated_timeline: Optional[str] = Field(default=None, description="Estimated project timeline")
-    # ------------------------
-
+    
+    # User context and modifications
+    user_context: Dict[str, Any] = Field(default_factory=dict, description="User-provided configuration and context")
+    modification_context: Dict[str, Any] = Field(default_factory=dict, description="User modification requests by agent")
+    
+    # Timestamps
     updated_at: str = Field(default_factory=lambda: datetime.now().isoformat())
 
     class Config:

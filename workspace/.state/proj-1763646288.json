@@ -1,0 +1,19 @@
+{
+  "project_id": "proj-1763646288",
+  "project_name": "TestProject",
+  "requirements": "A simple test application",
+  "status": "created",
+  "created_at": "2025-11-20T19:14:48.693567",
+  "updated_at": "2025-11-20T19:14:48.693567",
+  "steps": [],
+  "logs": [],
+  "files": [],
+  "current_step": null,
+  "completed": false,
+  "enable_github": false,
+  "github_username": "",
+  "github_token": "",
+  "generate_tests": true,
+  "generate_devops": true,
+  "last_saved": "2025-11-20T19:14:48.693567+05:30"
+}

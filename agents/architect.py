@@ -58,11 +58,33 @@ CRITICAL: Respond with ONLY valid JSON. Provide detailed, implementable architec
     async def _generate_blueprint(self, context: AgentContext) -> ProjectBlueprint:
         """Generate complete project blueprint"""
         
+        # Format configuration context
+        user_config = getattr(context, "user_context", {})
+        config_str = json.dumps(user_config, indent=2) if user_config else "No specific configuration provided."
+        
+        # Format modification context
+        modification_str = ""
+        if hasattr(context, "modification_context") and context.modification_context:
+            mod_ctx = context.modification_context.get("architect", {})
+            if mod_ctx:
+                modification_str = f"""
+**USER MODIFICATION REQUEST:**
+The user has requested changes to the architecture. You MUST incorporate these changes:
+Original Request: "{mod_ctx.get('original_message')}"
+Specific Changes: {json.dumps(mod_ctx.get('modifications'), indent=2)}
+"""
+
         prompt = f"""Create a complete project blueprint.
 
 **Project**: {context.project_name}
 **Type**: {context.project_type.value}
 **Requirements**: {len(context.functional_requirements)} requirements
+
+**User Configuration:**
+The user has provided specific configuration details. You MUST respect these choices for the architecture and file structure:
+{config_str}
+
+{modification_str}
 
 Generate a JSON response with:
 1. explanation: Brief architecture explanation
@@ -169,6 +191,11 @@ Return ONLY valid JSON:"""
             if not context:
                 raise Exception("No project context available to architect the blueprint")
 
+            # Update context with latest user data from state
+            context.user_context = state.get("user_context", {})
+            context.modification_context = state.get("modification_context", {})
+            self.context_manager.save_context(project_id, context)
+
             requirements = context.requirements if hasattr(context, 'requirements') else getattr(context, 'original_requirements', '')
             stack = context.technology_stack.to_dict() if hasattr(context, 'technology_stack') else {}
 
@@ -212,13 +239,41 @@ Return ONLY valid JSON:"""
             except Exception:
                 pass
 
+            # Generate architecture.md for frontend display
+            architecture_md = f"# System Architecture: {context.project_name}\n\n"
+            architecture_md += f"## Overview\n{blueprint.explanation}\n\n"
+            
+            architecture_md += "## Project Structure\n```tree\n"
+            architecture_md += f"{context.project_name}/\n"
+            
+            # Sort folders for better tree view
+            sorted_folders = sorted(blueprint.folder_structure or [])
+            for i, folder in enumerate(sorted_folders):
+                is_last = i == len(sorted_folders) - 1
+                prefix = "└── " if is_last else "├── "
+                architecture_md += f"{prefix}{folder}/\n"
+            architecture_md += "```\n\n"
+            
+            architecture_md += "## Build Plan\n"
+            for task in blueprint.build_plan:
+                architecture_md += f"- **{task.path}**: {task.purpose}\n"
+
+            # Save architecture.md
+            arch_file = root / 'architecture.md'
+            arch_file.write_text(architecture_md, encoding='utf-8')
+
             self.log(f"ProjectBlueprint generated with {len(blueprint.build_plan)} files", "success")
 
             # Create standardized agent output for compatibility with orchestrator/app
             output = self.create_output(
                 success=True,
                 data={"blueprint": blueprint.dict()},
-                documents=[],
+                documents=[{
+                    "filename": "architecture.md",
+                    "content": architecture_md,
+                    "path": str(arch_file),
+                    "type": "markdown"
+                }],
                 artifacts=created
             )
 

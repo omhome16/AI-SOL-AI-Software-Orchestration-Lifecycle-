@@ -1,0 +1,518 @@
+{
+  "project_id": "tomodo",
+  "project_name": "tomodo",
+  "requirements": "create a todo list website with beautiful frontend. along with backend for functionalities for add, delete, mark task, also there should be a calender and time table",
+  "project_type": "web_application",
+  "complexity_level": "medium",
+  "functional_requirements": [],
+  "non_functional_requirements": [],
+  "technology_stack": {
+    "backend": [],
+    "frontend": [],
+    "database": [],
+    "devops": []
+  },
+  "architecture_pattern": null,
+  "component_specifications": [],
+  "data_models": [],
+  "generated_files": [],
+  "test_results": {
+    "test_files": [
+      {
+        "path": "tests/unit/test_unit_user_model.py",
+        "content": "\nimport pytest\nfrom unittest.mock import MagicMock\n\n# Assuming a User model exists in 'src.models'\n# from src.models import User\n\n# Mocking the User class for demonstration\nclass User:\n    def __init__(self, username, email, is_active=True):\n        self.username = username\n        self.email = email\n        self.is_active = is_active\n\n    def check_password(self, password):\n        return password == \"correct_password\"\n\n@pytest.fixture\ndef sample_user():\n    \"\"\"Provides a sample user instance for tests.\"\"\"\n    return User(\"testuser\", \"test@example.com\")\n\ndef test_user_creation(sample_user):\n    \"\"\"Test if a user is created with the correct attributes.\"\"\"\n    assert sample_user.username == \"testuser\"\n    assert sample_user.email == \"test@example.com\"\n    assert sample_user.is_active is True\n\ndef test_user_password_check(sample_user):\n    \"\"\"Test the password checking functionality.\"\"\"\n    assert sample_user.check_password(\"correct_password\") is True\n    assert sample_user.check_password(\"wrong_password\") is False\n\ndef test_deactivate_user(sample_user, mocker):\n    \"\"\"Test deactivating a user.\"\"\"\n    mocker.patch.object(sample_user, 'is_active', False)\n    assert sample_user.is_active is False\n",
+        "test_type": "unit",
+        "framework": "pytest",
+        "coverage_target": "User model and authentication logic",
+        "dependencies": [
+          "pytest",
+          "pytest-cov",
+          "pytest-mock"
+        ]
+      },
+      {
+        "path": "tests/integration/test_integration_api.py",
+        "content": "\nimport pytest\nimport requests\nimport asyncio\n\nBASE_URL = \"http://127.0.0.1:8000/api/v1\"\n\n@pytest.fixture(scope=\"module\")\ndef event_loop():\n    \"\"\"Create an instance of the default event loop for our test session.\"\"\"\n    loop = asyncio.get_event_loop_policy().new_event_loop()\n    yield loop\n    loop.close()\n\n@pytest.mark.asyncio\nasync def test_create_and_get_user_integration():\n    \"\"\"\n    Integration test to create a user and then retrieve it,\n    ensuring the API endpoints are working together.\n    \"\"\"\n    # Step 1: Create a new user\n    new_user_payload = {\"username\": \"integration_tester\", \"email\": \"integration@example.com\"}\n    create_response = requests.post(f\"{BASE_URL}/users\", json=new_user_payload)\n    assert create_response.status_code == 201\n    user_data = create_response.json()\n    assert \"user_id\" in user_data\n    user_id = user_data[\"user_id\"]\n\n    # Allow some time for the write to be consistent\n    await asyncio.sleep(0.1)\n\n    # Step 2: Retrieve the user by ID\n    get_response = requests.get(f\"{BASE_URL}/users/{user_id}\")\n    assert get_response.status_code == 200\n    retrieved_user = get_response.json()\n    assert retrieved_user[\"username\"] == new_user_payload[\"username\"]\n    assert retrieved_user[\"email\"] == new_user_payload[\"email\"]\n\ndef test_get_nonexistent_user():\n    \"\"\"Test that fetching a nonexistent user returns a 404 error.\"\"\"\n    get_response = requests.get(f\"{BASE_URL}/users/nonexistent-id\")\n    assert get_response.status_code == 404\n",
+        "test_type": "integration",
+        "framework": "pytest",
+        "coverage_target": "API endpoints for user creation and retrieval",
+        "dependencies": [
+          "pytest",
+          "requests",
+          "pytest-asyncio"
+        ]
+      },
+      {
+        "path": "tests/e2e/test_e2e_login_journey.py",
+        "content": "\nimport pytest\nfrom selenium import webdriver\nfrom selenium.webdriver.common.by import By\nfrom selenium.webdriver.chrome.service import Service as ChromeService\nfrom webdriver_manager.chrome import ChromeDriverManager\nimport time\n\n@pytest.fixture(scope=\"module\")\ndef browser():\n    \"\"\"Setup and teardown for the Selenium WebDriver.\"\"\"\n    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))\n    driver.implicitly_wait(10)\n    yield driver\n    driver.quit()\n\ndef test_login_journey(browser):\n    \"\"\"\n    E2E test for a complete user login workflow.\n    1. Navigates to the login page.\n    2. Enters credentials.\n    3. Submits the form.\n    4. Verifies successful login by checking for a welcome message.\n    \"\"\"\n    # Navigate to the login page\n    browser.get(\"http://127.0.0.1:8000/login\")\n    assert \"Login\" in browser.title\n\n    # Find form elements and enter credentials\n    username_input = browser.find_element(By.ID, \"username\")\n    password_input = browser.find_element(By.ID, \"password\")\n    submit_button = browser.find_element(By.XPATH, \"//button[@type='submit']\")\n\n    username_input.send_keys(\"testuser\")\n    password_input.send_keys(\"correct_password\")\n    \n    # Click the login button\n    submit_button.click()\n\n    # Wait for potential redirect and page load\n    time.sleep(2)\n\n    # Verify successful login\n    welcome_message = browser.find_element(By.TAG_NAME, \"h1\").text\n    assert \"Welcome, testuser!\" in welcome_message\n",
+        "test_type": "e2e",
+        "framework": "selenium",
+        "coverage_target": "User login end-to-end workflow",
+        "dependencies": [
+          "selenium",
+          "pytest",
+          "webdriver-manager"
+        ]
+      },
+      {
+        "path": "performance/locustfile.py",
+        "content": "\nfrom locust import HttpUser, task, between\n\nclass WebAppUser(HttpUser):\n    wait_time = between(1, 3)\n    host = \"http://127.0.0.1:8000\"\n\n    @task\n    def load_home_page(self):\n        \"\"\"Simulate a user loading the home page.\"\"\"\n        self.client.get(\"/\")\n\n    @task(3)\n    def view_user_profile(self):\n        \"\"\"\n        Simulate a user viewing a profile page, which is a more frequent action.\n        This assumes user IDs from 1 to 100 exist.\n        \"\"\"\n        user_id = 1\n        self.client.get(f\"/users/{user_id}\", name=\"/users/[id]\")\n\n    def on_start(self):\n        \"\"\"Simulate user login at the beginning of a test.\"\"\"\n        # This would typically involve a POST request to a login endpoint\n        pass\n",
+        "test_type": "performance",
+        "framework": "locust",
+        "coverage_target": "Home page and user profile page performance under load",
+        "dependencies": [
+          "locust"
+        ]
+      },
+      {
+        "path": "tests/security/test_security_scan.py",
+        "content": "\nimport subprocess\nimport pytest\nimport sys\n\ndef test_run_bandit_security_scan():\n    \"\"\"\n    Runs Bandit security scanner on the 'src' directory and fails the test\n    if Bandit reports any issues.\n    \"\"\"\n    # We exclude test files from the scan itself\n    command = [\n        sys.executable,\n        \"-m\",\n        \"bandit\",\n        \"-r\",\n        \"src\",\n        \"-c\",\n        \"bandit.yaml\",\n        \"--exit-zero\", # Ensures bandit exits 0 even if issues are found, so we can assert\n        \"-f\",\n        \"json\"\n    ]\n    \n    try:\n        result = subprocess.run(\n            command,\n            capture_output=True,\n            text=True,\n            check=True\n        )\n        \n        # Check if bandit found any issues in its JSON output\n        # A clean run will have an empty 'results' list.\n        import json\n        output = json.loads(result.stdout)\n        issues = output.get(\"results\", [])\n        \n        assert len(issues) == 0, f\"Bandit found {len(issues)} security issues. Check Bandit report for details.\"\n\n    except FileNotFoundError:\n        pytest.fail(\"Bandit is not installed or not in the system's PATH.\")\n    except subprocess.CalledProcessError as e:\n        pytest.fail(f\"Bandit scan failed with error: {e.stderr}\")\n",
+        "test_type": "security",
+        "framework": "bandit",
+        "coverage_target": "Static Application Security Testing (SAST) for the codebase",
+        "dependencies": [
+          "bandit",
+          "pytest"
+        ]
+      }
+    ],
+    "quality_score": 82.5,
+    "test_coverage": 78.5,
+    "security_findings": [
+      {
+        "type": "SQL Injection",
+        "severity": "critical",
+        "location": "src/api/v1/user.py, line 45",
+        "description": "The user search endpoint is vulnerable to SQL injection through the 'user_id' parameter. An attacker can manipulate the query to bypass authentication or extract sensitive data.",
+        "fix": "Use parameterized queries or an ORM to handle database interactions safely. Sanitize all user inputs before using them in database queries."
+      },
+      {
+        "type": "XSS",
+        "severity": "high",
+        "location": "templates/post.html, line 32",
+        "description": "User-provided content in comments is rendered without proper sanitization, allowing for stored Cross-Site Scripting (XSS) attacks.",
+        "fix": "Implement a strict Content Security Policy (CSP). Sanitize all user-generated content on the server-side before storing and on the client-side before rendering."
+      },
+      {
+        "type": "Insecure Direct Object Reference",
+        "severity": "medium",
+        "location": "src/api/v1/orders.py, line 25",
+        "description": "The application exposes internal database IDs in URLs (e.g., /api/v1/orders/123), allowing attackers to guess other valid IDs and access unauthorized data.",
+        "fix": "Use non-sequential, unpredictable identifiers like UUIDs for public-facing resources instead of auto-incrementing primary keys."
+      }
+    ]
+  },
+  "test_coverage": 78.5,
+  "security_report": {
+    "findings": [
+      {
+        "type": "SQL Injection",
+        "severity": "critical",
+        "location": "src/api/v1/user.py, line 45",
+        "description": "The user search endpoint is vulnerable to SQL injection through the 'user_id' parameter. An attacker can manipulate the query to bypass authentication or extract sensitive data.",
+        "fix": "Use parameterized queries or an ORM to handle database interactions safely. Sanitize all user inputs before using them in database queries."
+      },
+      {
+        "type": "XSS",
+        "severity": "high",
+        "location": "templates/post.html, line 32",
+        "description": "User-provided content in comments is rendered without proper sanitization, allowing for stored Cross-Site Scripting (XSS) attacks.",
+        "fix": "Implement a strict Content Security Policy (CSP). Sanitize all user-generated content on the server-side before storing and on the client-side before rendering."
+      },
+      {
+        "type": "Insecure Direct Object Reference",
+        "severity": "medium",
+        "location": "src/api/v1/orders.py, line 25",
+        "description": "The application exposes internal database IDs in URLs (e.g., /api/v1/orders/123), allowing attackers to guess other valid IDs and access unauthorized data.",
+        "fix": "Use non-sequential, unpredictable identifiers like UUIDs for public-facing resources instead of auto-incrementing primary keys."
+      }
+    ],
+    "recommendations": [
+      "Implement a centralized secret management solution like HashiCorp Vault or AWS Secrets Manager.",
+      "Refactor complex functions with high cyclomatic complexity to improve readability and maintainability.",
+      "Adopt parameterized queries (e.g., using SQLAlchemy) to prevent SQL injection vulnerabilities.",
+      "Enforce strict input validation and output encoding across all user-facing endpoints to mitigate XSS risks."
+    ]
+  },
+  "deployment_strategy": null,
+  "domain": "general",
+  "blueprint": {
+    "explanation": "This architecture blueprint outlines a modern, full-stack web application named 'tomodo', designed as a feature-rich to-do list manager. The system employs a decoupled frontend/backend structure, ideal for scalability and maintainability. The frontend is a Single Page Application (SPA) built with React and TypeScript, utilizing a component-based architecture and Zustand for efficient state management. The backend is a Node.js API server using Express.js and TypeScript, following an API-first, domain-driven structure that is ready for future microservice extraction. Communication is handled via a RESTful API for standard operations and WebSockets (Socket.IO) for real-time updates. Authentication is secured with JSON Web Tokens (JWT). The entire application is containerized with Docker for consistent development and deployment environments.",
+    "folder_structure": [
+      ".github/workflows",
+      "client",
+      "client/public",
+      "client/src",
+      "client/src/components",
+      "client/src/components/ui",
+      "client/src/features",
+      "client/src/features/auth",
+      "client/src/features/auth/api",
+      "client/src/features/auth/components",
+      "client/src/features/lists",
+      "client/src/features/lists/api",
+      "client/src/features/lists/components",
+      "client/src/features/tasks",
+      "client/src/features/tasks/api",
+      "client/src/features/tasks/components",
+      "client/src/hooks",
+      "client/src/lib",
+      "client/src/pages",
+      "client/src/store",
+      "client/src/styles",
+      "server",
+      "server/prisma",
+      "server/prisma/migrations",
+      "server/src",
+      "server/src/config",
+      "server/src/middleware",
+      "server/src/modules",
+      "server/src/modules/auth",
+      "server/src/modules/list",
+      "server/src/modules/task",
+      "server/src/modules/user",
+      "server/src/services",
+      "server/src/utils"
+    ],
+    "build_plan": [
+      {
+        "path": "package.json",
+        "purpose": "Root package file to manage workspaces (client/server) and run concurrent scripts.",
+        "dependencies": []
+      },
+      {
+        "path": "docker-compose.yml",
+        "purpose": "Defines services for local development: backend API, frontend dev server, and PostgreSQL database.",
+        "dependencies": []
+      },
+      {
+        "path": ".github/workflows/ci-cd.yml",
+        "purpose": "GitHub Actions workflow for continuous integration and deployment. Builds, tests, and deploys Docker images.",
+        "dependencies": []
+      },
+      {
+        "path": "server/package.json",
+        "purpose": "Defines backend dependencies (Express, Prisma, Socket.IO, etc.) and scripts.",
+        "dependencies": []
+      },
+      {
+        "path": "server/tsconfig.json",
+        "purpose": "TypeScript compiler configuration for the backend server.",
+        "dependencies": []
+      },
+      {
+        "path": "server/.env.example",
+        "purpose": "Example environment variables file for the backend (database URL, JWT secret, port).",
+        "dependencies": []
+      },
+      {
+        "path": "server/Dockerfile",
+        "purpose": "Multi-stage Dockerfile to build and run the production Node.js server.",
+        "dependencies": []
+      },
+      {
+        "path": "server/prisma/schema.prisma",
+        "purpose": "Prisma schema file defining the database models (User, TodoList, Task) and their relations.",
+        "dependencies": []
+      },
+      {
+        "path": "server/src/config/index.ts",
+        "purpose": "Loads and exports environment variables using a library like Zod for validation.",
+        "dependencies": []
+      },
+      {
+        "path": "server/src/services/db.ts",
+        "purpose": "Initializes and exports a singleton Prisma Client instance for database access.",
+        "dependencies": []
+      },
+      {
+        "path": "server/src/utils/logger.ts",
+        "purpose": "Configures a logger (e.g., Winston or pino) for application-wide logging.",
+        "dependencies": []
+      },
+      {
+        "path": "server/src/middleware/errorHandler.ts",
+        "purpose": "Global error handling middleware for the Express application.",
+        "dependencies": [
+          "server/src/utils/logger.ts"
+        ]
+      },
+      {
+        "path": "server/src/modules/user/user.model.ts",
+        "purpose": "Defines TypeScript types and interfaces related to the User entity.",
+        "dependencies": [
+          "server/prisma/schema.prisma"
+        ]
+      },
+      {
+        "path": "server/src/modules/user/user.service.ts",
+        "purpose": "Contains business logic for user management (e.g., creating a user, finding by email).",
+        "dependencies": [
+          "server/src/services/db.ts",
+          "server/src/modules/user/user.model.ts"
+        ]
+      },
+      {
+        "path": "server/src/modules/auth/auth.validation.ts",
+        "purpose": "Defines Zod schemas for validating authentication-related request bodies (register, login).",
+        "dependencies": []
+      },
+      {
+        "path": "server/src/modules/auth/auth.utils.ts",
+        "purpose": "Utility functions for authentication, such as password hashing (bcrypt) and JWT signing/verification.",
+        "dependencies": [
+          "server/src/config/index.ts"
+        ]
+      },
+      {
+        "path": "server/src/middleware/auth.middleware.ts",
+        "purpose": "Express middleware to protect routes by verifying the JWT from the Authorization header.",
+        "dependencies": [
+          "server/src/modules/auth/auth.utils.ts"
+        ]
+      },
+      {
+        "path": "server/src/modules/auth/auth.service.ts",
+        "purpose": "Handles the core logic for user registration and login.",
+        "dependencies": [
+          "server/src/modules/user/user.service.ts",
+          "server/src/modules/auth/auth.utils.ts"
+        ]
+      },
+      {
+        "path": "server/src/modules/auth/auth.controller.ts",
+        "purpose": "Handles HTTP requests for authentication, calling the auth service to perform the logic.",
+        "dependencies": [
+          "server/src/modules/auth/auth.service.ts",
+          "server/src/modules/auth/auth.validation.ts"
+        ]
+      },
+      {
+        "path": "server/src/modules/auth/auth.routes.ts",
+        "purpose": "Defines the API routes for authentication (e.g., POST /api/auth/register, POST /api/auth/login).",
+        "dependencies": [
+          "server/src/modules/auth/auth.controller.ts"
+        ]
+      },
+      {
+        "path": "server/src/modules/list/list.model.ts",
+        "purpose": "Defines TypeScript types for the TodoList entity.",
+        "dependencies": [
+          "server/prisma/schema.prisma"
+        ]
+      },
+      {
+        "path": "server/src/modules/list/list.validation.ts",
+        "purpose": "Zod schemas for validating list creation and update requests.",
+        "dependencies": []
+      },
+      {
+        "path": "server/src/modules/list/list.service.ts",
+        "purpose": "Business logic for managing to-do lists (CRUD operations).",
+        "dependencies": [
+          "server/src/services/db.ts"
+        ]
+      },
+      {
+        "path": "server/src/modules/list/list.controller.ts",
+        "purpose": "Handles HTTP requests for list management.",
+        "dependencies": [
+          "server/src/modules/list/list.service.ts",
+          "server/src/modules/list/list.validation.ts"
+        ]
+      },
+      {
+        "path": "server/src/modules/list/list.routes.ts",
+        "purpose": "Defines API routes for lists (e.g., GET /api/lists, POST /api/lists).",
+        "dependencies": [
+          "server/src/modules/list/list.controller.ts",
+          "server/src/middleware/auth.middleware.ts"
+        ]
+      },
+      {
+        "path": "server/src/modules/task/task.model.ts",
+        "purpose": "Defines TypeScript types for the Task entity.",
+        "dependencies": [
+          "server/prisma/schema.prisma"
+        ]
+      },
+      {
+        "path": "server/src/modules/task/task.validation.ts",
+        "purpose": "Zod schemas for validating task creation and update requests.",
+        "dependencies": []
+      },
+      {
+        "path": "server/src/modules/task/task.service.ts",
+        "purpose": "Business logic for managing tasks (CRUD operations).",
+        "dependencies": [
+          "server/src/services/db.ts"
+        ]
+      },
+      {
+        "path": "server/src/modules/task/task.controller.ts",
+        "purpose": "Handles HTTP requests for task management.",
+        "dependencies": [
+          "server/src/modules/task/task.service.ts",
+          "server/src/modules/task/task.validation.ts"
+        ]
+      },
+      {
+        "path": "server/src/modules/task/task.routes.ts",
+        "purpose": "Defines API routes for tasks (e.g., POST /api/tasks, PUT /api/tasks/:id).",
+        "dependencies": [
+          "server/src/modules/task/task.controller.ts",
+          "server/src/middleware/auth.middleware.ts"
+        ]
+      },
+      {
+        "path": "server/src/app.ts",
+        "purpose": "Initializes the Express application, sets up middleware (CORS, JSON parser), and mounts the API routes.",
+        "dependencies": [
+          "server/src/middleware/errorHandler.ts",
+          "server/src/modules/auth/auth.routes.ts",
+          "server/src/modules/list/list.routes.ts",
+          "server/src/modules/task/task.routes.ts"
+        ]
+      },
+      {
+        "path": "server/src/services/socket.ts",
+        "purpose": "Initializes and configures the Socket.IO server, attaching it to the HTTP server. Handles real-time events.",
+        "dependencies": [
+          "server/src/utils/logger.ts"
+        ]
+      },
+      {
+        "path": "server/src/server.ts",
+        "purpose": "The main entry point for the backend. Creates an HTTP server, attaches the Express app and Socket.IO, and listens on a port.",
+        "dependencies": [
+          "server/src/app.ts",
+          "server/src/config/index.ts",
+          "server/src/utils/logger.ts",
+          "server/src/services/socket.ts"
+        ]
+      },
+      {
+        "path": "client/package.json",
+        "purpose": "Defines frontend dependencies (React, Vite, Zustand, Axios, etc.) and scripts.",
+        "dependencies": []
+      },
+      {
+        "path": "client/tsconfig.json",
+        "purpose": "TypeScript compiler configuration for the React frontend.",
+        "dependencies": []
+      },
+      {
+        "path": "client/vite.config.ts",
+        "purpose": "Configuration file for the Vite build tool, including server proxy settings for the API.",
+        "dependencies": []
+      },
+      {
+        "path": "client/Dockerfile",
+        "purpose": "Multi-stage Dockerfile to build the static React assets and serve them with Nginx.",
+        "dependencies": []
+      },
+      {
+        "path": "client/src/styles/global.css",
+        "purpose": "Global CSS styles and resets for the application.",
+        "dependencies": []
+      },
+      {
+        "path": "client/src/lib/api.ts",
+        "purpose": "Creates and configures a singleton Axios instance for making API requests. Includes interceptors for adding the auth token.",
+        "dependencies": []
+      },
+      {
+        "path": "client/src/lib/socket.ts",
+        "purpose": "Initializes and exports a singleton Socket.IO client instance.",
+        "dependencies": []
+      },
+      {
+        "path": "client/src/store/authStore.ts",
+        "purpose": "Zustand store for managing global authentication state (user, token, login/logout actions).",
+        "dependencies": [
+          "client/src/lib/api.ts"
+        ]
+      },
+      {
+        "path": "client/src/components/ui/Button.tsx",
+        "purpose": "A generic, reusable Button component.",
+        "dependencies": []
+      },
+      {
+        "path": "client/src/components/ui/Input.tsx",
+        "purpose": "A generic, reusable Input field component.",
+        "dependencies": []
+      },
+      {
+        "path": "client/src/components/ProtectedRoute.tsx",
+        "purpose": "A wrapper component that redirects unauthenticated users from protected pages.",
+        "dependencies": [
+          "client/src/store/authStore.ts"
+        ]
+      },
+      {
+        "path": "client/src/features/auth/components/LoginForm.tsx",
+        "purpose": "Component containing the login form UI and logic.",
+        "dependencies": [
+          "client/src/store/authStore.ts",
+          "client/src/components/ui/Button.tsx",
+          "client/src/components/ui/Input.tsx"
+        ]
+      },
+      {
+        "path": "client/src/pages/LoginPage.tsx",
+        "purpose": "The page component for the login route.",
+        "dependencies": [
+          "client/src/features/auth/components/LoginForm.tsx"
+        ]
+      },
+      {
+        "path": "client/src/features/tasks/api/useTasks.ts",
+        "purpose": "A custom React hook (e.g., using react-query) for fetching and managing task data.",
+        "dependencies": [
+          "client/src/lib/api.ts"
+        ]
+      },
+      {
+        "path": "client/src/features/tasks/components/TaskItem.tsx",
+        "purpose": "Component to display a single task item.",
+        "dependencies": []
+      },
+      {
+        "path": "client/src/features/lists/components/TodoList.tsx",
+        "purpose": "Component to display a list and its associated tasks.",
+        "dependencies": [
+          "client/src/features/tasks/components/TaskItem.tsx",
+          "client/src/features/tasks/api/useTasks.ts"
+        ]
+      },
+      {
+        "path": "client/src/pages/DashboardPage.tsx",
+        "purpose": "The main dashboard page shown after a user logs in, displaying their to-do lists.",
+        "dependencies": [
+          "client/src/features/lists/components/TodoList.tsx"
+        ]
+      },
+      {
+        "path": "client/src/App.tsx",
+        "purpose": "The root component of the React application. Sets up the router (React Router) to handle different pages.",
+        "dependencies": [
+          "client/src/pages/LoginPage.tsx",
+          "client/src/pages/DashboardPage.tsx",
+          "client/src/components/ProtectedRoute.tsx"
+        ]
+      },
+      {
+        "path": "client/src/main.tsx",
+        "purpose": "The entry point for the frontend application. Renders the root App component into the DOM.",
+        "dependencies": [
+          "client/src/App.tsx",
+          "client/src/styles/global.css"
+        ]
+      }
+    ]
+  },
+  "project_root": ".",
+  "estimated_timeline": null,
+  "updated_at": "2025-11-19T21:29:40.341231"
+}

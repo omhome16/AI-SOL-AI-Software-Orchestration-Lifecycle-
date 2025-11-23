@@ -1,0 +1,28 @@
+{
+  "project_id": "tomodomo",
+  "project_name": "tomodomo",
+  "requirements": "create a todo list website with beautiful aesthetic frontend and backend for adding, deleting, marking task, also calender and time table system",
+  "project_type": "web_application",
+  "complexity_level": "medium",
+  "functional_requirements": [],
+  "non_functional_requirements": [],
+  "technology_stack": {
+    "backend": [],
+    "frontend": [],
+    "database": [],
+    "devops": []
+  },
+  "architecture_pattern": null,
+  "component_specifications": [],
+  "data_models": [],
+  "generated_files": [],
+  "test_results": {},
+  "test_coverage": 0.0,
+  "security_report": {},
+  "deployment_strategy": null,
+  "domain": "general",
+  "blueprint": null,
+  "project_root": ".",
+  "estimated_timeline": null,
+  "updated_at": "2025-11-19T20:13:03.997130"
+}

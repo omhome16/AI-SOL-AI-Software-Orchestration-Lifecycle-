@@ -34,6 +34,7 @@ class Config:
     XAI_API_KEY = os.getenv("XAI_API_KEY")
     MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY")
     GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+    GITHUB_USERNAME = os.getenv("GITHUB_USERNAME")
 
     # ========================
     # MODEL SETTINGS
@@ -63,6 +64,7 @@ class Config:
     # ========================
     ENABLE_WEB_SEARCH = os.getenv("ENABLE_WEB_SEARCH", "true").lower() == "true"
     ENABLE_CODE_ANALYSIS = os.getenv("ENABLE_CODE_ANALYSIS", "true").lower() == "true"
+    ENABLE_INTERRUPTS = os.getenv("ENABLE_INTERRUPTS", "false").lower() == "true"
     try:
         MAX_RETRIES = int(os.getenv("MAX_RETRIES", "3"))
     except ValueError:
@@ -80,6 +82,7 @@ class Config:
         cls.XAI_API_KEY = os.getenv("XAI_API_KEY")
         cls.MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY")
         cls.GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+        cls.GITHUB_USERNAME = os.getenv("GITHUB_USERNAME")
         cls.MODEL_PROVIDER = os.getenv("MODEL_PROVIDER", "google")
         cls.MODEL_NAME = os.getenv("MODEL_NAME", "models/gemini-2.5-pro")
 
@@ -166,7 +169,8 @@ API Keys:
   Anthropic        : {cls._mask_key(cls.ANTHROPIC_API_KEY)}
   XAI              : {cls._mask_key(cls.XAI_API_KEY)}
   Mistral          : {cls._mask_key(cls.MISTRAL_API_KEY)}
-  GitHub           : {cls._mask_key(cls.GITHUB_TOKEN)}
+  GitHub Token     : {cls._mask_key(cls.GITHUB_TOKEN)}
+  GitHub User      : {cls.GITHUB_USERNAME or "❌ Missing"}
 
 Workspace Dir    : {cls.WORKSPACE_DIR}
 Memory Dir       : {cls.MEMORY_DIR}

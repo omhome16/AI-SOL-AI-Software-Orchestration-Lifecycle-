@@ -29,6 +29,46 @@
           "name": "Requirements Generation",
           "timestamp": "2025-11-19T17:15:08.064511+05:30",
           "description": null
+        },
+        {
+          "name": "Initialization",
+          "timestamp": "2025-11-19T17:26:20.258614+05:30",
+          "description": null
+        },
+        {
+          "name": "Project Classification",
+          "timestamp": "2025-11-19T17:26:20.276856+05:30",
+          "description": null
+        },
+        {
+          "name": "Domain Research",
+          "timestamp": "2025-11-19T17:26:20.311677+05:30",
+          "description": null
+        },
+        {
+          "name": "Requirements Generation",
+          "timestamp": "2025-11-19T17:26:22.680302+05:30",
+          "description": null
+        },
+        {
+          "name": "Initialization",
+          "timestamp": "2025-11-19T23:17:11.131533+05:30",
+          "description": null
+        },
+        {
+          "name": "Project Classification",
+          "timestamp": "2025-11-19T23:17:11.155933+05:30",
+          "description": null
+        },
+        {
+          "name": "Domain Research",
+          "timestamp": "2025-11-19T23:17:11.194859+05:30",
+          "description": null
+        },
+        {
+          "name": "Requirements Generation",
+          "timestamp": "2025-11-19T23:17:13.307263+05:30",
+          "description": null
         }
       ]
     },
@@ -74,7 +114,7 @@
     }
   ],
   "overall_progress": 12.0,
-  "estimated_completion": "2025-11-19T17:15:24.564929+05:30",
+  "estimated_completion": "2025-11-21T19:32:48.254529+05:30",
   "created_at": "2025-11-19T17:15:05.814454+05:30",
-  "updated_at": "2025-11-19T17:15:08.064511+05:30"
+  "updated_at": "2025-11-19T23:17:13.308273+05:30"
 }

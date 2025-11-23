@@ -3,6 +3,7 @@ from datetime import datetime
 import json
 from zoneinfo import ZoneInfo
 import asyncio
+import time
 from pydantic import BaseModel
 
 from core.config import Config
@@ -101,9 +102,13 @@ class BaseAgent:
         else:
             try:
                 self.llm = self._load_llm(temperature, max_tokens)
+                print(f"✅ LLM initialized successfully for {name}")
             except Exception as e:
-                # Log and continue; callers should handle a None LLM gracefully
-                self.log(f"LLM not available or failed to load: {e}", "warning")
+                # Log with full traceback for debugging
+                import traceback
+                error_details = traceback.format_exc()
+                print(f"❌ LLM initialization failed for {name}: {e}")
+                print(f"Full error:\n{error_details}")
                 self.llm = None
 
         # System prompt - override in subclass
@@ -115,6 +120,49 @@ class BaseAgent:
         self.timeline_tracker = None  # Will be initialized per project
         self.conversation_manager = ConversationManager()
         self.timeline_manager = None  # Will be initialized on first update
+        self.log_callback = None # Callback for real-time logging
+
+    def set_log_callback(self, callback):
+        """Set a callback function for real-time logging."""
+        self.log_callback = callback
+
+    def log(self, message: str, level: str = "info"):
+        """Log a message to console and optionally via callback with structured JSON."""
+        timestamp = datetime.now(self.tz).strftime("%H:%M:%S")
+        formatted_msg = f"[{timestamp}] [{self.name.upper()}] {message}"
+        
+        # Console logging
+        if level == "error":
+            print(f"\033[91m{formatted_msg}\033[0m")
+        elif level == "warning":
+            print(f"\033[93m{formatted_msg}\033[0m")
+        elif level == "success":
+            print(f"\033[92m{formatted_msg}\033[0m")
+        else:
+            print(formatted_msg)
+            
+        # Real-time callback with structured JSON - check if attribute exists first
+        if hasattr(self, 'log_callback') and self.log_callback:
+            # Create structured log message for frontend
+            log_data = {
+                "type": "LOG",
+                "level": level,
+                "message": message,
+                "agent": self.name.upper(),
+                "timestamp": datetime.now(self.tz).isoformat()
+            }
+            
+            # We need to run this async callback in the event loop if it's async
+            # But log is sync. So we check if there's a running loop.
+            try:
+                loop = asyncio.get_running_loop()
+                if asyncio.iscoroutinefunction(self.log_callback):
+                    loop.create_task(self.log_callback(log_data))
+                else:
+                    self.log_callback(log_data)
+            except RuntimeError:
+                # No running loop, just skip or run sync
+                pass
 
     def _load_llm(self, temperature: float, max_tokens: int):
         """Dynamically loads the LLM based on configuration."""
@@ -174,9 +222,18 @@ class BaseAgent:
             try:
                 from langchain_google_genai import ChatGoogleGenerativeAI
                 from google.generativeai import types  # noqa: F401
+                import os
+                
+                # Newer versions of langchain-google-genai require GOOGLE_API_KEY env var
+                # even if we pass google_api_key parameter. Set it explicitly.
+                os.environ["GOOGLE_API_KEY"] = api_key
+                
+                # Ensure model name has "models/" prefix for newer API versions
+                if not model_name.startswith("models/"):
+                    model_name = f"models/{model_name}"
+                
                 return ChatGoogleGenerativeAI(
                     model=model_name,
-                    google_api_key=api_key,
                     temperature=temperature,
                     max_tokens=max_tokens
                 )
@@ -304,26 +361,33 @@ class BaseAgent:
         return response
 
     def call_tool(self, tool_name: str, **kwargs) -> Dict[str, Any]:
-        """Call a tool by name with defensive handling"""
+        """Call a tool by name with defensive handling and retries"""
         if not hasattr(self.tools, tool_name):
             return {"success": False, "error": f"Tool {tool_name} not found"}
 
         tool_method = getattr(self.tools, tool_name)
-        try:
-            result = tool_method(**kwargs)
-            # Normalize tool result if it's not a dict
-            if not isinstance(result, dict):
-                try:
-                    result = _normalize_payload(result)
-                    if not isinstance(result, dict):
-                        result = {"success": False, "result": result}
-                except Exception:
-                    result = {"success": False, "error": "Tool returned non-dict result"}
-            self.log(f"Tool {tool_name} called: {result.get('success', False)}", "debug")
-            return result
-        except Exception as e:
-            self.log(f"Tool {tool_name} raised an exception: {e}", "error")
-            return {"success": False, "error": str(e)}
+        max_retries = 3
+        
+        for attempt in range(max_retries):
+            try:
+                result = tool_method(**kwargs)
+                # Normalize tool result if it's not a dict
+                if not isinstance(result, dict):
+                    try:
+                        result = _normalize_payload(result)
+                        if not isinstance(result, dict):
+                            result = {"success": False, "result": result}
+                    except Exception:
+                        result = {"success": False, "error": "Tool returned non-dict result"}
+                self.log(f"Tool {tool_name} called: {result.get('success', False)}", "debug")
+                return result
+            except Exception as e:
+                self.log(f"Tool {tool_name} failed (attempt {attempt + 1}): {e}", "warning")
+                if attempt < max_retries - 1:
+                    time.sleep(0.5 * (attempt + 1))
+                else:
+                    self.log(f"Tool {tool_name} failed after {max_retries} attempts: {e}", "error")
+                    return {"success": False, "error": str(e)}
 
     def create_output(
             self,
@@ -358,20 +422,6 @@ class BaseAgent:
             "timestamp": datetime.now(self.tz).isoformat()
         }
 
-    def log(self, message: str, level: str = "info"):
-        """Simple logging"""
-        timestamp = datetime.now(self.tz).strftime("%H:%M:%S")
-        colors = {
-            "info": "\033[36m",  # Cyan
-            "success": "\033[32m",  # Green
-            "warning": "\033[33m",  # Yellow
-            "error": "\033[31m",  # Red
-            "debug": "\033[35m",  # Magenta
-            "reset": "\033[0m"
-        }
-
-        color = colors.get(level, colors["info"])
-        print(f"{color}[{timestamp}] [{self.name.upper()}] {message}{colors['reset']}")
 
     def load_context(self, project_id: str) -> Optional[AgentContext]:
         """Load comprehensive context for the project"""
@@ -583,17 +633,64 @@ class BaseAgent:
             filename: str,
             content: str
     ) -> Optional[Dict[str, Any]]:
-        """Save document and return doc entry"""
+        """Save document, broadcast to frontend, and return doc entry"""
         path = f"{project_name}/{filename}"
         result = self.call_tool("write_file", path=path, content=content)
 
         if result.get("success"):
-            return {
+            doc_entry = {
                 "type": doc_type,
                 "filename": filename,
                 "path": path,
                 "created_at": datetime.now(self.tz).isoformat()
             }
+            
+            # Broadcast file generation to frontend via WebSocket
+            if hasattr(self, 'log_callback') and self.log_callback:
+                file_message = {
+                    "type": "FILE_GENERATED",
+                    "doc_type": doc_type,
+                    "filename": filename,
+                    "path": path,
+                    "content": content[:500] if len(content) > 500 else content,  # Send preview
+                    "full_content": content,  # Send full content for viewing
+                    "auto_focus": True,  # Auto-switch tab to this file
+                    "timestamp": datetime.now(self.tz).isoformat()
+                }
+                
+                try:
+                    loop = asyncio.get_running_loop()
+                    if asyncio.iscoroutinefunction(self.log_callback):
+                        loop.create_task(self.log_callback(file_message))
+                    else:
+                        self.log_callback(file_message)
+                except RuntimeError:
+                    pass
+
+            # Embed document in vector store for RAG
+            try:
+                from backend.core.context_store import ProjectContextStore
+                context_store = ProjectContextStore()
+                
+                # Extract project ID from path (e.g., "proj-123/docs/..." -> "proj-123")
+                project_id = project_name.split('/')[0]
+                
+                context_store.add_document(
+                    project_id=project_id,
+                    doc_id=f"{doc_type}_{filename}",
+                    content=content,
+                    metadata={
+                        "filename": filename,
+                        "doc_type": doc_type,
+                        "agent": self.name,
+                        "timestamp": datetime.now(self.tz).isoformat()
+                    }
+                )
+                self.log(f"Document {filename} embedded for RAG context", "success")
+            except Exception as e:
+                self.log(f"Failed to embed document: {e}", "warning")
+            
+            return doc_entry
         return None
 
     def _create_fallback_structured_response(self, output_schema: BaseModel) -> BaseModel:

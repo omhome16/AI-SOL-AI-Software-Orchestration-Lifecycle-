@@ -1,0 +1,206 @@
+{
+  "project_id": "proj-1763712693",
+  "project_name": "zoko",
+  "requirements": "Basic To-Do List Website Requirements\r\nUser Interface:\r\n\r\nSimple input field to add new tasks quickly.\r\n\r\nList display area showing tasks clearly.\r\n\r\nCheckboxes or toggles to mark tasks as completed.\r\n\r\nEdit and delete options for existing tasks.\r\n\r\nResponsive design for use on both desktop and mobile devices.\r\n\r\nTask Management:\r\n\r\nAbility to add, edit, and delete tasks.\r\n\r\nMark tasks as complete or incomplete.\r\n\r\nOption to prioritize or categorize tasks.\r\n\r\nSave tasks persistently (local storage or backend database).\r\n\r\nUser Experience:\r\n\r\nClear visual differentiation between completed and pending tasks.\r\n\r\nEasy navigation and intuitive controls.\r\n\r\nOption to reorder tasks by drag and drop or priority.\r\n\r\nTechnical Requirements:\r\n\r\nResponsive front-end using HTML, CSS, and JavaScript.\r\n\r\nOptional backend for user authentication and task storage (using database).\r\n\r\nCross-browser compatibility.\r\n\r\nPerformance optimized for fast load and smooth interactions.\r\n\r\n",
+  "status": "awaiting_review",
+  "created_at": "2025-11-21T13:41:33.412002",
+  "updated_at": "2025-11-21T13:41:33.412002",
+  "steps": [],
+  "logs": [
+    "LOG:Workflow started",
+    "STARTED:requirements",
+    "LOG:Running requirements agent...",
+    "Starting domain-aware requirements analysis",
+    "Classifying project type and domain",
+    "No context found for project zoko",
+    "Creating initial context from requirements",
+    "Researching best practices for general domain",
+    "Researching: best practices general web_application development",
+    "Researching: general software requirements standards",
+    "Researching: web_application architecture patterns general",
+    "Domain research completed: 0 results found",
+    "Generating domain-specific requirements",
+    "LOG:requirements agent finished successfully.",
+    "PAUSED:requirements",
+    "Raw LLM response in call_llm (structured): functional_requirements=[FunctionalRequirement(id='FR-001', description='Users can add new tasks to their to-do list.', priority='high', acceptance_criteria=['An input field is available for entering task descriptions.', \"A button or the 'Enter' key submits the new task.\", 'The new task appears in the task list upon submission.']), FunctionalRequirement(id='FR-002', description='Users can view a list of all their tasks.', priority='high', acceptance_criteria=['All added tasks are displayed in a list format.', 'Each task item clearly shows its description.']), FunctionalRequirement(id='FR-003', description='Users can mark tasks as complete or incomplete.', priority='high', acceptance_criteria=['Each task has a checkbox or a similar interactive element to mark it as complete.', \"Clicking the element toggles the task's completion status.\", 'Completed tasks are visually differentiated from pending tasks (e.g., with a strikethrough).']), FunctionalRequirement(id='FR-004', description='Users can edit the description of existing tasks.', priority='medium', acceptance_criteria=[\"An 'Edit' option is available for each task.\", 'Users can modify the text of a task and save the changes.']), FunctionalRequirement(id='FR-005', description='Users can delete tasks from their list.', priority='high', acceptance_criteria=[\"A 'Delete' option is available for each task.\", \"Clicking the 'Delete' option removes the task from the list.\"]), FunctionalRequirement(id='FR-006', description=\"Tasks are saved persistently using the browser's local storage.\", priority='high', acceptance_criteria=['Tasks persist in the browser after a page refresh or closing and reopening the tab.', 'Task status (completed/pending) is also saved.']), FunctionalRequirement(id='FR-007', description='The application is responsive and works on both mobile and desktop devices.', priority='medium', acceptance_criteria=['The application layout adjusts gracefully to different screen sizes, from mobile phones to desktops.', 'All functionality is accessible and usable on all supported screen sizes.'])] non_functional_requirements=[NonFunctionalRequirement(category='Performance', description='The application should load quickly and provide smooth user interactions.', metrics=['Initial page load time under 2 seconds.', 'UI updates (add, edit, delete) should be reflected in under 200ms.']), NonFunctionalRequirement(category='Usability', description='The interface must be intuitive and easy for a first-time user to understand.', metrics=['A new user can successfully add, complete, and delete a task within one minute without instructions.']), NonFunctionalRequirement(category='Compatibility', description='The application must function correctly on the latest versions of major web browsers.', metrics=['Full functionality is verified on the latest stable versions of Google Chrome, Mozilla Firefox, and Apple Safari.'])] complexity='low' estimated_timeline='20-30 developer hours' recommended_tech_stack=TechnologyStack(backend=['None (Client-side only)'], frontend=['HTML5', 'CSS3', 'JavaScript (ES6+)'], database=['Browser Local Storage'], devops=['Git', 'GitHub Pages']) project_structure=ProjectStructure(folders={'src': ['index.html', 'style.css', 'script.js'], 'games': ['tic-tac-toe.js'], 'assets': ['images/', 'icons/']}) risks=['Data Loss: Since data is stored in local storage, users can inadvertently clear it through browser settings, leading to permanent data loss.', 'Scope Creep: Requests for features like user accounts, cloud sync, or task categories could significantly increase complexity and development time.', 'Browser Inconsistencies: Minor visual or functional differences may occur across different web browsers, requiring specific CSS/JS fixes.'] assumptions=['A backend with user authentication is not required for the initial version.', 'The application will rely solely on browser local storage for data persistence.', 'The design will be simple and functional, prioritizing usability over complex aesthetics.']",
+    "Raw LLM response (structured): functional_requirements=[FunctionalRequirement(id='FR-001', description='Users can add new tasks to their to-do list.', priority='high', acceptance_criteria=['An input field is available for entering task descriptions.', \"A button or the 'Enter' key submits the new task.\", 'The new task appears in the task list upon submission.']), FunctionalRequirement(id='FR-002', description='Users can view a list of all their tasks.', priority='high', acceptance_criteria=['All added tasks are displayed in a list format.', 'Each task item clearly shows its description.']), FunctionalRequirement(id='FR-003', description='Users can mark tasks as complete or incomplete.', priority='high', acceptance_criteria=['Each task has a checkbox or a similar interactive element to mark it as complete.', \"Clicking the element toggles the task's completion status.\", 'Completed tasks are visually differentiated from pending tasks (e.g., with a strikethrough).']), FunctionalRequirement(id='FR-004', description='Users can edit the description of existing tasks.', priority='medium', acceptance_criteria=[\"An 'Edit' option is available for each task.\", 'Users can modify the text of a task and save the changes.']), FunctionalRequirement(id='FR-005', description='Users can delete tasks from their list.', priority='high', acceptance_criteria=[\"A 'Delete' option is available for each task.\", \"Clicking the 'Delete' option removes the task from the list.\"]), FunctionalRequirement(id='FR-006', description=\"Tasks are saved persistently using the browser's local storage.\", priority='high', acceptance_criteria=['Tasks persist in the browser after a page refresh or closing and reopening the tab.', 'Task status (completed/pending) is also saved.']), FunctionalRequirement(id='FR-007', description='The application is responsive and works on both mobile and desktop devices.', priority='medium', acceptance_criteria=['The application layout adjusts gracefully to different screen sizes, from mobile phones to desktops.', 'All functionality is accessible and usable on all supported screen sizes.'])] non_functional_requirements=[NonFunctionalRequirement(category='Performance', description='The application should load quickly and provide smooth user interactions.', metrics=['Initial page load time under 2 seconds.', 'UI updates (add, edit, delete) should be reflected in under 200ms.']), NonFunctionalRequirement(category='Usability', description='The interface must be intuitive and easy for a first-time user to understand.', metrics=['A new user can successfully add, complete, and delete a task within one minute without instructions.']), NonFunctionalRequirement(category='Compatibility', description='The application must function correctly on the latest versions of major web browsers.', metrics=['Full functionality is verified on the latest stable versions of Google Chrome, Mozilla Firefox, and Apple Safari.'])] complexity='low' estimated_timeline='20-30 developer hours' recommended_tech_stack=TechnologyStack(backend=['None (Client-side only)'], frontend=['HTML5', 'CSS3', 'JavaScript (ES6+)'], database=['Browser Local Storage'], devops=['Git', 'GitHub Pages']) project_structure=ProjectStructure(folders={'src': ['index.html', 'style.css', 'script.js'], 'games': ['tic-tac-toe.js'], 'assets': ['images/', 'icons/']}) risks=['Data Loss: Since data is stored in local storage, users can inadvertently clear it through browser settings, leading to permanent data loss.', 'Scope Creep: Requests for features like user accounts, cloud sync, or task categories could significantly increase complexity and development time.', 'Browser Inconsistencies: Minor visual or functional differences may occur across different web browsers, requiring specific CSS/JS fixes.'] assumptions=['A backend with user authentication is not required for the initial version.', 'The application will rely solely on browser local storage for data persistence.', 'The design will be simple and functional, prioritizing usability over complex aesthetics.']"
+  ],
+  "files": [],
+  "current_step": null,
+  "completed": false,
+  "enable_github": false,
+  "github_username": "",
+  "github_token": "",
+  "generate_tests": true,
+  "generate_devops": true,
+  "last_saved": "2025-11-21T13:42:06.719945+05:30",
+  "state": {
+    "project_id": "proj-1763712693",
+    "project_name": "zoko",
+    "requirements": "Basic To-Do List Website Requirements\r\nUser Interface:\r\n\r\nSimple input field to add new tasks quickly.\r\n\r\nList display area showing tasks clearly.\r\n\r\nCheckboxes or toggles to mark tasks as completed.\r\n\r\nEdit and delete options for existing tasks.\r\n\r\nResponsive design for use on both desktop and mobile devices.\r\n\r\nTask Management:\r\n\r\nAbility to add, edit, and delete tasks.\r\n\r\nMark tasks as complete or incomplete.\r\n\r\nOption to prioritize or categorize tasks.\r\n\r\nSave tasks persistently (local storage or backend database).\r\n\r\nUser Experience:\r\n\r\nClear visual differentiation between completed and pending tasks.\r\n\r\nEasy navigation and intuitive controls.\r\n\r\nOption to reorder tasks by drag and drop or priority.\r\n\r\nTechnical Requirements:\r\n\r\nResponsive front-end using HTML, CSS, and JavaScript.\r\n\r\nOptional backend for user authentication and task storage (using database).\r\n\r\nCross-browser compatibility.\r\n\r\nPerformance optimized for fast load and smooth interactions.\r\n\r\n",
+    "status": "awaiting_review",
+    "created_at": "2025-11-21T13:41:33.412002",
+    "updated_at": "2025-11-21T13:41:33.412002",
+    "steps": [],
+    "logs": [
+      "LOG:Workflow started"
+    ],
+    "files": [],
+    "current_step": "requirements",
+    "completed": false,
+    "enable_github": false,
+    "github_username": "",
+    "github_token": "",
+    "generate_tests": true,
+    "generate_devops": true,
+    "last_saved": "2025-11-21T13:41:39.418739+05:30",
+    "checkpoint_data": {
+      "stage": "requirements",
+      "analysis": {
+        "functional_requirements": [
+          {
+            "id": "FR-001",
+            "description": "Users can add new tasks to their to-do list.",
+            "priority": "high",
+            "acceptance_criteria": [
+              "An input field is available for entering task descriptions.",
+              "A button or the 'Enter' key submits the new task.",
+              "The new task appears in the task list upon submission."
+            ]
+          },
+          {
+            "id": "FR-002",
+            "description": "Users can view a list of all their tasks.",
+            "priority": "high",
+            "acceptance_criteria": [
+              "All added tasks are displayed in a list format.",
+              "Each task item clearly shows its description."
+            ]
+          },
+          {
+            "id": "FR-003",
+            "description": "Users can mark tasks as complete or incomplete.",
+            "priority": "high",
+            "acceptance_criteria": [
+              "Each task has a checkbox or a similar interactive element to mark it as complete.",
+              "Clicking the element toggles the task's completion status.",
+              "Completed tasks are visually differentiated from pending tasks (e.g., with a strikethrough)."
+            ]
+          },
+          {
+            "id": "FR-004",
+            "description": "Users can edit the description of existing tasks.",
+            "priority": "medium",
+            "acceptance_criteria": [
+              "An 'Edit' option is available for each task.",
+              "Users can modify the text of a task and save the changes."
+            ]
+          },
+          {
+            "id": "FR-005",
+            "description": "Users can delete tasks from their list.",
+            "priority": "high",
+            "acceptance_criteria": [
+              "A 'Delete' option is available for each task.",
+              "Clicking the 'Delete' option removes the task from the list."
+            ]
+          },
+          {
+            "id": "FR-006",
+            "description": "Tasks are saved persistently using the browser's local storage.",
+            "priority": "high",
+            "acceptance_criteria": [
+              "Tasks persist in the browser after a page refresh or closing and reopening the tab.",
+              "Task status (completed/pending) is also saved."
+            ]
+          },
+          {
+            "id": "FR-007",
+            "description": "The application is responsive and works on both mobile and desktop devices.",
+            "priority": "medium",
+            "acceptance_criteria": [
+              "The application layout adjusts gracefully to different screen sizes, from mobile phones to desktops.",
+              "All functionality is accessible and usable on all supported screen sizes."
+            ]
+          }
+        ],
+        "non_functional_requirements": [
+          {
+            "category": "Performance",
+            "description": "The application should load quickly and provide smooth user interactions.",
+            "metrics": [
+              "Initial page load time under 2 seconds.",
+              "UI updates (add, edit, delete) should be reflected in under 200ms."
+            ]
+          },
+          {
+            "category": "Usability",
+            "description": "The interface must be intuitive and easy for a first-time user to understand.",
+            "metrics": [
+              "A new user can successfully add, complete, and delete a task within one minute without instructions."
+            ]
+          },
+          {
+            "category": "Compatibility",
+            "description": "The application must function correctly on the latest versions of major web browsers.",
+            "metrics": [
+              "Full functionality is verified on the latest stable versions of Google Chrome, Mozilla Firefox, and Apple Safari."
+            ]
+          }
+        ],
+        "complexity": "low",
+        "estimated_timeline": "20-30 developer hours",
+        "recommended_tech_stack": {
+          "backend": [
+            "None (Client-side only)"
+          ],
+          "frontend": [
+            "HTML5",
+            "CSS3",
+            "JavaScript (ES6+)"
+          ],
+          "database": [
+            "Browser Local Storage"
+          ],
+          "devops": [
+            "Git",
+            "GitHub Pages"
+          ]
+        },
+        "project_structure": {
+          "folders": {
+            "src": [
+              "index.html",
+              "style.css",
+              "script.js"
+            ],
+            "games": [
+              "tic-tac-toe.js"
+            ],
+            "assets": [
+              "images/",
+              "icons/"
+            ]
+          }
+        },
+        "risks": [
+          "Data Loss: Since data is stored in local storage, users can inadvertently clear it through browser settings, leading to permanent data loss.",
+          "Scope Creep: Requests for features like user accounts, cloud sync, or task categories could significantly increase complexity and development time.",
+          "Browser Inconsistencies: Minor visual or functional differences may occur across different web browsers, requiring specific CSS/JS fixes."
+        ],
+        "assumptions": [
+          "A backend with user authentication is not required for the initial version.",
+          "The application will rely solely on browser local storage for data persistence.",
+          "The design will be simple and functional, prioritizing usability over complex aesthetics."
+        ]
+      },
+      "requires_modification": false,
+      "modification_comments": []
+    },
+    "awaiting_review": true,
+    "message": "Requirements analysis complete. Awaiting human review.",
+    "steps_completed": [
+      "requirements"
+    ]
+  }
+}

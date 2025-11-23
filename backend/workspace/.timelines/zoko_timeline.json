@@ -1,0 +1,80 @@
+{
+  "project_id": "zoko",
+  "stages": [
+    {
+      "name": "requirements",
+      "progress": 60,
+      "status": "in_progress",
+      "started_at": "2025-11-21T13:41:39.477509+05:30",
+      "completed_at": null,
+      "estimated_duration": null,
+      "actual_duration": null,
+      "milestones": [
+        {
+          "name": "Initialization",
+          "timestamp": "2025-11-21T13:41:39.455942+05:30",
+          "description": null
+        },
+        {
+          "name": "Project Classification",
+          "timestamp": "2025-11-21T13:41:39.477509+05:30",
+          "description": null
+        },
+        {
+          "name": "Domain Research",
+          "timestamp": "2025-11-21T13:41:39.501742+05:30",
+          "description": null
+        },
+        {
+          "name": "Requirements Generation",
+          "timestamp": "2025-11-21T13:41:39.523313+05:30",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "architecture",
+      "progress": 0.0,
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "estimated_duration": null,
+      "actual_duration": null,
+      "milestones": []
+    },
+    {
+      "name": "development",
+      "progress": 0.0,
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "estimated_duration": null,
+      "actual_duration": null,
+      "milestones": []
+    },
+    {
+      "name": "qa",
+      "progress": 0.0,
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "estimated_duration": null,
+      "actual_duration": null,
+      "milestones": []
+    },
+    {
+      "name": "devops",
+      "progress": 0.0,
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "estimated_duration": null,
+      "actual_duration": null,
+      "milestones": []
+    }
+  ],
+  "overall_progress": 12.0,
+  "estimated_completion": "2025-11-21T13:41:40.201111+05:30",
+  "created_at": "2025-11-21T13:41:39.430886+05:30",
+  "updated_at": "2025-11-21T13:41:39.523313+05:30"
+}

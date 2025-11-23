@@ -1,0 +1,12 @@
+[
+  {
+    "role": "user",
+    "content": "approve",
+    "timestamp": "2025-11-23T00:56:58.266577"
+  },
+  {
+    "role": "ai",
+    "content": "✅ Approved! Proceeding to the next stage...",
+    "timestamp": "2025-11-23T00:57:16.559101"
+  }
+]

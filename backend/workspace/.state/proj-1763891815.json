@@ -1,0 +1,28 @@
+{
+  "project_id": "proj-1763891815",
+  "name": "ExceptionTest2",
+  "project_name": "ExceptionTest2",
+  "type": "website",
+  "requirements": "Simple requirements",
+  "status": "created",
+  "created_at": "2025-11-23T15:26:55.665880",
+  "updated_at": "2025-11-23T15:26:55.665880",
+  "steps": [],
+  "steps_completed": [],
+  "logs": [],
+  "files": [],
+  "generated_files": [],
+  "current_step": null,
+  "completed": false,
+  "user_context": {
+    "project_name": "ExceptionTest2",
+    "project_type": "website",
+    "requirements": "Simple requirements"
+  },
+  "enable_github": false,
+  "github_username": "",
+  "github_token": "",
+  "generate_tests": true,
+  "generate_devops": true,
+  "last_saved": "2025-11-23T15:26:55.665880+05:30"
+}

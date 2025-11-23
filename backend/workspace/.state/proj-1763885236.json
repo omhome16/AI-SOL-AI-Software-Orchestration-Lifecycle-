@@ -1,0 +1,28 @@
+{
+  "project_id": "proj-1763885236",
+  "name": "SimpleApp",
+  "project_name": "SimpleApp",
+  "type": "website",
+  "requirements": "A basic calculator app with addition and subtraction",
+  "status": "created",
+  "created_at": "2025-11-23T13:37:16.063604",
+  "updated_at": "2025-11-23T13:37:16.063604",
+  "steps": [],
+  "steps_completed": [],
+  "logs": [],
+  "files": [],
+  "generated_files": [],
+  "current_step": null,
+  "completed": false,
+  "user_context": {
+    "project_name": "SimpleApp",
+    "project_type": "website",
+    "requirements": "A basic calculator app with addition and subtraction"
+  },
+  "enable_github": false,
+  "github_username": "",
+  "github_token": "",
+  "generate_tests": true,
+  "generate_devops": true,
+  "last_saved": "2025-11-23T13:37:16.063604+05:30"
+}

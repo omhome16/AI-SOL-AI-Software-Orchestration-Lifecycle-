@@ -1,0 +1,121 @@
+{
+  "project_id": "tomodo",
+  "stages": [
+    {
+      "name": "requirements",
+      "progress": 60.0,
+      "status": "in_progress",
+      "started_at": "2025-11-19T20:23:49.214773+05:30",
+      "completed_at": null,
+      "estimated_duration": null,
+      "actual_duration": null,
+      "milestones": [
+        {
+          "name": "Initialization",
+          "timestamp": "2025-11-19T20:23:49.193629+05:30",
+          "description": null
+        },
+        {
+          "name": "Project Classification",
+          "timestamp": "2025-11-19T20:23:49.214773+05:30",
+          "description": null
+        },
+        {
+          "name": "Domain Research",
+          "timestamp": "2025-11-19T20:23:49.241449+05:30",
+          "description": null
+        },
+        {
+          "name": "Requirements Generation",
+          "timestamp": "2025-11-19T20:23:51.359961+05:30",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "architecture",
+      "progress": 0.0,
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "estimated_duration": null,
+      "actual_duration": null,
+      "milestones": []
+    },
+    {
+      "name": "development",
+      "progress": 0.0,
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "estimated_duration": null,
+      "actual_duration": null,
+      "milestones": []
+    },
+    {
+      "name": "qa",
+      "progress": 100,
+      "status": "completed",
+      "started_at": "2025-11-19T21:29:07.630401+05:30",
+      "completed_at": "2025-11-19T21:29:40.339123+05:30",
+      "estimated_duration": null,
+      "actual_duration": null,
+      "milestones": [
+        {
+          "name": "Initialization",
+          "timestamp": "2025-11-19T21:29:07.606822+05:30",
+          "description": null
+        },
+        {
+          "name": "Context Loading",
+          "timestamp": "2025-11-19T21:29:07.630401+05:30",
+          "description": null
+        },
+        {
+          "name": "Framework Selection",
+          "timestamp": "2025-11-19T21:29:07.671371+05:30",
+          "description": null
+        },
+        {
+          "name": "Code Analysis",
+          "timestamp": "2025-11-19T21:29:07.692193+05:30",
+          "description": null
+        },
+        {
+          "name": "Test Generation",
+          "timestamp": "2025-11-19T21:29:07.977203+05:30",
+          "description": null
+        },
+        {
+          "name": "Context Update",
+          "timestamp": "2025-11-19T21:29:40.293338+05:30",
+          "description": null
+        },
+        {
+          "name": "Documentation",
+          "timestamp": "2025-11-19T21:29:40.317238+05:30",
+          "description": null
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-19T21:29:40.339123+05:30",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "devops",
+      "progress": 0.0,
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "estimated_duration": null,
+      "actual_duration": null,
+      "milestones": []
+    }
+  ],
+  "overall_progress": 32.0,
+  "estimated_completion": "2025-11-19T23:49:36.578973+05:30",
+  "created_at": "2025-11-19T20:23:49.167429+05:30",
+  "updated_at": "2025-11-19T21:29:40.339123+05:30"
+}

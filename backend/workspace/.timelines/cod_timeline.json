@@ -1,0 +1,70 @@
+{
+  "project_id": "cod",
+  "stages": [
+    {
+      "name": "requirements",
+      "progress": 20,
+      "status": "in_progress",
+      "started_at": "2025-11-23T13:19:08.027533+05:30",
+      "completed_at": null,
+      "estimated_duration": null,
+      "actual_duration": null,
+      "milestones": [
+        {
+          "name": "Initialization",
+          "timestamp": "2025-11-23T13:19:07.989099+05:30",
+          "description": null
+        },
+        {
+          "name": "Project Classification",
+          "timestamp": "2025-11-23T13:19:08.027533+05:30",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "architecture",
+      "progress": 0.0,
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "estimated_duration": null,
+      "actual_duration": null,
+      "milestones": []
+    },
+    {
+      "name": "development",
+      "progress": 0.0,
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "estimated_duration": null,
+      "actual_duration": null,
+      "milestones": []
+    },
+    {
+      "name": "qa",
+      "progress": 0.0,
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "estimated_duration": null,
+      "actual_duration": null,
+      "milestones": []
+    },
+    {
+      "name": "devops",
+      "progress": 0.0,
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "estimated_duration": null,
+      "actual_duration": null,
+      "milestones": []
+    }
+  ],
+  "overall_progress": 4.0,
+  "estimated_completion": "2025-11-23T13:19:09.475213+05:30",
+  "created_at": "2025-11-23T13:19:07.967213+05:30",
+  "updated_at": "2025-11-23T13:19:08.027533+05:30"
+}

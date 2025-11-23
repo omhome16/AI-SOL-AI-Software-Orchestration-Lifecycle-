@@ -1,0 +1,28 @@
+{
+  "project_id": "mosss",
+  "project_name": "mosss",
+  "requirements": "Requirements:\r\n\r\nBuild a modern, user-friendly to-do list web application called \"MoCo Tasks\" that helps users organize their daily tasks efficiently.\r\n\r\nCore Features:\r\n\r\nTask Management: Users should be able to add, edit, delete, and mark tasks as complete\r\nTask Organization: Support for categorizing tasks with labels/tags (e.g., Work, Personal, Shopping)\r\nPriority Levels: Allow users to set task priorities (High, Medium, Low) with visual indicators\r\nDue Dates: Add optional due dates to tasks with overdue warnings\r\nSearch & Filter: Quick search functionality and filtering by status, priority, and category\r\nPersistent Storage: Tasks should be saved locally (browser localStorage) so they persist across sessions\r\nDark Mode: Toggle between light and dark themes\r\nResponsive Design: Works seamlessly on desktop, tablet, and mobile devices\r\nUser Experience:\r\n\r\nClean, minimalist interface with smooth animations\r\nKeyboard shortcuts for power users (e.g., Ctrl+N for new task, Ctrl+Enter to save)\r\nDrag-and-drop to reorder tasks\r\nCelebration animation when completing tasks\r\nProgress indicator showing completion percentage\r\nTechnical Preferences:\r\n\r\nModern JavaScript (ES6+)\r\nCSS with glassmorphism design style\r\nNo backend required initially (100% client-side)\r\nFast loading time (under 2 seconds)\r\nNice-to-Have Features:\r\n\r\nTask statistics dashboard showing productivity trends\r\nRecurring tasks functionality\r\nExport tasks as JSON\r\nPrint-friendly view\r\n",
+  "project_type": "web_application",
+  "complexity_level": "medium",
+  "functional_requirements": [],
+  "non_functional_requirements": [],
+  "technology_stack": {
+    "backend": [],
+    "frontend": [],
+    "database": [],
+    "devops": []
+  },
+  "architecture_pattern": null,
+  "component_specifications": [],
+  "data_models": [],
+  "generated_files": [],
+  "test_results": {},
+  "test_coverage": 0.0,
+  "security_report": {},
+  "deployment_strategy": null,
+  "domain": "general",
+  "blueprint": null,
+  "project_root": ".",
+  "estimated_timeline": null,
+  "updated_at": "2025-11-22T23:08:29.656754"
+}

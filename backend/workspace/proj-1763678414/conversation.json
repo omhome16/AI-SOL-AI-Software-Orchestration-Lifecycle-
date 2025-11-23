@@ -1,0 +1,13 @@
+[
+  {
+    "role": "user",
+    "content": "hii",
+    "timestamp": "2025-11-21T04:11:41.968510"
+  },
+  {
+    "role": "ai",
+    "content": "I encountered an error generating the explanation. Please review the generated documentation files for details.",
+    "timestamp": "2025-11-21T04:11:46.886275",
+    "buttons": []
+  }
+]

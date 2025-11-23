@@ -1,0 +1,170 @@
+{
+  "state": {
+    "task_id": "proj-086468ee",
+    "project_name": "sadsd",
+    "workspace_path": "workspace\\development\\sadsd",
+    "requirements": "Basic To-Do List Website Requirements\r\nUser Interface:\r\n\r\nSimple input field to add new tasks quickly.\r\n\r\nList display area showing tasks clearly.\r\n\r\nCheckboxes or toggles to mark tasks as completed.\r\n\r\nEdit and delete options for existing tasks.\r\n\r\nResponsive design for use on both desktop and mobile devices.\r\n\r\nTask Management:\r\n\r\nAbility to add, edit, and delete tasks.\r\n\r\nMark tasks as complete or incomplete.\r\n\r\nOption to prioritize or categorize tasks.\r\n\r\nSave tasks persistently (local storage or backend database).\r\n\r\nUser Experience:\r\n\r\nClear visual differentiation between completed and pending tasks.\r\n\r\nEasy navigation and intuitive controls.\r\n\r\nOption to reorder tasks by drag and drop or priority.\r\n\r\nTechnical Requirements:\r\n\r\nResponsive front-end using HTML, CSS, and JavaScript.\r\n\r\nOptional backend for user authentication and task storage (using database).\r\n\r\nCross-browser compatibility.\r\n\r\nPerformance optimized for fast load and smooth interactions.",
+    "user_context": {
+      "project_type": "website",
+      "enable_research": true,
+      "inspiration_images": [
+        "workspace\\development\\sadsd\\inspiration_images\\dsad.webp"
+      ],
+      "enable_github": true,
+      "github_username": "omhome16",
+      "github_token": "SHA256:SrTICN5gQz3CNRcuZcreKlgpg4zhAVG+4JxnpWsuIGk",
+      "generate_tests": true,
+      "generate_devops": true
+    },
+    "current_step": "requirements",
+    "steps_completed": [],
+    "status": "failed",
+    "orchestrator_thoughts": [],
+    "web_search_results": {},
+    "requirements_output": null,
+    "architecture_output": null,
+    "developer_output": null,
+    "qa_output": null,
+    "devops_output": null,
+    "generated_files": [],
+    "generated_documents": [],
+    "code_quality_score": 0.0,
+    "security_issues": [],
+    "test_coverage": 0.0,
+    "github_repo_url": null,
+    "github_commit_sha": null,
+    "requires_human_input": false,
+    "human_prompt": null,
+    "human_response": null,
+    "similar_projects": [],
+    "learned_patterns": [],
+    "errors": [],
+    "retry_count": {},
+    "created_at": "2025-11-20T14:56:48.951185+05:30",
+    "updated_at": "2025-11-20T14:56:48.951185+05:30",
+    "completed_at": null,
+    "checkpoint_data": {
+      "stage": "requirements",
+      "analysis": {
+        "functional_requirements": [
+          {
+            "id": "FR-001",
+            "description": "Core functionality implementation",
+            "priority": "high",
+            "acceptance_criteria": [
+              "System implements core functionality implementation"
+            ]
+          },
+          {
+            "id": "FR-002",
+            "description": "User interface and experience",
+            "priority": "high",
+            "acceptance_criteria": [
+              "System implements user interface and experience"
+            ]
+          },
+          {
+            "id": "FR-003",
+            "description": "Data management and storage",
+            "priority": "medium",
+            "acceptance_criteria": [
+              "System implements data management and storage"
+            ]
+          }
+        ],
+        "non_functional_requirements": [
+          {
+            "category": "performance",
+            "description": "System performance requirements",
+            "metrics": [
+              "Meet performance standards"
+            ]
+          },
+          {
+            "category": "security",
+            "description": "Security and data protection",
+            "metrics": [
+              "Meet security standards"
+            ]
+          }
+        ],
+        "complexity": "low",
+        "estimated_timeline": "2 days",
+        "recommended_tech_stack": {
+          "backend": [
+            "Python",
+            "Node.js"
+          ],
+          "frontend": [
+            "React",
+            "Vue.js"
+          ],
+          "database": [
+            "PostgreSQL",
+            "MongoDB"
+          ],
+          "devops": [
+            "Docker",
+            "AWS"
+          ]
+        },
+        "project_structure": {
+          "folders": {
+            "src": [
+              "index.html",
+              "style.css",
+              "script.js"
+            ],
+            "assets": [
+              "images/",
+              "icons/"
+            ],
+            "docs": [
+              "README.md"
+            ]
+          }
+        },
+        "risks": [
+          "Technical complexity",
+          "User adoption",
+          "Maintenance overhead"
+        ],
+        "assumptions": [
+          "Modern technology stack",
+          "User training",
+          "Infrastructure support"
+        ]
+      },
+      "requires_modification": false,
+      "modification_comments": []
+    },
+    "awaiting_review": true,
+    "message": "Requirements analysis complete. Awaiting human review.",
+    "error": "Stage requirements failed"
+  },
+  "tools": null,
+  "orchestrator": null,
+  "engine": null,
+  "status": "created",
+  "logs": [
+    "LOG:Workflow started",
+    "STARTED:requirements",
+    "LOG:Running requirements agent...",
+    "ERROR:Stage requirements failed",
+    "[14:57:11] [REQUIREMENTS_ANALYST] Starting domain-aware requirements analysis",
+    "[14:57:11] [REQUIREMENTS_ANALYST] Classifying project type and domain",
+    "[14:57:11] [REQUIREMENTS_ANALYST] No context found for project sadsd",
+    "[14:57:11] [REQUIREMENTS_ANALYST] Creating initial context from requirements",
+    "[14:57:11] [REQUIREMENTS_ANALYST] Researching best practices for general domain",
+    "[14:57:11] [REQUIREMENTS_ANALYST] Researching: best practices general web_application development",
+    "[14:57:12] [REQUIREMENTS_ANALYST] Tool web_search called: True",
+    "[14:57:12] [REQUIREMENTS_ANALYST] Researching: general software requirements standards",
+    "[14:57:13] [REQUIREMENTS_ANALYST] Tool web_search called: True",
+    "[14:57:13] [REQUIREMENTS_ANALYST] Researching: web_application architecture patterns general",
+    "[14:57:13] [REQUIREMENTS_ANALYST] Tool web_search called: True",
+    "[14:57:13] [REQUIREMENTS_ANALYST] Domain research completed: 3 results found",
+    "[14:57:13] [REQUIREMENTS_ANALYST] Generating domain-specific requirements",
+    "[14:57:13] [REQUIREMENTS_ANALYST] LLM analysis failed: LLM not initialized for agent requirements_analyst. Check configuration and dependencies."
+  ],
+  "last_saved": "2025-11-20T14:57:13.540100+05:30"
+}

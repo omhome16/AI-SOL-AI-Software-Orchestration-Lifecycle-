@@ -1,0 +1,12 @@
+[
+  {
+    "role": "user",
+    "content": "HI",
+    "timestamp": "2025-11-22T16:12:32.956091"
+  },
+  {
+    "role": "ai",
+    "content": "Hello! I'm ready to help you get started on your new project.\n\nTo begin, please describe the project you have in mind. What would you like to create?",
+    "timestamp": "2025-11-22T16:12:50.026722"
+  }
+]

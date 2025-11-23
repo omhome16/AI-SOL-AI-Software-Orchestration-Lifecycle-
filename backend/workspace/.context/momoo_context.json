@@ -1,0 +1,271 @@
+{
+  "project_id": "momoo",
+  "project_name": "momoo",
+  "requirements": "Basic To-Do List Website Requirements\r\nUser Interface:\r\n\r\nSimple input field to add new tasks quickly.\r\n\r\nList display area showing tasks clearly.\r\n\r\nCheckboxes or toggles to mark tasks as completed.\r\n\r\nEdit and delete options for existing tasks.\r\n\r\nResponsive design for use on both desktop and mobile devices.\r\n\r\nTask Management:\r\n\r\nAbility to add, edit, and delete tasks.\r\n\r\nMark tasks as complete or incomplete.\r\n\r\nOption to prioritize or categorize tasks.\r\n\r\nSave tasks persistently (local storage or backend database).\r\n\r\nUser Experience:\r\n\r\nClear visual differentiation between completed and pending tasks.\r\n\r\nEasy navigation and intuitive controls.\r\n\r\nOption to reorder tasks by drag and drop or priority.\r\n\r\nTechnical Requirements:\r\n\r\nResponsive front-end using HTML, CSS, and JavaScript.\r\n\r\nOptional backend for user authentication and task storage (using database).\r\n\r\nCross-browser compatibility.\r\n\r\nPerformance optimized for fast load and smooth interactions.",
+  "project_type": "web_application",
+  "complexity_level": "medium",
+  "functional_requirements": [],
+  "non_functional_requirements": [],
+  "technology_stack": {
+    "backend": [],
+    "frontend": [],
+    "database": [],
+    "devops": []
+  },
+  "architecture_pattern": null,
+  "component_specifications": [],
+  "data_models": [],
+  "generated_files": [],
+  "test_results": {},
+  "test_coverage": 0.0,
+  "security_report": {},
+  "deployment_strategy": null,
+  "domain": "general",
+  "blueprint": {
+    "explanation": "This architecture blueprint outlines a modern, full-stack web application named 'momoo'. It employs a decoupled frontend/backend structure, ideal for scalability and independent development. The backend is a Node.js/Express application designed with a service-oriented, modular monolith pattern, making it easy to evolve into microservices. It uses Prisma as an ORM for type-safe database access to a PostgreSQL database. The frontend is a Single-Page Application (SPA) built with React (using Vite for a fast development experience), featuring a component-based architecture, centralized state management via React Context for authentication, and a dedicated API service layer for communicating with the backend.",
+    "folder_structure": [
+      "api",
+      "api/prisma",
+      "api/src",
+      "api/src/config",
+      "api/src/controllers",
+      "api/src/db",
+      "api/src/middleware",
+      "api/src/routes",
+      "api/src/services",
+      "api/src/utils",
+      "web",
+      "web/src",
+      "web/src/components",
+      "web/src/components/auth",
+      "web/src/components/common",
+      "web/src/components/ui",
+      "web/src/contexts",
+      "web/src/hooks",
+      "web/src/pages",
+      "web/src/services",
+      "web/src/styles"
+    ],
+    "build_plan": [
+      {
+        "path": "README.md",
+        "purpose": "Project overview, setup instructions, and documentation.",
+        "dependencies": []
+      },
+      {
+        "path": ".gitignore",
+        "purpose": "Specifies intentionally untracked files to ignore by Git (e.g., node_modules, .env).",
+        "dependencies": []
+      },
+      {
+        "path": "package.json",
+        "purpose": "Root package.json to manage workspaces (api, web) and run top-level scripts.",
+        "dependencies": []
+      },
+      {
+        "path": "api/package.json",
+        "purpose": "Defines backend project metadata and dependencies (Express, Prisma, dotenv, etc.).",
+        "dependencies": []
+      },
+      {
+        "path": "api/.env.example",
+        "purpose": "Template for environment variables required by the backend (DATABASE_URL, JWT_SECRET, PORT).",
+        "dependencies": []
+      },
+      {
+        "path": "api/prisma/schema.prisma",
+        "purpose": "Defines the database schema, models (e.g., User), and relations using Prisma's schema language.",
+        "dependencies": []
+      },
+      {
+        "path": "api/src/config/index.js",
+        "purpose": "Loads and exports environment variables using dotenv for centralized configuration management.",
+        "dependencies": [
+          "api/.env.example"
+        ]
+      },
+      {
+        "path": "api/src/utils/logger.js",
+        "purpose": "A simple logging utility (e.g., using Winston or pino) for consistent logging across the application.",
+        "dependencies": []
+      },
+      {
+        "path": "api/src/db/client.js",
+        "purpose": "Initializes and exports a singleton instance of the Prisma client for database interaction.",
+        "dependencies": [
+          "api/prisma/schema.prisma"
+        ]
+      },
+      {
+        "path": "api/src/middleware/errorHandler.js",
+        "purpose": "Express error-handling middleware to catch and format errors consistently before sending a response.",
+        "dependencies": [
+          "api/src/utils/logger.js"
+        ]
+      },
+      {
+        "path": "api/src/middleware/asyncHandler.js",
+        "purpose": "A higher-order function to wrap async route handlers, catching errors and passing them to the error handler.",
+        "dependencies": []
+      },
+      {
+        "path": "api/src/services/userService.js",
+        "purpose": "Business logic for user-related operations like creating, finding, and updating users. Interacts with the database via the Prisma client.",
+        "dependencies": [
+          "api/src/db/client.js"
+        ]
+      },
+      {
+        "path": "api/src/services/authService.js",
+        "purpose": "Handles authentication logic, including user registration, password hashing/verification, and JWT generation.",
+        "dependencies": [
+          "api/src/services/userService.js",
+          "api/src/config/index.js"
+        ]
+      },
+      {
+        "path": "api/src/controllers/authController.js",
+        "purpose": "Handles incoming HTTP requests for authentication (e.g., /register, /login), validates input, and calls the appropriate service.",
+        "dependencies": [
+          "api/src/services/authService.js",
+          "api/src/middleware/asyncHandler.js"
+        ]
+      },
+      {
+        "path": "api/src/routes/authRoutes.js",
+        "purpose": "Defines the API endpoints for authentication (e.g., POST /api/auth/register) and maps them to controller functions.",
+        "dependencies": [
+          "api/src/controllers/authController.js"
+        ]
+      },
+      {
+        "path": "api/src/routes/index.js",
+        "purpose": "The main router file that aggregates all feature-specific routers (like authRoutes) into a single main router.",
+        "dependencies": [
+          "api/src/routes/authRoutes.js"
+        ]
+      },
+      {
+        "path": "api/src/app.js",
+        "purpose": "The core Express application file. It sets up middleware (CORS, JSON parsing), mounts the main router, and configures the global error handler.",
+        "dependencies": [
+          "api/src/routes/index.js",
+          "api/src/middleware/errorHandler.js"
+        ]
+      },
+      {
+        "path": "api/src/server.js",
+        "purpose": "The entry point of the backend application. It imports the Express app, listens on a configured port, and handles graceful shutdown.",
+        "dependencies": [
+          "api/src/app.js",
+          "api/src/config/index.js",
+          "api/src/utils/logger.js"
+        ]
+      },
+      {
+        "path": "web/package.json",
+        "purpose": "Defines frontend project metadata and dependencies (React, Vite, Axios, react-router-dom).",
+        "dependencies": []
+      },
+      {
+        "path": "web/.env.example",
+        "purpose": "Template for environment variables required by the frontend (e.g., VITE_API_BASE_URL).",
+        "dependencies": []
+      },
+      {
+        "path": "web/index.html",
+        "purpose": "The main HTML entry point for the React SPA, where the application is mounted.",
+        "dependencies": []
+      },
+      {
+        "path": "web/src/styles/global.css",
+        "purpose": "Global CSS styles and resets for the entire application.",
+        "dependencies": []
+      },
+      {
+        "path": "web/src/services/apiClient.js",
+        "purpose": "An Axios instance configured with the backend base URL and interceptors for handling API requests and responses (e.g., attaching auth tokens).",
+        "dependencies": []
+      },
+      {
+        "path": "web/src/hooks/useAuth.js",
+        "purpose": "A custom React hook that provides a simple interface to access the authentication context (e.g., `const { user, login } = useAuth()`).",
+        "dependencies": []
+      },
+      {
+        "path": "web/src/contexts/AuthProvider.jsx",
+        "purpose": "A React Context Provider that manages global authentication state (user, token) and provides functions for login/logout.",
+        "dependencies": [
+          "web/src/services/apiClient.js",
+          "web/src/hooks/useAuth.js"
+        ]
+      },
+      {
+        "path": "web/src/components/ui/Button.jsx",
+        "purpose": "A generic, reusable button component with consistent styling.",
+        "dependencies": []
+      },
+      {
+        "path": "web/src/components/ui/Input.jsx",
+        "purpose": "A generic, reusable input field component with consistent styling and state handling.",
+        "dependencies": []
+      },
+      {
+        "path": "web/src/components/auth/LoginForm.jsx",
+        "purpose": "A form component for user login, containing input fields and a submit button. It uses the auth context to perform the login action.",
+        "dependencies": [
+          "web/src/components/ui/Button.jsx",
+          "web/src/components/ui/Input.jsx",
+          "web/src/hooks/useAuth.js"
+        ]
+      },
+      {
+        "path": "web/src/pages/LoginPage.jsx",
+        "purpose": "A page component that renders the login form and handles the overall layout for the login screen.",
+        "dependencies": [
+          "web/src/components/auth/LoginForm.jsx"
+        ]
+      },
+      {
+        "path": "web/src/pages/HomePage.jsx",
+        "purpose": "The main landing page for authenticated users, displayed after a successful login.",
+        "dependencies": []
+      },
+      {
+        "path": "web/src/components/common/ProtectedRoute.jsx",
+        "purpose": "A route guard component that checks for user authentication. If the user is not logged in, it redirects them to the login page.",
+        "dependencies": [
+          "web/src/hooks/useAuth.js"
+        ]
+      },
+      {
+        "path": "web/src/AppRoutes.jsx",
+        "purpose": "Defines the application's routing structure using react-router-dom, mapping paths to page components and protecting routes.",
+        "dependencies": [
+          "web/src/pages/LoginPage.jsx",
+          "web/src/pages/HomePage.jsx",
+          "web/src/components/common/ProtectedRoute.jsx"
+        ]
+      },
+      {
+        "path": "web/src/App.jsx",
+        "purpose": "The root component of the React application. It wraps the entire app with context providers (like AuthProvider) and renders the router.",
+        "dependencies": [
+          "web/src/contexts/AuthProvider.jsx",
+          "web/src/AppRoutes.jsx"
+        ]
+      },
+      {
+        "path": "web/src/main.jsx",
+        "purpose": "The main entry point for the frontend application. It renders the root App component into the DOM.",
+        "dependencies": [
+          "web/src/App.jsx",
+          "web/src/styles/global.css"
+        ]
+      }
+    ]
+  },
+  "project_root": ".",
+  "estimated_timeline": null,
+  "updated_at": "2025-11-23T00:57:55.714728"
+}

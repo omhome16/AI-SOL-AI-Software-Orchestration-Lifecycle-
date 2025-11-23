@@ -1,0 +1,351 @@
+{
+  "project_id": "test_simple_game",
+  "stages": [
+    {
+      "name": "requirements",
+      "progress": 100.0,
+      "status": "completed",
+      "started_at": "2025-11-20T13:49:57.104185+05:30",
+      "completed_at": "2025-11-20T14:00:53.272449+05:30",
+      "estimated_duration": null,
+      "actual_duration": null,
+      "milestones": [
+        {
+          "name": "Initialization",
+          "timestamp": "2025-11-20T13:49:57.083829+05:30",
+          "description": null
+        },
+        {
+          "name": "Project Classification",
+          "timestamp": "2025-11-20T13:49:57.105186+05:30",
+          "description": null
+        },
+        {
+          "name": "Domain Research",
+          "timestamp": "2025-11-20T13:49:57.128678+05:30",
+          "description": null
+        },
+        {
+          "name": "Requirements Generation",
+          "timestamp": "2025-11-20T13:49:57.150997+05:30",
+          "description": null
+        },
+        {
+          "name": "Context Update",
+          "timestamp": "2025-11-20T13:49:57.174420+05:30",
+          "description": null
+        },
+        {
+          "name": "Documentation",
+          "timestamp": "2025-11-20T13:49:57.197394+05:30",
+          "description": null
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-20T13:49:57.225740+05:30",
+          "description": null
+        },
+        {
+          "name": "Initialization",
+          "timestamp": "2025-11-20T13:55:11.177738+05:30",
+          "description": null
+        },
+        {
+          "name": "Project Classification",
+          "timestamp": "2025-11-20T13:55:11.200626+05:30",
+          "description": null
+        },
+        {
+          "name": "Domain Research",
+          "timestamp": "2025-11-20T13:55:11.225789+05:30",
+          "description": null
+        },
+        {
+          "name": "Requirements Generation",
+          "timestamp": "2025-11-20T13:55:11.249070+05:30",
+          "description": null
+        },
+        {
+          "name": "Context Update",
+          "timestamp": "2025-11-20T13:55:11.274398+05:30",
+          "description": null
+        },
+        {
+          "name": "Documentation",
+          "timestamp": "2025-11-20T13:55:11.299916+05:30",
+          "description": null
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-20T13:55:11.327578+05:30",
+          "description": null
+        },
+        {
+          "name": "Initialization",
+          "timestamp": "2025-11-20T13:56:53.059202+05:30",
+          "description": null
+        },
+        {
+          "name": "Project Classification",
+          "timestamp": "2025-11-20T13:56:53.082311+05:30",
+          "description": null
+        },
+        {
+          "name": "Domain Research",
+          "timestamp": "2025-11-20T13:56:53.107784+05:30",
+          "description": null
+        },
+        {
+          "name": "Requirements Generation",
+          "timestamp": "2025-11-20T13:56:53.142482+05:30",
+          "description": null
+        },
+        {
+          "name": "Context Update",
+          "timestamp": "2025-11-20T13:56:53.167824+05:30",
+          "description": null
+        },
+        {
+          "name": "Documentation",
+          "timestamp": "2025-11-20T13:56:53.194021+05:30",
+          "description": null
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-20T13:56:53.220674+05:30",
+          "description": null
+        },
+        {
+          "name": "Initialization",
+          "timestamp": "2025-11-20T14:00:30.504436+05:30",
+          "description": null
+        },
+        {
+          "name": "Project Classification",
+          "timestamp": "2025-11-20T14:00:30.528292+05:30",
+          "description": null
+        },
+        {
+          "name": "Domain Research",
+          "timestamp": "2025-11-20T14:00:30.552834+05:30",
+          "description": null
+        },
+        {
+          "name": "Requirements Generation",
+          "timestamp": "2025-11-20T14:00:30.577179+05:30",
+          "description": null
+        },
+        {
+          "name": "Context Update",
+          "timestamp": "2025-11-20T14:00:53.221068+05:30",
+          "description": null
+        },
+        {
+          "name": "Documentation",
+          "timestamp": "2025-11-20T14:00:53.242872+05:30",
+          "description": null
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-20T14:00:53.272449+05:30",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "architecture",
+      "progress": 0.0,
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "estimated_duration": null,
+      "actual_duration": null,
+      "milestones": []
+    },
+    {
+      "name": "development",
+      "progress": 100,
+      "status": "completed",
+      "started_at": "2025-11-20T14:01:36.071772+05:30",
+      "completed_at": "2025-11-20T14:11:25.212510+05:30",
+      "estimated_duration": null,
+      "actual_duration": null,
+      "milestones": [
+        {
+          "name": "Initialization",
+          "timestamp": "2025-11-20T14:01:36.043831+05:30",
+          "description": null
+        },
+        {
+          "name": "Creating directories",
+          "timestamp": "2025-11-20T14:01:36.071772+05:30",
+          "description": null
+        },
+        {
+          "name": "Generating backend/.env",
+          "timestamp": "2025-11-20T14:01:36.120172+05:30",
+          "description": null
+        },
+        {
+          "name": "Generating backend/app/core/config.py",
+          "timestamp": "2025-11-20T14:01:41.854329+05:30",
+          "description": null
+        },
+        {
+          "name": "Generating backend/app/database.py",
+          "timestamp": "2025-11-20T14:01:58.513438+05:30",
+          "description": null
+        },
+        {
+          "name": "Generating backend/app/models/base.py",
+          "timestamp": "2025-11-20T14:02:13.457146+05:30",
+          "description": null
+        },
+        {
+          "name": "Generating backend/app/models/user.py",
+          "timestamp": "2025-11-20T14:03:01.502230+05:30",
+          "description": null
+        },
+        {
+          "name": "Generating backend/app/models/game_state.py",
+          "timestamp": "2025-11-20T14:03:20.613617+05:30",
+          "description": null
+        },
+        {
+          "name": "Generating backend/app/schemas/token.py",
+          "timestamp": "2025-11-20T14:03:41.620825+05:30",
+          "description": null
+        },
+        {
+          "name": "Generating backend/app/schemas/user.py",
+          "timestamp": "2025-11-20T14:03:47.618697+05:30",
+          "description": null
+        },
+        {
+          "name": "Generating backend/app/schemas/game.py",
+          "timestamp": "2025-11-20T14:03:59.923298+05:30",
+          "description": null
+        },
+        {
+          "name": "Generating backend/app/security.py",
+          "timestamp": "2025-11-20T14:04:21.208619+05:30",
+          "description": null
+        },
+        {
+          "name": "Generating backend/app/services/auth_service.py",
+          "timestamp": "2025-11-20T14:05:13.121384+05:30",
+          "description": null
+        },
+        {
+          "name": "Generating backend/app/services/game_service.py",
+          "timestamp": "2025-11-20T14:05:36.592277+05:30",
+          "description": null
+        },
+        {
+          "name": "Generating backend/app/routers/users.py",
+          "timestamp": "2025-11-20T14:06:30.371960+05:30",
+          "description": null
+        },
+        {
+          "name": "Generating backend/app/routers/game.py",
+          "timestamp": "2025-11-20T14:06:56.918763+05:30",
+          "description": null
+        },
+        {
+          "name": "Generating backend/app/main.py",
+          "timestamp": "2025-11-20T14:07:40.770637+05:30",
+          "description": null
+        },
+        {
+          "name": "Generating backend/requirements.txt",
+          "timestamp": "2025-11-20T14:08:13.777319+05:30",
+          "description": null
+        },
+        {
+          "name": "Generating backend/Dockerfile",
+          "timestamp": "2025-11-20T14:08:23.674575+05:30",
+          "description": null
+        },
+        {
+          "name": "Generating frontend/package.json",
+          "timestamp": "2025-11-20T14:08:34.677125+05:30",
+          "description": null
+        },
+        {
+          "name": "Generating frontend/vite.config.js",
+          "timestamp": "2025-11-20T14:08:46.411554+05:30",
+          "description": null
+        },
+        {
+          "name": "Generating frontend/index.html",
+          "timestamp": "2025-11-20T14:08:57.820144+05:30",
+          "description": null
+        },
+        {
+          "name": "Generating frontend/src/services/api.js",
+          "timestamp": "2025-11-20T14:09:11.243657+05:30",
+          "description": null
+        },
+        {
+          "name": "Generating frontend/src/components/Auth.jsx",
+          "timestamp": "2025-11-20T14:09:25.096200+05:30",
+          "description": null
+        },
+        {
+          "name": "Generating frontend/src/components/Game.jsx",
+          "timestamp": "2025-11-20T14:10:05.335263+05:30",
+          "description": null
+        },
+        {
+          "name": "Generating frontend/src/App.jsx",
+          "timestamp": "2025-11-20T14:10:57.212199+05:30",
+          "description": null
+        },
+        {
+          "name": "Generating frontend/src/main.jsx",
+          "timestamp": "2025-11-20T14:11:17.533019+05:30",
+          "description": null
+        },
+        {
+          "name": "Validating code",
+          "timestamp": "2025-11-20T14:11:25.160097+05:30",
+          "description": null
+        },
+        {
+          "name": "Final checks",
+          "timestamp": "2025-11-20T14:11:25.184886+05:30",
+          "description": null
+        },
+        {
+          "name": "Complete",
+          "timestamp": "2025-11-20T14:11:25.212510+05:30",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "qa",
+      "progress": 0.0,
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "estimated_duration": null,
+      "actual_duration": null,
+      "milestones": []
+    },
+    {
+      "name": "devops",
+      "progress": 0.0,
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "estimated_duration": null,
+      "actual_duration": null,
+      "milestones": []
+    }
+  ],
+  "overall_progress": 40.0,
+  "estimated_completion": "2025-11-20T14:43:37.437606+05:30",
+  "created_at": "2025-11-20T13:49:57.062446+05:30",
+  "updated_at": "2025-11-20T14:11:25.212510+05:30"
+}

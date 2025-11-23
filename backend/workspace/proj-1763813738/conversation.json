@@ -1,0 +1,22 @@
+[
+  {
+    "role": "user",
+    "content": "approve",
+    "timestamp": "2025-11-22T17:46:56.051108"
+  },
+  {
+    "role": "ai",
+    "content": "✅ Approved! Proceeding to the next stage...",
+    "timestamp": "2025-11-22T17:47:07.420724"
+  },
+  {
+    "role": "user",
+    "content": "approve",
+    "timestamp": "2025-11-22T17:47:29.711280"
+  },
+  {
+    "role": "ai",
+    "content": "✅ Approved! Proceeding to the next stage...",
+    "timestamp": "2025-11-22T17:47:44.416760"
+  }
+]

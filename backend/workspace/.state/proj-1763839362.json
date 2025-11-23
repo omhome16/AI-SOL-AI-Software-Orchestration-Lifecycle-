@@ -1,0 +1,583 @@
+{
+  "project_id": "proj-1763839362",
+  "name": "momoo",
+  "project_name": "momoo",
+  "type": "website",
+  "requirements": "Basic To-Do List Website Requirements\r\nUser Interface:\r\n\r\nSimple input field to add new tasks quickly.\r\n\r\nList display area showing tasks clearly.\r\n\r\nCheckboxes or toggles to mark tasks as completed.\r\n\r\nEdit and delete options for existing tasks.\r\n\r\nResponsive design for use on both desktop and mobile devices.\r\n\r\nTask Management:\r\n\r\nAbility to add, edit, and delete tasks.\r\n\r\nMark tasks as complete or incomplete.\r\n\r\nOption to prioritize or categorize tasks.\r\n\r\nSave tasks persistently (local storage or backend database).\r\n\r\nUser Experience:\r\n\r\nClear visual differentiation between completed and pending tasks.\r\n\r\nEasy navigation and intuitive controls.\r\n\r\nOption to reorder tasks by drag and drop or priority.\r\n\r\nTechnical Requirements:\r\n\r\nResponsive front-end using HTML, CSS, and JavaScript.\r\n\r\nOptional backend for user authentication and task storage (using database).\r\n\r\nCross-browser compatibility.\r\n\r\nPerformance optimized for fast load and smooth interactions.",
+  "status": "running",
+  "created_at": "2025-11-23T00:52:42.515174",
+  "updated_at": "2025-11-23T00:52:42.515174",
+  "steps": [],
+  "steps_completed": [],
+  "logs": [
+    "LOG:Workflow started",
+    "\ud83d\ude80 Started the Requirements Agent for momoo. I'll analyze your requirements and create a comprehensive document.",
+    "STARTED:requirements",
+    "LOG:Running requirements agent...",
+    "Starting domain-aware requirements analysis",
+    "Classifying project type and domain",
+    "No context found for project momoo",
+    "Creating initial context from requirements",
+    "Researching best practices for general domain",
+    "Researching: best practices general web_application development",
+    "Researching: general software requirements standards",
+    "Researching: web_application architecture patterns general",
+    "Domain research completed: 0 results found",
+    "Generating domain-specific requirements",
+    "Raw LLM response in call_llm (structured): functional_requirements=[FunctionalRequirement(id='FR-001', description='Users must be able to add new tasks to their to-do list.', priority='high', acceptance_criteria=['An input field is available on the main screen for entering task descriptions.', \"Pressing an 'Add Task' button or the 'Enter' key adds the new task to the list.\", 'The input field is cleared after the task is successfully added.']), FunctionalRequirement(id='FR-002', description='Users must be able to view all their tasks.', priority='high', acceptance_criteria=['All tasks are displayed in a clear, vertical list.', 'Each item in the list shows the task description and a checkbox.']), FunctionalRequirement(id='FR-003', description='Users must be able to mark tasks as complete or incomplete.', priority='high', acceptance_criteria=['Each task has a checkbox that users can click to toggle its completion status.', 'Completed tasks are visually distinguished from pending tasks (e.g., with a strikethrough and faded text).']), FunctionalRequirement(id='FR-004', description='Users should be able to edit the description of an existing task.', priority='medium', acceptance_criteria=[\"An 'Edit' icon or button is present for each task.\", \"Clicking 'Edit' allows the user to modify the task's description in-place.\", \"The changes are saved upon confirmation (e.g., pressing 'Enter' or a 'Save' button).\"]), FunctionalRequirement(id='FR-005', description='Users must be able to delete tasks they no longer need.', priority='high', acceptance_criteria=[\"A 'Delete' icon or button is present for each task.\", \"Clicking 'Delete' removes the task from the list.\"]), FunctionalRequirement(id='FR-006', description=\"Tasks must be saved persistently in the user's browser.\", priority='high', acceptance_criteria=['Tasks persist after the browser is closed and reopened.', \"The application uses the browser's Local Storage to save and retrieve tasks.\"]), FunctionalRequirement(id='FR-007', description='Users should be able to reorder tasks to reflect their priority.', priority='low', acceptance_criteria=['Users can drag and drop tasks to change their order in the list.'])] non_functional_requirements=[NonFunctionalRequirement(category='Responsiveness', description='The application must provide an optimal viewing and interaction experience across a wide range of devices, from mobile phones to desktop computers.', metrics=['The layout adapts to screen widths from 320px to 1920px without horizontal scrolling.', 'All interactive elements (buttons, inputs) are easily tappable on mobile screens.']), NonFunctionalRequirement(category='Performance', description='The application should be fast and responsive to user input.', metrics=['Initial page load time must be under 2 seconds on a standard 3G connection.', 'UI updates (adding, deleting, checking tasks) must complete in under 200ms.']), NonFunctionalRequirement(category='Usability', description='The interface should be intuitive and easy to use for a first-time user without instructions.', metrics=['A new user can successfully add, complete, and delete a task within 60 seconds.', 'Controls are clearly labeled and follow common web conventions.']), NonFunctionalRequirement(category='Compatibility', description='The application must function correctly on the latest two versions of major web browsers.', metrics=['Full functionality is verified on Google Chrome, Mozilla Firefox, Apple Safari, and Microsoft Edge.'])] complexity='low' estimated_timeline='1-2 weeks (approx. 20-40 hours for a single developer)' recommended_tech_stack=TechnologyStack(backend=['None (for Local Storage version)', 'Node.js with Express (if a database is added)'], frontend=['HTML5', 'CSS3', 'JavaScript (ES6+)'], database=['Browser Local Storage', 'PostgreSQL or MongoDB (if a backend is added)'], devops=['Git for version control.', 'Netlify, Vercel, or GitHub Pages for static hosting.']) project_structure=ProjectStructure(folders={'src': ['index.html', 'style.css', 'script.js'], 'games': ['tic-tac-toe.js'], 'assets': ['images/', 'icons/']}) risks=['Data Loss: Since tasks are stored in Local Storage, users will lose all data if they clear their browser cache. This limitation should be made clear to the user.', 'Scope Creep: Requests for additional features like user accounts, cloud synchronization, or collaboration tools would significantly increase complexity and require a backend, moving beyond the initial scope.', 'Browser Incompatibility: Minor differences in JavaScript or CSS implementation across browsers could lead to inconsistent behavior or visual glitches.'] assumptions=[\"The initial version will not require user authentication or a backend server. All data will be stored in the user's browser via Local Storage.\", 'The application is intended for personal use, so no multi-user or collaboration features are required.', 'The design will be simple and functional, focusing on usability over complex aesthetics.', 'The target audience is general users who are familiar with basic web application interactions.']",
+    "Raw LLM response (structured): functional_requirements=[FunctionalRequirement(id='FR-001', description='Users must be able to add new tasks to their to-do list.', priority='high', acceptance_criteria=['An input field is available on the main screen for entering task descriptions.', \"Pressing an 'Add Task' button or the 'Enter' key adds the new task to the list.\", 'The input field is cleared after the task is successfully added.']), FunctionalRequirement(id='FR-002', description='Users must be able to view all their tasks.', priority='high', acceptance_criteria=['All tasks are displayed in a clear, vertical list.', 'Each item in the list shows the task description and a checkbox.']), FunctionalRequirement(id='FR-003', description='Users must be able to mark tasks as complete or incomplete.', priority='high', acceptance_criteria=['Each task has a checkbox that users can click to toggle its completion status.', 'Completed tasks are visually distinguished from pending tasks (e.g., with a strikethrough and faded text).']), FunctionalRequirement(id='FR-004', description='Users should be able to edit the description of an existing task.', priority='medium', acceptance_criteria=[\"An 'Edit' icon or button is present for each task.\", \"Clicking 'Edit' allows the user to modify the task's description in-place.\", \"The changes are saved upon confirmation (e.g., pressing 'Enter' or a 'Save' button).\"]), FunctionalRequirement(id='FR-005', description='Users must be able to delete tasks they no longer need.', priority='high', acceptance_criteria=[\"A 'Delete' icon or button is present for each task.\", \"Clicking 'Delete' removes the task from the list.\"]), FunctionalRequirement(id='FR-006', description=\"Tasks must be saved persistently in the user's browser.\", priority='high', acceptance_criteria=['Tasks persist after the browser is closed and reopened.', \"The application uses the browser's Local Storage to save and retrieve tasks.\"]), FunctionalRequirement(id='FR-007', description='Users should be able to reorder tasks to reflect their priority.', priority='low', acceptance_criteria=['Users can drag and drop tasks to change their order in the list.'])] non_functional_requirements=[NonFunctionalRequirement(category='Responsiveness', description='The application must provide an optimal viewing and interaction experience across a wide range of devices, from mobile phones to desktop computers.', metrics=['The layout adapts to screen widths from 320px to 1920px without horizontal scrolling.', 'All interactive elements (buttons, inputs) are easily tappable on mobile screens.']), NonFunctionalRequirement(category='Performance', description='The application should be fast and responsive to user input.', metrics=['Initial page load time must be under 2 seconds on a standard 3G connection.', 'UI updates (adding, deleting, checking tasks) must complete in under 200ms.']), NonFunctionalRequirement(category='Usability', description='The interface should be intuitive and easy to use for a first-time user without instructions.', metrics=['A new user can successfully add, complete, and delete a task within 60 seconds.', 'Controls are clearly labeled and follow common web conventions.']), NonFunctionalRequirement(category='Compatibility', description='The application must function correctly on the latest two versions of major web browsers.', metrics=['Full functionality is verified on Google Chrome, Mozilla Firefox, Apple Safari, and Microsoft Edge.'])] complexity='low' estimated_timeline='1-2 weeks (approx. 20-40 hours for a single developer)' recommended_tech_stack=TechnologyStack(backend=['None (for Local Storage version)', 'Node.js with Express (if a database is added)'], frontend=['HTML5', 'CSS3', 'JavaScript (ES6+)'], database=['Browser Local Storage', 'PostgreSQL or MongoDB (if a backend is added)'], devops=['Git for version control.', 'Netlify, Vercel, or GitHub Pages for static hosting.']) project_structure=ProjectStructure(folders={'src': ['index.html', 'style.css', 'script.js'], 'games': ['tic-tac-toe.js'], 'assets': ['images/', 'icons/']}) risks=['Data Loss: Since tasks are stored in Local Storage, users will lose all data if they clear their browser cache. This limitation should be made clear to the user.', 'Scope Creep: Requests for additional features like user accounts, cloud synchronization, or collaboration tools would significantly increase complexity and require a backend, moving beyond the initial scope.', 'Browser Incompatibility: Minor differences in JavaScript or CSS implementation across browsers could lead to inconsistent behavior or visual glitches.'] assumptions=[\"The initial version will not require user authentication or a backend server. All data will be stored in the user's browser via Local Storage.\", 'The application is intended for personal use, so no multi-user or collaboration features are required.', 'The design will be simple and functional, focusing on usability over complex aesthetics.', 'The target audience is general users who are familiar with basic web application interactions.']",
+    "{'type': 'FILE_GENERATED', 'filename': 'requirements.md', 'path': 'proj-1763839362\\\\requirements.md', 'doc_type': 'requirements', 'content': '# Requirements Analysis\\n\\n**Generated**: 2025-11-23 00:55:27  \\n**Project Type**: Website\\n\\n---\\n\\n# \ud83c\udf10 Web Development Requirements Document: Simple To-Do List App\\n\\nThis document outlines the functional an', 'full_content': '# Requirements Analysis\\n\\n**Generated**: 2025-11-23 00:55:27  \\n**Project Type**: Website\\n\\n---\\n\\n# \ud83c\udf10 Web Development Requirements Document: Simple To-Do List App\\n\\nThis document outlines the functional and non-functional requirements for the development of a modern, responsive To-Do List web application. The focus is on creating a clean, intuitive user experience with persistent client-side storage.\\n\\n---\\n\\n## \ud83c\udfaf 1. Project Overview\\n\\nThe project is a client-side, single-page To-Do List application. Users will be able to add, view, edit, complete, and delete tasks. All data will be stored locally in the user\\'s browser, eliminating the need for a backend or user authentication in this initial version. The application must be fast, accessible, and provide a seamless experience across all modern devices and browsers.\\n\\n*   **Project Type**: Website / Single Page Application (SPA)\\n*   **Core Functionality**: Task Management\\n*   **Key Technology**: HTML5, CSS3, JavaScript (ES6+), Local Storage\\n\\n---\\n\\n## \u2705 2. Functional Requirements\\n\\nThe following table details the specific features and user stories for the application.\\n\\n| ID | Feature | Description | Priority | Acceptance Criteria |\\n| :--- | :--- | :--- | :--- | :--- |\\n| **FR-001** | **Add New Task** | Users must be able to add new tasks to their to-do list. | **High** | <ul><li>An input field is available for entering task descriptions.</li><li>Pressing an \\'Add Task\\' button or \\'Enter\\' key adds the task.</li><li>The input field is cleared after a successful addition.</li></ul> |\\n| **FR-002** | **View All Tasks** | Users must be able to view all their tasks in a list format. | **High** | <ul><li>All tasks are displayed in a clear, vertical list.</li><li>Each item shows the task description and a checkbox.</li></ul> |\\n| **FR-003** | **Mark Task Complete** | Users must be able to mark tasks as complete or incomplete. | **High** | <ul><li>Each task has a checkbox to toggle its completion status.</li><li>Completed tasks are visually distinguished (e.g., strikethrough, faded text).</li></ul> |\\n| **FR-004** | **Edit Task** | Users should be able to edit the description of an existing task. | **Medium** | <ul><li>An \\'Edit\\' icon is present for each task.</li><li>Clicking \\'Edit\\' allows in-place modification of the task description.</li><li>Changes are saved upon confirmation (\\'Enter\\' or \\'Save\\' button).</li></ul> |\\n| **FR-005** | **Delete Task** | Users must be able to delete tasks they no longer need. | **High** | <ul><li>A \\'Delete\\' icon is present for each task.</li><li>Clicking \\'Delete\\' removes the task from the list permanently.</li></ul> |\\n| **FR-006** | **Data Persistence** | Tasks must be saved persistently in the user\\'s browser. | **High** | <ul><li>Tasks persist after the browser is closed and reopened.</li><li>The application uses the browser\\'s Local Storage to save and retrieve tasks.</li></ul> |\\n| **FR-007** | **Reorder Tasks** | Users should be able to reorder tasks to reflect their priority. | **Low** | <ul><li>Users can drag and drop tasks to change their order in the list.</li></ul> |\\n\\n---\\n\\n## \ud83c\udfa8 3. UI/UX Design & Non-Functional Requirements\\n\\nThis section covers the quality attributes of the system, focusing on user experience, performance, and accessibility.\\n\\n### 3.1. UI/UX & Modern Web Patterns\\nThe user interface should be clean, minimalist, and intuitive. The design will follow modern web patterns to ensure a high-quality user experience.\\n\\n*   **Intuitive Interface**: A new user should be able to add, complete, and delete a task within 60 seconds without instructions.\\n*   **Visual Feedback**: The application must provide immediate visual feedback for user actions like adding, completing, or deleting a task (e.g., subtle animations).\\n*   **Single Page Application (SPA)**: The app will operate as an SPA, meaning no full-page reloads are required for core actions, providing a faster, more fluid experience.\\n*   **Optimistic UI Updates**: UI will update instantly upon user action, assuming success. This makes the app feel extremely responsive.\\n\\n### 3.2. Design Mockups\\n*(This section will be populated with visual mockups and wireframes from the design phase.)*\\n\\n#### Low-Fidelity Wireframe (Mobile & Desktop)\\n*Placeholder for initial layout sketches showing the task input field, task list, and action buttons for both mobile and desktop views.*\\n\\n#### High-Fidelity Mockup (Desktop)\\n*Placeholder for a detailed, full-color design mockup of the desktop interface, including typography, color palette, and iconography.*\\n\\n---\\n\\n## \ud83d\udcf1 4. Responsiveness & Compatibility\\n\\n### 4.1. Responsive Layouts\\nThe application must provide an optimal viewing and interaction experience across a wide range of devices.\\n\\n| Device Type | Viewport Width | Requirements |\\n| :--- | :--- | :--- |\\n| **Mobile** | 320px - 767px | Single-column layout. Tappable elements must have a minimum size of 44x44 pixels. Font sizes must be legible. |\\n| **Tablet** | 768px - 1024px | Layout may adapt to a wider single column or a two-column view if applicable. |\\n| **Desktop** | 1025px+ | Centered, fixed-width layout. Optimized for mouse and keyboard interaction. |\\n\\n### 4.2. Browser Compatibility\\nThe application must be fully functional and visually consistent on the latest two versions of all major web browsers.\\n\\n*   \u2705 Google Chrome\\n*   \u2705 Mozilla Firefox\\n*   \u2705 Apple Safari\\n*   \u2705 Microsoft Edge\\n\\n---\\n\\n## \u267f 5. Accessibility (A11Y) & SEO\\n\\n### 5.1. Accessibility\\nThe application must be compliant with **WCAG 2.1 Level AA** standards to ensure it is usable by people with disabilities.\\n\\n*   **Keyboard Navigation**: All interactive elements (inputs, buttons, checkboxes) must be focusable and operable using only a keyboard.\\n*   **Semantic HTML**: Use proper HTML5 elements (`<main>`, `<header>`, `<button>`, etc.) to define the structure and meaning of the content.\\n*   **ARIA Roles**: Use appropriate ARIA (Accessible Rich Internet Applications) roles where necessary to enhance screen reader compatibility (e.g., for status updates).\\n*   **Color Contrast**: Text and background colors must meet a minimum contrast ratio of 4.5:1.\\n*   **Labels**: All form controls must have associated `<label>` elements.\\n\\n### 5.2. Search Engine Optimization (SEO)\\nBasic on-page SEO principles will be implemented.\\n\\n*   **Title Tag**: The `<title>` tag will be descriptive and relevant (e.g., \"My To-Do List | A Simple & Fast Task Manager\").\\n*   **Meta Description**: A concise and compelling meta description will be provided.\\n*   **Clean URL**: The application will be served from a clean, user-friendly URL.\\n\\n---\\n\\n## \ud83d\udcbb 6. Technical Specifications\\n\\n### 6.1. Recommended Technology Stack\\n\\n| Category | Technology | Notes |\\n| :--- | :--- | :--- |\\n| **Frontend** | HTML5, CSS3, JavaScript (ES6+) | No framework required for this simple version, but Vue or React are options for future expansion. |\\n| **Backend** | None | The application is fully client-side. A Node.js/Express backend could be added later for user accounts. |\\n| **Database** | Browser Local Storage | For client-side data persistence. |\\n| **DevOps** | Git, GitHub/GitLab | For version control. |\\n| **Hosting** | Netlify, Vercel, or GitHub Pages | For easy, continuous deployment of the static site. |\\n\\n---\\n\\n## \ud83d\uddd3\ufe0f 7. Project Scope & Timeline\\n\\n### 7.1. Estimated Timeline\\n*   **Total Estimated Time**: **1-2 weeks** (approx. 20-40 hours for a single developer).\\n\\n### 7.2. Assumptions\\n*   The initial version will **not** require user authentication or a backend server.\\n*   The application is for personal use; no collaboration features are in scope.\\n*   The design will be simple and functional, prioritizing usability.\\n\\n### 7.3. \u26a0\ufe0f Risks & Mitigation\\n\\n| Risk | Description | Mitigation Strategy |\\n| :--- | :--- | :--- |\\n| **Data Loss** | Users will lose all data if they clear their browser cache, as data is stored in Local Storage. | Display a clear, non-intrusive message in the UI explaining that data is stored locally and can be lost. |\\n| **Scope Creep** | Requests for features like cloud sync or user accounts would significantly increase complexity. | Adhere strictly to the defined requirements for Version 1.0. Log new feature requests for future consideration. |\\n| **Browser Incompatibility** | Minor differences in CSS or JS across browsers could cause visual or functional bugs. | Conduct thorough cross-browser testing on all target browsers before release. |\\n', 'auto_focus': True, 'timestamp': '2025-11-23T00:55:27.156228'}",
+    "LOG:requirements agent finished successfully",
+    "\ud83d\udccb Requirements document generated: requirements.md. Please review in the file viewer.",
+    "{'type': 'AWAITING_REVIEW', 'stage': 'requirements', 'files': ['requirements.md'], 'timestamp': '2025-11-23T00:55:27.169794'}",
+    "{'type': 'CHAT_MESSAGE', 'role': 'user', 'content': 'approve', 'timestamp': '2025-11-23T00:57:16.559101'}",
+    "{'type': 'CHAT_RESPONSE', 'role': 'ai', 'content': '\u2705 Approved! Proceeding to the next stage...', 'timestamp': '2025-11-23T00:57:16.563091', 'buttons': [], 'action': 'approve'}",
+    "Proceeding to next stage...",
+    "STARTED:architecture",
+    "LOG:Running architecture agent...",
+    "Starting ProjectBlueprint generation (ArchitectAgent)",
+    "Loaded context for project momoo",
+    "LOG:Working...",
+    "LOG:Working...",
+    "LOG:Working...",
+    "Raw LLM response in call_llm (unstructured): ```json\n{\n  \"explanation\": \"This architecture blueprint outlines a modern, full-stack web application named 'momoo'. It employs a decoupled frontend/backend structure, ideal for scalability and independent development. The backend is a Node.js/Express application designed with a service-oriented, modular monolith pattern, making it easy to evolve into microservices. It uses Prisma as an ORM for type-safe database access to a PostgreSQL database. The frontend is a Single-Page Application (SPA) built with React (using Vite for a fast development experience), featuring a component-based architecture, centralized state management via React Context for authentication, and a dedicated API service layer for communicating with the backend.\",\n  \"folder_structure\": [\n    \"api\",\n    \"api/prisma\",\n    \"api/src\",\n    \"api/src/config\",\n    \"api/src/controllers\",\n    \"api/src/db\",\n    \"api/src/middleware\",\n    \"api/src/routes\",\n    \"api/src/services\",\n    \"api/src/utils\",\n    \"web\",\n    \"web/src\",\n    \"web/src/components\",\n    \"web/src/components/auth\",\n    \"web/src/components/common\",\n    \"web/src/components/ui\",\n    \"web/src/contexts\",\n    \"web/src/hooks\",\n    \"web/src/pages\",\n    \"web/src/services\",\n    \"web/src/styles\"\n  ],\n  \"build_plan\": [\n    {\n      \"path\": \"README.md\",\n      \"purpose\": \"Project overview, setup instructions, and documentation.\",\n      \"dependencies\": []\n    },\n    {\n      \"path\": \".gitignore\",\n      \"purpose\": \"Specifies intentionally untracked files to ignore by Git (e.g., node_modules, .env).\",\n      \"dependencies\": []\n    },\n    {\n      \"path\": \"package.json\",\n      \"purpose\": \"Root package.json to manage workspaces (api, web) and run top-level scripts.\",\n      \"dependencies\": []\n    },\n    {\n      \"path\": \"api/package.json\",\n      \"purpose\": \"Defines backend project metadata and dependencies (Express, Prisma, dotenv, etc.).\",\n      \"dependencies\": []\n    },\n    {\n      \"path\": \"api/.env.example\",\n      \"purpose\": \"Template for environment variables required by the backend (DATABASE_URL, JWT_SECRET, PORT).\",\n      \"dependencies\": []\n    },\n    {\n      \"path\": \"api/prisma/schema.prisma\",\n      \"purpose\": \"Defines the database schema, models (e.g., User), and relations using Prisma's schema language.\",\n      \"dependencies\": []\n    },\n    {\n      \"path\": \"api/src/config/index.js\",\n      \"purpose\": \"Loads and exports environment variables using dotenv for centralized configuration management.\",\n      \"dependencies\": [\n        \"api/.env.example\"\n      ]\n    },\n    {\n      \"path\": \"api/src/utils/logger.js\",\n      \"purpose\": \"A simple logging utility (e.g., using Winston or pino) for consistent logging across the application.\",\n      \"dependencies\": []\n    },\n    {\n      \"path\": \"api/src/db/client.js\",\n      \"purpose\": \"Initializes and exports a singleton instance of the Prisma client for database interaction.\",\n      \"dependencies\": [\n        \"api/prisma/schema.prisma\"\n      ]\n    },\n    {\n      \"path\": \"api/src/middleware/errorHandler.js\",\n      \"purpose\": \"Express error-handling middleware to catch and format errors consistently before sending a response.\",\n      \"dependencies\": [\n        \"api/src/utils/logger.js\"\n      ]\n    },\n    {\n      \"path\": \"api/src/middleware/asyncHandler.js\",\n      \"purpose\": \"A higher-order function to wrap async route handlers, catching errors and passing them to the error handler.\",\n      \"dependencies\": []\n    },\n    {\n      \"path\": \"api/src/services/userService.js\",\n      \"purpose\": \"Business logic for user-related operations like creating, finding, and updating users. Interacts with the database via the Prisma client.\",\n      \"dependencies\": [\n        \"api/src/db/client.js\"\n      ]\n    },\n    {\n      \"path\": \"api/src/services/authService.js\",\n      \"purpose\": \"Handles authentication logic, including user registration, password hashing/verification, and JWT generation.\",\n      \"dependencies\": [\n        \"api/src/services/userService.js\",\n        \"api/src/config/index.js\"\n      ]\n    },\n    {\n      \"path\": \"api/src/controllers/authController.js\",\n      \"purpose\": \"Handles incoming HTTP requests for authentication (e.g., /register, /login), validates input, and calls the appropriate service.\",\n      \"dependencies\": [\n        \"api/src/services/authService.js\",\n        \"api/src/middleware/asyncHandler.js\"\n      ]\n    },\n    {\n      \"path\": \"api/src/routes/authRoutes.js\",\n      \"purpose\": \"Defines the API endpoints for authentication (e.g., POST /api/auth/register) and maps them to controller functions.\",\n      \"dependencies\": [\n        \"api/src/controllers/authController.js\"\n      ]\n    },\n    {\n      \"path\": \"api/src/routes/index.js\",\n      \"purpose\": \"The main router file that aggregates all feature-specific routers (like authRoutes) into a single main router.\",\n      \"dependencies\": [\n        \"api/src/routes/authRoutes.js\"\n      ]\n    },\n    {\n      \"path\": \"api/src/app.js\",\n      \"purpose\": \"The core Express application file. It sets up middleware (CORS, JSON parsing), mounts the main router, and configures the global error handler.\",\n      \"dependencies\": [\n        \"api/src/routes/index.js\",\n        \"api/src/middleware/errorHandler.js\"\n      ]\n    },\n    {\n      \"path\": \"api/src/server.js\",\n      \"purpose\": \"The entry point of the backend application. It imports the Express app, listens on a configured port, and handles graceful shutdown.\",\n      \"dependencies\": [\n        \"api/src/app.js\",\n        \"api/src/config/index.js\",\n        \"api/src/utils/logger.js\"\n      ]\n    },\n    {\n      \"path\": \"web/package.json\",\n      \"purpose\": \"Defines frontend project metadata and dependencies (React, Vite, Axios, react-router-dom).\",\n      \"dependencies\": []\n    },\n    {\n      \"path\": \"web/.env.example\",\n      \"purpose\": \"Template for environment variables required by the frontend (e.g., VITE_API_BASE_URL).\",\n      \"dependencies\": []\n    },\n    {\n      \"path\": \"web/index.html\",\n      \"purpose\": \"The main HTML entry point for the React SPA, where the application is mounted.\",\n      \"dependencies\": []\n    },\n    {\n      \"path\": \"web/src/styles/global.css\",\n      \"purpose\": \"Global CSS styles and resets for the entire application.\",\n      \"dependencies\": []\n    },\n    {\n      \"path\": \"web/src/services/apiClient.js\",\n      \"purpose\": \"An Axios instance configured with the backend base URL and interceptors for handling API requests and responses (e.g., attaching auth tokens).\",\n      \"dependencies\": []\n    },\n    {\n      \"path\": \"web/src/hooks/useAuth.js\",\n      \"purpose\": \"A custom React hook that provides a simple interface to access the authentication context (e.g., `const { user, login } = useAuth()`).\",\n      \"dependencies\": []\n    },\n    {\n      \"path\": \"web/src/contexts/AuthProvider.jsx\",\n      \"purpose\": \"A React Context Provider that manages global authentication state (user, token) and provides functions for login/logout.\",\n      \"dependencies\": [\n        \"web/src/services/apiClient.js\",\n        \"web/src/hooks/useAuth.js\"\n      ]\n    },\n    {\n      \"path\": \"web/src/components/ui/Button.jsx\",\n      \"purpose\": \"A generic, reusable button component with consistent styling.\",\n      \"dependencies\": []\n    },\n    {\n      \"path\": \"web/src/components/ui/Input.jsx\",\n      \"purpose\": \"A generic, reusable input field component with consistent styling and state handling.\",\n      \"dependencies\": []\n    },\n    {\n      \"path\": \"web/src/components/auth/LoginForm.jsx\",\n      \"purpose\": \"A form component for user login, containing input fields and a submit button. It uses the auth context to perform the login action.\",\n      \"dependencies\": [\n        \"web/src/components/ui/Button.jsx\",\n        \"web/src/components/ui/Input.jsx\",\n        \"web/src/hooks/useAuth.js\"\n      ]\n    },\n    {\n      \"path\": \"web/src/pages/LoginPage.jsx\",\n      \"purpose\": \"A page component that renders the login form and handles the overall layout for the login screen.\",\n      \"dependencies\": [\n        \"web/src/components/auth/LoginForm.jsx\"\n      ]\n    },\n    {\n      \"path\": \"web/src/pages/HomePage.jsx\",\n      \"purpose\": \"The main landing page for authenticated users, displayed after a successful login.\",\n      \"dependencies\": []\n    },\n    {\n      \"path\": \"web/src/components/common/ProtectedRoute.jsx\",\n      \"purpose\": \"A route guard component that checks for user authentication. If the user is not logged in, it redirects them to the login page.\",\n      \"dependencies\": [\n        \"web/src/hooks/useAuth.js\"\n      ]\n    },\n    {\n      \"path\": \"web/src/AppRoutes.jsx\",\n      \"purpose\": \"Defines the application's routing structure using react-router-dom, mapping paths to page components and protecting routes.\",\n      \"dependencies\": [\n        \"web/src/pages/LoginPage.jsx\",\n        \"web/src/pages/HomePage.jsx\",\n        \"web/src/components/common/ProtectedRoute.jsx\"\n      ]\n    },\n    {\n      \"path\": \"web/src/App.jsx\",\n      \"purpose\": \"The root component of the React application. It wraps the entire app with context providers (like AuthProvider) and renders the router.\",\n      \"dependencies\": [\n        \"web/src/contexts/AuthProvider.jsx\",\n        \"web/src/AppRoutes.jsx\"\n      ]\n    },\n    {\n      \"path\": \"web/src/main.jsx\",\n      \"purpose\": \"The main entry point for the frontend application. It renders the root App component into the DOM.\",\n      \"dependencies\": [\n        \"web/src/App.jsx\",\n        \"web/src/styles/global.css\"\n      ]\n    }\n  ]\n}\n```",
+    "ProjectBlueprint generated with 34 files",
+    "LOG:Working...",
+    "LOG:Working...",
+    "LOG:Working...",
+    "{'type': 'FILE_GENERATED', 'filename': 'architecture.md', 'path': 'proj-1763839362\\\\architecture.md', 'doc_type': 'architecture', 'content': '# Architecture Analysis\\n\\n**Generated**: 2025-11-23 00:58:24  \\n**Project Type**: Website\\n\\n---\\n\\n# Web Development Requirements Document: momoo \ud83d\ude80\\n\\n---\\n\\n### **Document Control**\\n\\n| Version | Date | Author', 'full_content': '# Architecture Analysis\\n\\n**Generated**: 2025-11-23 00:58:24  \\n**Project Type**: Website\\n\\n---\\n\\n# Web Development Requirements Document: momoo \ud83d\ude80\\n\\n---\\n\\n### **Document Control**\\n\\n| Version | Date | Author | Status | Notes |\\n| :--- | :--- | :--- | :--- | :--- |\\n| 1.0 | 2023-10-27 | System Architect | **Draft** | Initial requirements based on architecture blueprint. |\\n\\n---\\n\\n## 1. Introduction\\n\\n### 1.1. Project Overview\\nThis document outlines the functional and non-functional requirements for the \"momoo\" website. Momoo is a modern, full-stack web application featuring a decoupled frontend and backend. The primary goal is to create a responsive, accessible, and user-friendly experience for all visitors.\\n\\n### 1.2. Project Goals & Objectives \ud83c\udfaf\\n*   **Deliver a high-quality user experience (UX)** through intuitive design and fast performance.\\n*   **Ensure broad accessibility** for users with disabilities by adhering to WCAG 2.1 AA standards.\\n*   **Achieve excellent SEO performance** to maximize organic reach.\\n*   **Create a scalable and maintainable codebase** by using modern web patterns and a decoupled architecture.\\n\\n### 1.3. Target Audience\\nThe primary audience for this website includes tech-savvy users on modern devices who expect a seamless and performant digital experience.\\n\\n---\\n\\n## 2. General Requirements & Standards\\n\\n### 2.1. UI/UX Design Principles \ud83c\udfa8\\nThe user interface and experience shall adhere to the following principles:\\n\\n*   **Clarity & Simplicity:** The design will be clean, minimalist, and uncluttered. Navigation and user flows will be intuitive and require minimal cognitive load.\\n*   **Consistency:** UI elements, typography, color schemes, and interaction patterns will be consistent across the entire application.\\n*   **Feedback:** The system will provide immediate and clear feedback for user actions (e.g., loading states, success messages, validation errors).\\n*   **Efficiency:** User flows will be optimized to allow users to accomplish tasks in the fewest steps possible.\\n\\n### 2.2. Responsive Design \ud83d\udcf1\\nThe website must be fully responsive and provide an optimal viewing experience across a wide range of devices. A **mobile-first** approach will be adopted during development.\\n\\n| Breakpoint | Screen Width | Target Devices |\\n| :--- | :--- | :--- |\\n| **Mobile** | < 768px | Smartphones (Portrait & Landscape) |\\n| **Tablet** | 768px - 1024px | Tablets (Portrait & Landscape) |\\n| **Desktop** | > 1024px | Laptops, Desktops |\\n| **Large Desktop** | > 1440px | High-resolution monitors |\\n\\n### 2.3. Browser Compatibility \ud83c\udf10\\nThe application must be fully functional and render correctly on the latest two major versions of the following browsers:\\n\\n*   [x] Google Chrome\\n*   [x] Mozilla Firefox\\n*   [x] Apple Safari\\n*   [x] Microsoft Edge\\n\\n### 2.4. Accessibility (A11y) \u267f\\nThe website must comply with **Web Content Accessibility Guidelines (WCAG) 2.1 Level AA**. Key requirements include:\\n\\n*   **Keyboard Navigable:** All interactive elements must be accessible and operable via keyboard alone.\\n*   **Semantic HTML:** Use of proper HTML5 tags (`<main>`, `<nav>`, `<header>`, `<article>`, etc.) to define page structure.\\n*   **ARIA Roles:** Appropriate use of ARIA (Accessible Rich Internet Applications) roles and attributes where necessary.\\n*   **Alt Text:** All meaningful images must have descriptive alternative text.\\n*   **Color Contrast:** Text and background colors must meet a minimum contrast ratio of 4.5:1.\\n*   **Focus Management:** Visible focus indicators must be present on all interactive elements.\\n\\n### 2.5. Search Engine Optimization (SEO) \ud83d\udcc8\\nThe website will be built with on-page SEO best practices to ensure maximum visibility on search engines.\\n\\n*   **Clean URLs:** Human-readable and keyword-rich URLs.\\n*   **Meta Tags:** Unique and descriptive `<title>` and `<meta name=\"description\">` tags for each page.\\n*   **Header Tags:** Logical and hierarchical use of header tags (`<h1>`, `<h2>`, etc.).\\n*   **Performance:** Fast page load times (Core Web Vitals).\\n*   **`robots.txt`:** A properly configured `robots.txt` file to guide search engine crawlers.\\n*   **`sitemap.xml`:** An auto-generated XML sitemap to help index all public pages.\\n\\n---\\n\\n## 3. Functional Requirements & Feature List\\n\\nThe following table outlines the core features for the initial release.\\n\\n| Feature ID | Feature Name | Description | Priority |\\n| :--- | :--- | :--- | :--- |\\n| **AUTH-01** | User Registration | Users can create a new account using an email and password. Includes input validation and error handling. | **High** |\\n| **AUTH-02** | User Login | Registered users can log in to access protected content. Session management will be handled via JWT. | **High** |\\n| **AUTH-03** | User Logout | Authenticated users can securely log out, terminating their session. | **High** |\\n| **AUTH-04** | Protected Routes | Certain pages and features (e.g., Home Page) are only accessible to authenticated users. | **High** |\\n| **PAGE-01** | Home Page | The main landing page for authenticated users. Displays a welcome message and key navigation. | **High** |\\n| **PAGE-02** | Login Page | A public page containing the login form for users to authenticate. | **High** |\\n| **UI-01** | Reusable UI Kit | A set of common, styled components (Button, Input, Card) to ensure visual consistency. | **Medium** |\\n| **UI-02** | Global Navigation | A persistent header or sidebar that provides access to main sections of the site. | **Medium** |\\n\\n---\\n\\n## 4. Visual Design & Mockups\\n\\nThis section provides a high-level overview of the visual direction. Detailed mockups will be provided separately.\\n\\n### 4.1. Style Guide (Preliminary)\\n\\n| Element | Specification |\\n| :--- | :--- |\\n| **Primary Color** | `#4A90E2` (Modern Blue) |\\n| **Secondary Color** | `#50E3C2` (Teal Accent) |\\n| **Neutral Colors** | `#FFFFFF` (White), `#F4F4F4` (Light Gray), `#333333` (Dark Gray/Text) |\\n| **Primary Font** | \\'Inter\\', sans-serif (for headings and body text) |\\n| **Font Sizing** | Responsive font sizes using `rem` units. |\\n| **Spacing** | Consistent spacing system based on an 8px grid. |\\n\\n### 4.2. Page Mockup Descriptions\\n\\n#### 4.2.1. Login Page\\n*   **Layout:** A single-column, vertically and horizontally centered layout.\\n*   **Components:**\\n    *   `Logo`: The \\'momoo\\' logo displayed prominently at the top.\\n    *   `Form Title`: \"Welcome Back\" or \"Log In\".\\n    *   `Input Field`: For email address.\\n    *   `Input Field`: For password.\\n    *   `Submit Button`: A primary button with the text \"Log In\".\\n    *   `Link`: A subtle link to the registration page (\"Don\\'t have an account? Sign Up\").\\n\\n> **[Placeholder for Login Page Mockup Image]**\\n\\n#### 4.2.2. Home Page (Authenticated)\\n*   **Layout:** A two-column layout.\\n*   **Components:**\\n    *   `Header`: A top bar containing the site logo and a user profile dropdown with a \"Logout\" option.\\n    *   `Sidebar (Left Column)`: Main navigation links.\\n    *   `Main Content (Right Column)`: A large content area with a heading like \"Welcome, [User Name]!\" and dashboard widgets.\\n\\n> **[Placeholder for Home Page Mockup Image]**\\n\\n---\\n\\n## 5. Modern Web Patterns & Technology Stack\\n\\nThe project will leverage a modern technology stack and architecture to ensure scalability, performance, and a high-quality developer experience.\\n\\n### 5.1. Architecture Overview\\nThe application uses a **decoupled architecture** with a separate frontend (Single-Page Application) and backend (RESTful API). This allows for independent development, deployment, and scaling of the client and server. The backend follows a **service-oriented, modular monolith** pattern, which provides clear separation of concerns and simplifies future migration to microservices if needed.\\n\\n### 5.2. Technology Stack\\n\\n| Component | Technology / Library | Purpose |\\n| :--- | :--- | :--- |\\n| **Frontend** | React (with Vite) | Building a fast, component-based user interface. |\\n| | React Router | For client-side routing and navigation. |\\n| | Axios | For making HTTP requests to the backend API. |\\n| | CSS Modules / Tailwind | For scoped, maintainable styling. |\\n| **Backend** | Node.js / Express | Building a robust and scalable REST API. |\\n| **Database** | PostgreSQL | A powerful, open-source relational database. |\\n| | Prisma | A next-generation ORM for type-safe database access. |\\n| **Authentication** | JSON Web Tokens (JWT) | For secure, stateless authentication. |\\n\\n### 5.3. Key Development Patterns\\n*   **Component-Based UI:** The frontend will be built as a collection of reusable, encapsulated components.\\n*   **Centralized State Management:** React Context will be used for managing global state like user authentication.\\n*   **API Service Layer:** A dedicated layer in the frontend will handle all communication with the backend API, abstracting away the data-fetching logic.\\n*   **Environment Variables:** Centralized configuration for both frontend and backend to manage environment-specific settings (e.g., API URLs, database connections).\\n', 'auto_focus': True, 'timestamp': '2025-11-23T00:58:24.901617'}",
+    "LOG:architecture agent finished successfully",
+    "\ud83c\udfd7\ufe0f Architecture design completed: architecture.md. Please review.",
+    "{'type': 'AWAITING_REVIEW', 'stage': 'architecture', 'files': ['architecture.md'], 'timestamp': '2025-11-23T00:58:24.922777'}"
+  ],
+  "files": [],
+  "generated_files": [],
+  "current_step": null,
+  "completed": false,
+  "user_context": {
+    "project_name": "momoo",
+    "project_type": "website",
+    "requirements": "Basic To-Do List Website Requirements\r\nUser Interface:\r\n\r\nSimple input field to add new tasks quickly.\r\n\r\nList display area showing tasks clearly.\r\n\r\nCheckboxes or toggles to mark tasks as completed.\r\n\r\nEdit and delete options for existing tasks.\r\n\r\nResponsive design for use on both desktop and mobile devices.\r\n\r\nTask Management:\r\n\r\nAbility to add, edit, and delete tasks.\r\n\r\nMark tasks as complete or incomplete.\r\n\r\nOption to prioritize or categorize tasks.\r\n\r\nSave tasks persistently (local storage or backend database).\r\n\r\nUser Experience:\r\n\r\nClear visual differentiation between completed and pending tasks.\r\n\r\nEasy navigation and intuitive controls.\r\n\r\nOption to reorder tasks by drag and drop or priority.\r\n\r\nTechnical Requirements:\r\n\r\nResponsive front-end using HTML, CSS, and JavaScript.\r\n\r\nOptional backend for user authentication and task storage (using database).\r\n\r\nCross-browser compatibility.\r\n\r\nPerformance optimized for fast load and smooth interactions.",
+    "inspiration_images": [
+      "D:\\AI\\AIML\\SUNRISE COUNTDOWN\\ai-craftsman-portfolio\\projects\\AI-SOL\\backend\\workspace\\proj-1763839362\\inspiration_images\\Screenshot 2025-11-22 174516.png"
+    ]
+  },
+  "enable_github": false,
+  "github_username": "",
+  "github_token": "",
+  "generate_tests": true,
+  "generate_devops": true,
+  "last_saved": "2025-11-23T00:58:24.922777+05:30",
+  "state": {
+    "project_id": "proj-1763839362",
+    "name": "momoo",
+    "project_name": "momoo",
+    "type": "website",
+    "requirements": "Basic To-Do List Website Requirements\r\nUser Interface:\r\n\r\nSimple input field to add new tasks quickly.\r\n\r\nList display area showing tasks clearly.\r\n\r\nCheckboxes or toggles to mark tasks as completed.\r\n\r\nEdit and delete options for existing tasks.\r\n\r\nResponsive design for use on both desktop and mobile devices.\r\n\r\nTask Management:\r\n\r\nAbility to add, edit, and delete tasks.\r\n\r\nMark tasks as complete or incomplete.\r\n\r\nOption to prioritize or categorize tasks.\r\n\r\nSave tasks persistently (local storage or backend database).\r\n\r\nUser Experience:\r\n\r\nClear visual differentiation between completed and pending tasks.\r\n\r\nEasy navigation and intuitive controls.\r\n\r\nOption to reorder tasks by drag and drop or priority.\r\n\r\nTechnical Requirements:\r\n\r\nResponsive front-end using HTML, CSS, and JavaScript.\r\n\r\nOptional backend for user authentication and task storage (using database).\r\n\r\nCross-browser compatibility.\r\n\r\nPerformance optimized for fast load and smooth interactions.",
+    "status": "running",
+    "created_at": "2025-11-23T00:52:42.515174",
+    "updated_at": "2025-11-23T00:52:42.515174",
+    "steps": [],
+    "steps_completed": [
+      "requirements",
+      "architecture"
+    ],
+    "logs": [
+      "LOG:Workflow started"
+    ],
+    "files": [],
+    "generated_files": [
+      {
+        "filename": "requirements.md",
+        "path": "proj-1763839362\\requirements.md",
+        "full_path": "D:\\AI\\AIML\\SUNRISE COUNTDOWN\\ai-craftsman-portfolio\\projects\\AI-SOL\\backend\\workspace\\proj-1763839362\\requirements.md",
+        "doc_type": "requirements",
+        "content": "# Requirements Analysis\n\n**Generated**: 2025-11-23 00:55:27  \n**Project Type**: Website\n\n---\n\n# \ud83c\udf10 Web Development Requirements Document: Simple To-Do List App\n\nThis document outlines the functional and non-functional requirements for the development of a modern, responsive To-Do List web application. The focus is on creating a clean, intuitive user experience with persistent client-side storage.\n\n---\n\n## \ud83c\udfaf 1. Project Overview\n\nThe project is a client-side, single-page To-Do List application. Use...",
+        "full_content": "# Requirements Analysis\n\n**Generated**: 2025-11-23 00:55:27  \n**Project Type**: Website\n\n---\n\n# \ud83c\udf10 Web Development Requirements Document: Simple To-Do List App\n\nThis document outlines the functional and non-functional requirements for the development of a modern, responsive To-Do List web application. The focus is on creating a clean, intuitive user experience with persistent client-side storage.\n\n---\n\n## \ud83c\udfaf 1. Project Overview\n\nThe project is a client-side, single-page To-Do List application. Users will be able to add, view, edit, complete, and delete tasks. All data will be stored locally in the user's browser, eliminating the need for a backend or user authentication in this initial version. The application must be fast, accessible, and provide a seamless experience across all modern devices and browsers.\n\n*   **Project Type**: Website / Single Page Application (SPA)\n*   **Core Functionality**: Task Management\n*   **Key Technology**: HTML5, CSS3, JavaScript (ES6+), Local Storage\n\n---\n\n## \u2705 2. Functional Requirements\n\nThe following table details the specific features and user stories for the application.\n\n| ID | Feature | Description | Priority | Acceptance Criteria |\n| :--- | :--- | :--- | :--- | :--- |\n| **FR-001** | **Add New Task** | Users must be able to add new tasks to their to-do list. | **High** | <ul><li>An input field is available for entering task descriptions.</li><li>Pressing an 'Add Task' button or 'Enter' key adds the task.</li><li>The input field is cleared after a successful addition.</li></ul> |\n| **FR-002** | **View All Tasks** | Users must be able to view all their tasks in a list format. | **High** | <ul><li>All tasks are displayed in a clear, vertical list.</li><li>Each item shows the task description and a checkbox.</li></ul> |\n| **FR-003** | **Mark Task Complete** | Users must be able to mark tasks as complete or incomplete. | **High** | <ul><li>Each task has a checkbox to toggle its completion status.</li><li>Completed tasks are visually distinguished (e.g., strikethrough, faded text).</li></ul> |\n| **FR-004** | **Edit Task** | Users should be able to edit the description of an existing task. | **Medium** | <ul><li>An 'Edit' icon is present for each task.</li><li>Clicking 'Edit' allows in-place modification of the task description.</li><li>Changes are saved upon confirmation ('Enter' or 'Save' button).</li></ul> |\n| **FR-005** | **Delete Task** | Users must be able to delete tasks they no longer need. | **High** | <ul><li>A 'Delete' icon is present for each task.</li><li>Clicking 'Delete' removes the task from the list permanently.</li></ul> |\n| **FR-006** | **Data Persistence** | Tasks must be saved persistently in the user's browser. | **High** | <ul><li>Tasks persist after the browser is closed and reopened.</li><li>The application uses the browser's Local Storage to save and retrieve tasks.</li></ul> |\n| **FR-007** | **Reorder Tasks** | Users should be able to reorder tasks to reflect their priority. | **Low** | <ul><li>Users can drag and drop tasks to change their order in the list.</li></ul> |\n\n---\n\n## \ud83c\udfa8 3. UI/UX Design & Non-Functional Requirements\n\nThis section covers the quality attributes of the system, focusing on user experience, performance, and accessibility.\n\n### 3.1. UI/UX & Modern Web Patterns\nThe user interface should be clean, minimalist, and intuitive. The design will follow modern web patterns to ensure a high-quality user experience.\n\n*   **Intuitive Interface**: A new user should be able to add, complete, and delete a task within 60 seconds without instructions.\n*   **Visual Feedback**: The application must provide immediate visual feedback for user actions like adding, completing, or deleting a task (e.g., subtle animations).\n*   **Single Page Application (SPA)**: The app will operate as an SPA, meaning no full-page reloads are required for core actions, providing a faster, more fluid experience.\n*   **Optimistic UI Updates**: UI will update instantly upon user action, assuming success. This makes the app feel extremely responsive.\n\n### 3.2. Design Mockups\n*(This section will be populated with visual mockups and wireframes from the design phase.)*\n\n#### Low-Fidelity Wireframe (Mobile & Desktop)\n*Placeholder for initial layout sketches showing the task input field, task list, and action buttons for both mobile and desktop views.*\n\n#### High-Fidelity Mockup (Desktop)\n*Placeholder for a detailed, full-color design mockup of the desktop interface, including typography, color palette, and iconography.*\n\n---\n\n## \ud83d\udcf1 4. Responsiveness & Compatibility\n\n### 4.1. Responsive Layouts\nThe application must provide an optimal viewing and interaction experience across a wide range of devices.\n\n| Device Type | Viewport Width | Requirements |\n| :--- | :--- | :--- |\n| **Mobile** | 320px - 767px | Single-column layout. Tappable elements must have a minimum size of 44x44 pixels. Font sizes must be legible. |\n| **Tablet** | 768px - 1024px | Layout may adapt to a wider single column or a two-column view if applicable. |\n| **Desktop** | 1025px+ | Centered, fixed-width layout. Optimized for mouse and keyboard interaction. |\n\n### 4.2. Browser Compatibility\nThe application must be fully functional and visually consistent on the latest two versions of all major web browsers.\n\n*   \u2705 Google Chrome\n*   \u2705 Mozilla Firefox\n*   \u2705 Apple Safari\n*   \u2705 Microsoft Edge\n\n---\n\n## \u267f 5. Accessibility (A11Y) & SEO\n\n### 5.1. Accessibility\nThe application must be compliant with **WCAG 2.1 Level AA** standards to ensure it is usable by people with disabilities.\n\n*   **Keyboard Navigation**: All interactive elements (inputs, buttons, checkboxes) must be focusable and operable using only a keyboard.\n*   **Semantic HTML**: Use proper HTML5 elements (`<main>`, `<header>`, `<button>`, etc.) to define the structure and meaning of the content.\n*   **ARIA Roles**: Use appropriate ARIA (Accessible Rich Internet Applications) roles where necessary to enhance screen reader compatibility (e.g., for status updates).\n*   **Color Contrast**: Text and background colors must meet a minimum contrast ratio of 4.5:1.\n*   **Labels**: All form controls must have associated `<label>` elements.\n\n### 5.2. Search Engine Optimization (SEO)\nBasic on-page SEO principles will be implemented.\n\n*   **Title Tag**: The `<title>` tag will be descriptive and relevant (e.g., \"My To-Do List | A Simple & Fast Task Manager\").\n*   **Meta Description**: A concise and compelling meta description will be provided.\n*   **Clean URL**: The application will be served from a clean, user-friendly URL.\n\n---\n\n## \ud83d\udcbb 6. Technical Specifications\n\n### 6.1. Recommended Technology Stack\n\n| Category | Technology | Notes |\n| :--- | :--- | :--- |\n| **Frontend** | HTML5, CSS3, JavaScript (ES6+) | No framework required for this simple version, but Vue or React are options for future expansion. |\n| **Backend** | None | The application is fully client-side. A Node.js/Express backend could be added later for user accounts. |\n| **Database** | Browser Local Storage | For client-side data persistence. |\n| **DevOps** | Git, GitHub/GitLab | For version control. |\n| **Hosting** | Netlify, Vercel, or GitHub Pages | For easy, continuous deployment of the static site. |\n\n---\n\n## \ud83d\uddd3\ufe0f 7. Project Scope & Timeline\n\n### 7.1. Estimated Timeline\n*   **Total Estimated Time**: **1-2 weeks** (approx. 20-40 hours for a single developer).\n\n### 7.2. Assumptions\n*   The initial version will **not** require user authentication or a backend server.\n*   The application is for personal use; no collaboration features are in scope.\n*   The design will be simple and functional, prioritizing usability.\n\n### 7.3. \u26a0\ufe0f Risks & Mitigation\n\n| Risk | Description | Mitigation Strategy |\n| :--- | :--- | :--- |\n| **Data Loss** | Users will lose all data if they clear their browser cache, as data is stored in Local Storage. | Display a clear, non-intrusive message in the UI explaining that data is stored locally and can be lost. |\n| **Scope Creep** | Requests for features like cloud sync or user accounts would significantly increase complexity. | Adhere strictly to the defined requirements for Version 1.0. Log new feature requests for future consideration. |\n| **Browser Incompatibility** | Minor differences in CSS or JS across browsers could cause visual or functional bugs. | Conduct thorough cross-browser testing on all target browsers before release. |\n",
+        "auto_focus": true,
+        "timestamp": "2025-11-23T00:55:27.150995",
+        "agent": "RequirementsAgent",
+        "size_bytes": 8442,
+        "content_hash": "8626ef0a05e462a4ca10f50ffd529b88",
+        "metadata": {
+          "stage": "requirements",
+          "project_type": "website"
+        }
+      },
+      {
+        "filename": "architecture.md",
+        "path": "proj-1763839362\\architecture.md",
+        "full_path": "D:\\AI\\AIML\\SUNRISE COUNTDOWN\\ai-craftsman-portfolio\\projects\\AI-SOL\\backend\\workspace\\proj-1763839362\\architecture.md",
+        "doc_type": "architecture",
+        "content": "# Architecture Analysis\n\n**Generated**: 2025-11-23 00:58:24  \n**Project Type**: Website\n\n---\n\n# Web Development Requirements Document: momoo \ud83d\ude80\n\n---\n\n### **Document Control**\n\n| Version | Date | Author | Status | Notes |\n| :--- | :--- | :--- | :--- | :--- |\n| 1.0 | 2023-10-27 | System Architect | **Draft** | Initial requirements based on architecture blueprint. |\n\n---\n\n## 1. Introduction\n\n### 1.1. Project Overview\nThis document outlines the functional and non-functional requirements for the \"momo...",
+        "full_content": "# Architecture Analysis\n\n**Generated**: 2025-11-23 00:58:24  \n**Project Type**: Website\n\n---\n\n# Web Development Requirements Document: momoo \ud83d\ude80\n\n---\n\n### **Document Control**\n\n| Version | Date | Author | Status | Notes |\n| :--- | :--- | :--- | :--- | :--- |\n| 1.0 | 2023-10-27 | System Architect | **Draft** | Initial requirements based on architecture blueprint. |\n\n---\n\n## 1. Introduction\n\n### 1.1. Project Overview\nThis document outlines the functional and non-functional requirements for the \"momoo\" website. Momoo is a modern, full-stack web application featuring a decoupled frontend and backend. The primary goal is to create a responsive, accessible, and user-friendly experience for all visitors.\n\n### 1.2. Project Goals & Objectives \ud83c\udfaf\n*   **Deliver a high-quality user experience (UX)** through intuitive design and fast performance.\n*   **Ensure broad accessibility** for users with disabilities by adhering to WCAG 2.1 AA standards.\n*   **Achieve excellent SEO performance** to maximize organic reach.\n*   **Create a scalable and maintainable codebase** by using modern web patterns and a decoupled architecture.\n\n### 1.3. Target Audience\nThe primary audience for this website includes tech-savvy users on modern devices who expect a seamless and performant digital experience.\n\n---\n\n## 2. General Requirements & Standards\n\n### 2.1. UI/UX Design Principles \ud83c\udfa8\nThe user interface and experience shall adhere to the following principles:\n\n*   **Clarity & Simplicity:** The design will be clean, minimalist, and uncluttered. Navigation and user flows will be intuitive and require minimal cognitive load.\n*   **Consistency:** UI elements, typography, color schemes, and interaction patterns will be consistent across the entire application.\n*   **Feedback:** The system will provide immediate and clear feedback for user actions (e.g., loading states, success messages, validation errors).\n*   **Efficiency:** User flows will be optimized to allow users to accomplish tasks in the fewest steps possible.\n\n### 2.2. Responsive Design \ud83d\udcf1\nThe website must be fully responsive and provide an optimal viewing experience across a wide range of devices. A **mobile-first** approach will be adopted during development.\n\n| Breakpoint | Screen Width | Target Devices |\n| :--- | :--- | :--- |\n| **Mobile** | < 768px | Smartphones (Portrait & Landscape) |\n| **Tablet** | 768px - 1024px | Tablets (Portrait & Landscape) |\n| **Desktop** | > 1024px | Laptops, Desktops |\n| **Large Desktop** | > 1440px | High-resolution monitors |\n\n### 2.3. Browser Compatibility \ud83c\udf10\nThe application must be fully functional and render correctly on the latest two major versions of the following browsers:\n\n*   [x] Google Chrome\n*   [x] Mozilla Firefox\n*   [x] Apple Safari\n*   [x] Microsoft Edge\n\n### 2.4. Accessibility (A11y) \u267f\nThe website must comply with **Web Content Accessibility Guidelines (WCAG) 2.1 Level AA**. Key requirements include:\n\n*   **Keyboard Navigable:** All interactive elements must be accessible and operable via keyboard alone.\n*   **Semantic HTML:** Use of proper HTML5 tags (`<main>`, `<nav>`, `<header>`, `<article>`, etc.) to define page structure.\n*   **ARIA Roles:** Appropriate use of ARIA (Accessible Rich Internet Applications) roles and attributes where necessary.\n*   **Alt Text:** All meaningful images must have descriptive alternative text.\n*   **Color Contrast:** Text and background colors must meet a minimum contrast ratio of 4.5:1.\n*   **Focus Management:** Visible focus indicators must be present on all interactive elements.\n\n### 2.5. Search Engine Optimization (SEO) \ud83d\udcc8\nThe website will be built with on-page SEO best practices to ensure maximum visibility on search engines.\n\n*   **Clean URLs:** Human-readable and keyword-rich URLs.\n*   **Meta Tags:** Unique and descriptive `<title>` and `<meta name=\"description\">` tags for each page.\n*   **Header Tags:** Logical and hierarchical use of header tags (`<h1>`, `<h2>`, etc.).\n*   **Performance:** Fast page load times (Core Web Vitals).\n*   **`robots.txt`:** A properly configured `robots.txt` file to guide search engine crawlers.\n*   **`sitemap.xml`:** An auto-generated XML sitemap to help index all public pages.\n\n---\n\n## 3. Functional Requirements & Feature List\n\nThe following table outlines the core features for the initial release.\n\n| Feature ID | Feature Name | Description | Priority |\n| :--- | :--- | :--- | :--- |\n| **AUTH-01** | User Registration | Users can create a new account using an email and password. Includes input validation and error handling. | **High** |\n| **AUTH-02** | User Login | Registered users can log in to access protected content. Session management will be handled via JWT. | **High** |\n| **AUTH-03** | User Logout | Authenticated users can securely log out, terminating their session. | **High** |\n| **AUTH-04** | Protected Routes | Certain pages and features (e.g., Home Page) are only accessible to authenticated users. | **High** |\n| **PAGE-01** | Home Page | The main landing page for authenticated users. Displays a welcome message and key navigation. | **High** |\n| **PAGE-02** | Login Page | A public page containing the login form for users to authenticate. | **High** |\n| **UI-01** | Reusable UI Kit | A set of common, styled components (Button, Input, Card) to ensure visual consistency. | **Medium** |\n| **UI-02** | Global Navigation | A persistent header or sidebar that provides access to main sections of the site. | **Medium** |\n\n---\n\n## 4. Visual Design & Mockups\n\nThis section provides a high-level overview of the visual direction. Detailed mockups will be provided separately.\n\n### 4.1. Style Guide (Preliminary)\n\n| Element | Specification |\n| :--- | :--- |\n| **Primary Color** | `#4A90E2` (Modern Blue) |\n| **Secondary Color** | `#50E3C2` (Teal Accent) |\n| **Neutral Colors** | `#FFFFFF` (White), `#F4F4F4` (Light Gray), `#333333` (Dark Gray/Text) |\n| **Primary Font** | 'Inter', sans-serif (for headings and body text) |\n| **Font Sizing** | Responsive font sizes using `rem` units. |\n| **Spacing** | Consistent spacing system based on an 8px grid. |\n\n### 4.2. Page Mockup Descriptions\n\n#### 4.2.1. Login Page\n*   **Layout:** A single-column, vertically and horizontally centered layout.\n*   **Components:**\n    *   `Logo`: The 'momoo' logo displayed prominently at the top.\n    *   `Form Title`: \"Welcome Back\" or \"Log In\".\n    *   `Input Field`: For email address.\n    *   `Input Field`: For password.\n    *   `Submit Button`: A primary button with the text \"Log In\".\n    *   `Link`: A subtle link to the registration page (\"Don't have an account? Sign Up\").\n\n> **[Placeholder for Login Page Mockup Image]**\n\n#### 4.2.2. Home Page (Authenticated)\n*   **Layout:** A two-column layout.\n*   **Components:**\n    *   `Header`: A top bar containing the site logo and a user profile dropdown with a \"Logout\" option.\n    *   `Sidebar (Left Column)`: Main navigation links.\n    *   `Main Content (Right Column)`: A large content area with a heading like \"Welcome, [User Name]!\" and dashboard widgets.\n\n> **[Placeholder for Home Page Mockup Image]**\n\n---\n\n## 5. Modern Web Patterns & Technology Stack\n\nThe project will leverage a modern technology stack and architecture to ensure scalability, performance, and a high-quality developer experience.\n\n### 5.1. Architecture Overview\nThe application uses a **decoupled architecture** with a separate frontend (Single-Page Application) and backend (RESTful API). This allows for independent development, deployment, and scaling of the client and server. The backend follows a **service-oriented, modular monolith** pattern, which provides clear separation of concerns and simplifies future migration to microservices if needed.\n\n### 5.2. Technology Stack\n\n| Component | Technology / Library | Purpose |\n| :--- | :--- | :--- |\n| **Frontend** | React (with Vite) | Building a fast, component-based user interface. |\n| | React Router | For client-side routing and navigation. |\n| | Axios | For making HTTP requests to the backend API. |\n| | CSS Modules / Tailwind | For scoped, maintainable styling. |\n| **Backend** | Node.js / Express | Building a robust and scalable REST API. |\n| **Database** | PostgreSQL | A powerful, open-source relational database. |\n| | Prisma | A next-generation ORM for type-safe database access. |\n| **Authentication** | JSON Web Tokens (JWT) | For secure, stateless authentication. |\n\n### 5.3. Key Development Patterns\n*   **Component-Based UI:** The frontend will be built as a collection of reusable, encapsulated components.\n*   **Centralized State Management:** React Context will be used for managing global state like user authentication.\n*   **API Service Layer:** A dedicated layer in the frontend will handle all communication with the backend API, abstracting away the data-fetching logic.\n*   **Environment Variables:** Centralized configuration for both frontend and backend to manage environment-specific settings (e.g., API URLs, database connections).\n",
+        "auto_focus": true,
+        "timestamp": "2025-11-23T00:58:24.898118",
+        "agent": "ArchitectureAgent",
+        "size_bytes": 8979,
+        "content_hash": "f1c45de4484f4f345096018cd1ec7afa",
+        "metadata": {
+          "stage": "architecture",
+          "project_type": "website"
+        }
+      }
+    ],
+    "current_step": "architecture",
+    "completed": false,
+    "user_context": {
+      "project_name": "momoo",
+      "project_type": "website",
+      "requirements": "Basic To-Do List Website Requirements\r\nUser Interface:\r\n\r\nSimple input field to add new tasks quickly.\r\n\r\nList display area showing tasks clearly.\r\n\r\nCheckboxes or toggles to mark tasks as completed.\r\n\r\nEdit and delete options for existing tasks.\r\n\r\nResponsive design for use on both desktop and mobile devices.\r\n\r\nTask Management:\r\n\r\nAbility to add, edit, and delete tasks.\r\n\r\nMark tasks as complete or incomplete.\r\n\r\nOption to prioritize or categorize tasks.\r\n\r\nSave tasks persistently (local storage or backend database).\r\n\r\nUser Experience:\r\n\r\nClear visual differentiation between completed and pending tasks.\r\n\r\nEasy navigation and intuitive controls.\r\n\r\nOption to reorder tasks by drag and drop or priority.\r\n\r\nTechnical Requirements:\r\n\r\nResponsive front-end using HTML, CSS, and JavaScript.\r\n\r\nOptional backend for user authentication and task storage (using database).\r\n\r\nCross-browser compatibility.\r\n\r\nPerformance optimized for fast load and smooth interactions.",
+      "inspiration_images": [
+        "D:\\AI\\AIML\\SUNRISE COUNTDOWN\\ai-craftsman-portfolio\\projects\\AI-SOL\\backend\\workspace\\proj-1763839362\\inspiration_images\\Screenshot 2025-11-22 174516.png"
+      ]
+    },
+    "enable_github": false,
+    "github_username": "",
+    "github_token": "",
+    "generate_tests": true,
+    "generate_devops": true,
+    "last_saved": "2025-11-23T00:54:35.306513+05:30",
+    "checkpoint_data": {
+      "stage": "requirements",
+      "analysis": {
+        "functional_requirements": [
+          {
+            "id": "FR-001",
+            "description": "Users must be able to add new tasks to their to-do list.",
+            "priority": "high",
+            "acceptance_criteria": [
+              "An input field is available on the main screen for entering task descriptions.",
+              "Pressing an 'Add Task' button or the 'Enter' key adds the new task to the list.",
+              "The input field is cleared after the task is successfully added."
+            ]
+          },
+          {
+            "id": "FR-002",
+            "description": "Users must be able to view all their tasks.",
+            "priority": "high",
+            "acceptance_criteria": [
+              "All tasks are displayed in a clear, vertical list.",
+              "Each item in the list shows the task description and a checkbox."
+            ]
+          },
+          {
+            "id": "FR-003",
+            "description": "Users must be able to mark tasks as complete or incomplete.",
+            "priority": "high",
+            "acceptance_criteria": [
+              "Each task has a checkbox that users can click to toggle its completion status.",
+              "Completed tasks are visually distinguished from pending tasks (e.g., with a strikethrough and faded text)."
+            ]
+          },
+          {
+            "id": "FR-004",
+            "description": "Users should be able to edit the description of an existing task.",
+            "priority": "medium",
+            "acceptance_criteria": [
+              "An 'Edit' icon or button is present for each task.",
+              "Clicking 'Edit' allows the user to modify the task's description in-place.",
+              "The changes are saved upon confirmation (e.g., pressing 'Enter' or a 'Save' button)."
+            ]
+          },
+          {
+            "id": "FR-005",
+            "description": "Users must be able to delete tasks they no longer need.",
+            "priority": "high",
+            "acceptance_criteria": [
+              "A 'Delete' icon or button is present for each task.",
+              "Clicking 'Delete' removes the task from the list."
+            ]
+          },
+          {
+            "id": "FR-006",
+            "description": "Tasks must be saved persistently in the user's browser.",
+            "priority": "high",
+            "acceptance_criteria": [
+              "Tasks persist after the browser is closed and reopened.",
+              "The application uses the browser's Local Storage to save and retrieve tasks."
+            ]
+          },
+          {
+            "id": "FR-007",
+            "description": "Users should be able to reorder tasks to reflect their priority.",
+            "priority": "low",
+            "acceptance_criteria": [
+              "Users can drag and drop tasks to change their order in the list."
+            ]
+          }
+        ],
+        "non_functional_requirements": [
+          {
+            "category": "Responsiveness",
+            "description": "The application must provide an optimal viewing and interaction experience across a wide range of devices, from mobile phones to desktop computers.",
+            "metrics": [
+              "The layout adapts to screen widths from 320px to 1920px without horizontal scrolling.",
+              "All interactive elements (buttons, inputs) are easily tappable on mobile screens."
+            ]
+          },
+          {
+            "category": "Performance",
+            "description": "The application should be fast and responsive to user input.",
+            "metrics": [
+              "Initial page load time must be under 2 seconds on a standard 3G connection.",
+              "UI updates (adding, deleting, checking tasks) must complete in under 200ms."
+            ]
+          },
+          {
+            "category": "Usability",
+            "description": "The interface should be intuitive and easy to use for a first-time user without instructions.",
+            "metrics": [
+              "A new user can successfully add, complete, and delete a task within 60 seconds.",
+              "Controls are clearly labeled and follow common web conventions."
+            ]
+          },
+          {
+            "category": "Compatibility",
+            "description": "The application must function correctly on the latest two versions of major web browsers.",
+            "metrics": [
+              "Full functionality is verified on Google Chrome, Mozilla Firefox, Apple Safari, and Microsoft Edge."
+            ]
+          }
+        ],
+        "complexity": "low",
+        "estimated_timeline": "1-2 weeks (approx. 20-40 hours for a single developer)",
+        "recommended_tech_stack": {
+          "backend": [
+            "None (for Local Storage version)",
+            "Node.js with Express (if a database is added)"
+          ],
+          "frontend": [
+            "HTML5",
+            "CSS3",
+            "JavaScript (ES6+)"
+          ],
+          "database": [
+            "Browser Local Storage",
+            "PostgreSQL or MongoDB (if a backend is added)"
+          ],
+          "devops": [
+            "Git for version control.",
+            "Netlify, Vercel, or GitHub Pages for static hosting."
+          ]
+        },
+        "project_structure": {
+          "folders": {
+            "src": [
+              "index.html",
+              "style.css",
+              "script.js"
+            ],
+            "games": [
+              "tic-tac-toe.js"
+            ],
+            "assets": [
+              "images/",
+              "icons/"
+            ]
+          }
+        },
+        "risks": [
+          "Data Loss: Since tasks are stored in Local Storage, users will lose all data if they clear their browser cache. This limitation should be made clear to the user.",
+          "Scope Creep: Requests for additional features like user accounts, cloud synchronization, or collaboration tools would significantly increase complexity and require a backend, moving beyond the initial scope.",
+          "Browser Incompatibility: Minor differences in JavaScript or CSS implementation across browsers could lead to inconsistent behavior or visual glitches."
+        ],
+        "assumptions": [
+          "The initial version will not require user authentication or a backend server. All data will be stored in the user's browser via Local Storage.",
+          "The application is intended for personal use, so no multi-user or collaboration features are required.",
+          "The design will be simple and functional, focusing on usability over complex aesthetics.",
+          "The target audience is general users who are familiar with basic web application interactions."
+        ]
+      },
+      "requires_modification": false,
+      "modification_comments": []
+    },
+    "awaiting_review": false,
+    "message": "Requirements analysis complete. Awaiting human review.",
+    "review_stage": null,
+    "architecture_output": {
+      "agent_name": "system_architect",
+      "success": true,
+      "data": {
+        "blueprint": {
+          "explanation": "This architecture blueprint outlines a modern, full-stack web application named 'momoo'. It employs a decoupled frontend/backend structure, ideal for scalability and independent development. The backend is a Node.js/Express application designed with a service-oriented, modular monolith pattern, making it easy to evolve into microservices. It uses Prisma as an ORM for type-safe database access to a PostgreSQL database. The frontend is a Single-Page Application (SPA) built with React (using Vite for a fast development experience), featuring a component-based architecture, centralized state management via React Context for authentication, and a dedicated API service layer for communicating with the backend.",
+          "folder_structure": [
+            "api",
+            "api/prisma",
+            "api/src",
+            "api/src/config",
+            "api/src/controllers",
+            "api/src/db",
+            "api/src/middleware",
+            "api/src/routes",
+            "api/src/services",
+            "api/src/utils",
+            "web",
+            "web/src",
+            "web/src/components",
+            "web/src/components/auth",
+            "web/src/components/common",
+            "web/src/components/ui",
+            "web/src/contexts",
+            "web/src/hooks",
+            "web/src/pages",
+            "web/src/services",
+            "web/src/styles"
+          ],
+          "build_plan": [
+            {
+              "path": "README.md",
+              "purpose": "Project overview, setup instructions, and documentation.",
+              "dependencies": []
+            },
+            {
+              "path": ".gitignore",
+              "purpose": "Specifies intentionally untracked files to ignore by Git (e.g., node_modules, .env).",
+              "dependencies": []
+            },
+            {
+              "path": "package.json",
+              "purpose": "Root package.json to manage workspaces (api, web) and run top-level scripts.",
+              "dependencies": []
+            },
+            {
+              "path": "api/package.json",
+              "purpose": "Defines backend project metadata and dependencies (Express, Prisma, dotenv, etc.).",
+              "dependencies": []
+            },
+            {
+              "path": "api/.env.example",
+              "purpose": "Template for environment variables required by the backend (DATABASE_URL, JWT_SECRET, PORT).",
+              "dependencies": []
+            },
+            {
+              "path": "api/prisma/schema.prisma",
+              "purpose": "Defines the database schema, models (e.g., User), and relations using Prisma's schema language.",
+              "dependencies": []
+            },
+            {
+              "path": "api/src/config/index.js",
+              "purpose": "Loads and exports environment variables using dotenv for centralized configuration management.",
+              "dependencies": [
+                "api/.env.example"
+              ]
+            },
+            {
+              "path": "api/src/utils/logger.js",
+              "purpose": "A simple logging utility (e.g., using Winston or pino) for consistent logging across the application.",
+              "dependencies": []
+            },
+            {
+              "path": "api/src/db/client.js",
+              "purpose": "Initializes and exports a singleton instance of the Prisma client for database interaction.",
+              "dependencies": [
+                "api/prisma/schema.prisma"
+              ]
+            },
+            {
+              "path": "api/src/middleware/errorHandler.js",
+              "purpose": "Express error-handling middleware to catch and format errors consistently before sending a response.",
+              "dependencies": [
+                "api/src/utils/logger.js"
+              ]
+            },
+            {
+              "path": "api/src/middleware/asyncHandler.js",
+              "purpose": "A higher-order function to wrap async route handlers, catching errors and passing them to the error handler.",
+              "dependencies": []
+            },
+            {
+              "path": "api/src/services/userService.js",
+              "purpose": "Business logic for user-related operations like creating, finding, and updating users. Interacts with the database via the Prisma client.",
+              "dependencies": [
+                "api/src/db/client.js"
+              ]
+            },
+            {
+              "path": "api/src/services/authService.js",
+              "purpose": "Handles authentication logic, including user registration, password hashing/verification, and JWT generation.",
+              "dependencies": [
+                "api/src/services/userService.js",
+                "api/src/config/index.js"
+              ]
+            },
+            {
+              "path": "api/src/controllers/authController.js",
+              "purpose": "Handles incoming HTTP requests for authentication (e.g., /register, /login), validates input, and calls the appropriate service.",
+              "dependencies": [
+                "api/src/services/authService.js",
+                "api/src/middleware/asyncHandler.js"
+              ]
+            },
+            {
+              "path": "api/src/routes/authRoutes.js",
+              "purpose": "Defines the API endpoints for authentication (e.g., POST /api/auth/register) and maps them to controller functions.",
+              "dependencies": [
+                "api/src/controllers/authController.js"
+              ]
+            },
+            {
+              "path": "api/src/routes/index.js",
+              "purpose": "The main router file that aggregates all feature-specific routers (like authRoutes) into a single main router.",
+              "dependencies": [
+                "api/src/routes/authRoutes.js"
+              ]
+            },
+            {
+              "path": "api/src/app.js",
+              "purpose": "The core Express application file. It sets up middleware (CORS, JSON parsing), mounts the main router, and configures the global error handler.",
+              "dependencies": [
+                "api/src/routes/index.js",
+                "api/src/middleware/errorHandler.js"
+              ]
+            },
+            {
+              "path": "api/src/server.js",
+              "purpose": "The entry point of the backend application. It imports the Express app, listens on a configured port, and handles graceful shutdown.",
+              "dependencies": [
+                "api/src/app.js",
+                "api/src/config/index.js",
+                "api/src/utils/logger.js"
+              ]
+            },
+            {
+              "path": "web/package.json",
+              "purpose": "Defines frontend project metadata and dependencies (React, Vite, Axios, react-router-dom).",
+              "dependencies": []
+            },
+            {
+              "path": "web/.env.example",
+              "purpose": "Template for environment variables required by the frontend (e.g., VITE_API_BASE_URL).",
+              "dependencies": []
+            },
+            {
+              "path": "web/index.html",
+              "purpose": "The main HTML entry point for the React SPA, where the application is mounted.",
+              "dependencies": []
+            },
+            {
+              "path": "web/src/styles/global.css",
+              "purpose": "Global CSS styles and resets for the entire application.",
+              "dependencies": []
+            },
+            {
+              "path": "web/src/services/apiClient.js",
+              "purpose": "An Axios instance configured with the backend base URL and interceptors for handling API requests and responses (e.g., attaching auth tokens).",
+              "dependencies": []
+            },
+            {
+              "path": "web/src/hooks/useAuth.js",
+              "purpose": "A custom React hook that provides a simple interface to access the authentication context (e.g., `const { user, login } = useAuth()`).",
+              "dependencies": []
+            },
+            {
+              "path": "web/src/contexts/AuthProvider.jsx",
+              "purpose": "A React Context Provider that manages global authentication state (user, token) and provides functions for login/logout.",
+              "dependencies": [
+                "web/src/services/apiClient.js",
+                "web/src/hooks/useAuth.js"
+              ]
+            },
+            {
+              "path": "web/src/components/ui/Button.jsx",
+              "purpose": "A generic, reusable button component with consistent styling.",
+              "dependencies": []
+            },
+            {
+              "path": "web/src/components/ui/Input.jsx",
+              "purpose": "A generic, reusable input field component with consistent styling and state handling.",
+              "dependencies": []
+            },
+            {
+              "path": "web/src/components/auth/LoginForm.jsx",
+              "purpose": "A form component for user login, containing input fields and a submit button. It uses the auth context to perform the login action.",
+              "dependencies": [
+                "web/src/components/ui/Button.jsx",
+                "web/src/components/ui/Input.jsx",
+                "web/src/hooks/useAuth.js"
+              ]
+            },
+            {
+              "path": "web/src/pages/LoginPage.jsx",
+              "purpose": "A page component that renders the login form and handles the overall layout for the login screen.",
+              "dependencies": [
+                "web/src/components/auth/LoginForm.jsx"
+              ]
+            },
+            {
+              "path": "web/src/pages/HomePage.jsx",
+              "purpose": "The main landing page for authenticated users, displayed after a successful login.",
+              "dependencies": []
+            },
+            {
+              "path": "web/src/components/common/ProtectedRoute.jsx",
+              "purpose": "A route guard component that checks for user authentication. If the user is not logged in, it redirects them to the login page.",
+              "dependencies": [
+                "web/src/hooks/useAuth.js"
+              ]
+            },
+            {
+              "path": "web/src/AppRoutes.jsx",
+              "purpose": "Defines the application's routing structure using react-router-dom, mapping paths to page components and protecting routes.",
+              "dependencies": [
+                "web/src/pages/LoginPage.jsx",
+                "web/src/pages/HomePage.jsx",
+                "web/src/components/common/ProtectedRoute.jsx"
+              ]
+            },
+            {
+              "path": "web/src/App.jsx",
+              "purpose": "The root component of the React application. It wraps the entire app with context providers (like AuthProvider) and renders the router.",
+              "dependencies": [
+                "web/src/contexts/AuthProvider.jsx",
+                "web/src/AppRoutes.jsx"
+              ]
+            },
+            {
+              "path": "web/src/main.jsx",
+              "purpose": "The main entry point for the frontend application. It renders the root App component into the DOM.",
+              "dependencies": [
+                "web/src/App.jsx",
+                "web/src/styles/global.css"
+              ]
+            }
+          ]
+        }
+      },
+      "documents": [
+        {
+          "filename": "architecture.md",
+          "content": "# System Architecture: momoo\n\n## Overview\nThis architecture blueprint outlines a modern, full-stack web application named 'momoo'. It employs a decoupled frontend/backend structure, ideal for scalability and independent development. The backend is a Node.js/Express application designed with a service-oriented, modular monolith pattern, making it easy to evolve into microservices. It uses Prisma as an ORM for type-safe database access to a PostgreSQL database. The frontend is a Single-Page Application (SPA) built with React (using Vite for a fast development experience), featuring a component-based architecture, centralized state management via React Context for authentication, and a dedicated API service layer for communicating with the backend.\n\n## Project Structure\n```tree\nmomoo/\n\u251c\u2500\u2500 api/\n\u251c\u2500\u2500 api/prisma/\n\u251c\u2500\u2500 api/src/\n\u251c\u2500\u2500 api/src/config/\n\u251c\u2500\u2500 api/src/controllers/\n\u251c\u2500\u2500 api/src/db/\n\u251c\u2500\u2500 api/src/middleware/\n\u251c\u2500\u2500 api/src/routes/\n\u251c\u2500\u2500 api/src/services/\n\u251c\u2500\u2500 api/src/utils/\n\u251c\u2500\u2500 web/\n\u251c\u2500\u2500 web/src/\n\u251c\u2500\u2500 web/src/components/\n\u251c\u2500\u2500 web/src/components/auth/\n\u251c\u2500\u2500 web/src/components/common/\n\u251c\u2500\u2500 web/src/components/ui/\n\u251c\u2500\u2500 web/src/contexts/\n\u251c\u2500\u2500 web/src/hooks/\n\u251c\u2500\u2500 web/src/pages/\n\u251c\u2500\u2500 web/src/services/\n\u2514\u2500\u2500 web/src/styles/\n```\n\n## Build Plan\n- **README.md**: Project overview, setup instructions, and documentation.\n- **.gitignore**: Specifies intentionally untracked files to ignore by Git (e.g., node_modules, .env).\n- **package.json**: Root package.json to manage workspaces (api, web) and run top-level scripts.\n- **api/package.json**: Defines backend project metadata and dependencies (Express, Prisma, dotenv, etc.).\n- **api/.env.example**: Template for environment variables required by the backend (DATABASE_URL, JWT_SECRET, PORT).\n- **api/prisma/schema.prisma**: Defines the database schema, models (e.g., User), and relations using Prisma's schema language.\n- **api/src/config/index.js**: Loads and exports environment variables using dotenv for centralized configuration management.\n- **api/src/utils/logger.js**: A simple logging utility (e.g., using Winston or pino) for consistent logging across the application.\n- **api/src/db/client.js**: Initializes and exports a singleton instance of the Prisma client for database interaction.\n- **api/src/middleware/errorHandler.js**: Express error-handling middleware to catch and format errors consistently before sending a response.\n- **api/src/middleware/asyncHandler.js**: A higher-order function to wrap async route handlers, catching errors and passing them to the error handler.\n- **api/src/services/userService.js**: Business logic for user-related operations like creating, finding, and updating users. Interacts with the database via the Prisma client.\n- **api/src/services/authService.js**: Handles authentication logic, including user registration, password hashing/verification, and JWT generation.\n- **api/src/controllers/authController.js**: Handles incoming HTTP requests for authentication (e.g., /register, /login), validates input, and calls the appropriate service.\n- **api/src/routes/authRoutes.js**: Defines the API endpoints for authentication (e.g., POST /api/auth/register) and maps them to controller functions.\n- **api/src/routes/index.js**: The main router file that aggregates all feature-specific routers (like authRoutes) into a single main router.\n- **api/src/app.js**: The core Express application file. It sets up middleware (CORS, JSON parsing), mounts the main router, and configures the global error handler.\n- **api/src/server.js**: The entry point of the backend application. It imports the Express app, listens on a configured port, and handles graceful shutdown.\n- **web/package.json**: Defines frontend project metadata and dependencies (React, Vite, Axios, react-router-dom).\n- **web/.env.example**: Template for environment variables required by the frontend (e.g., VITE_API_BASE_URL).\n- **web/index.html**: The main HTML entry point for the React SPA, where the application is mounted.\n- **web/src/styles/global.css**: Global CSS styles and resets for the entire application.\n- **web/src/services/apiClient.js**: An Axios instance configured with the backend base URL and interceptors for handling API requests and responses (e.g., attaching auth tokens).\n- **web/src/hooks/useAuth.js**: A custom React hook that provides a simple interface to access the authentication context (e.g., `const { user, login } = useAuth()`).\n- **web/src/contexts/AuthProvider.jsx**: A React Context Provider that manages global authentication state (user, token) and provides functions for login/logout.\n- **web/src/components/ui/Button.jsx**: A generic, reusable button component with consistent styling.\n- **web/src/components/ui/Input.jsx**: A generic, reusable input field component with consistent styling and state handling.\n- **web/src/components/auth/LoginForm.jsx**: A form component for user login, containing input fields and a submit button. It uses the auth context to perform the login action.\n- **web/src/pages/LoginPage.jsx**: A page component that renders the login form and handles the overall layout for the login screen.\n- **web/src/pages/HomePage.jsx**: The main landing page for authenticated users, displayed after a successful login.\n- **web/src/components/common/ProtectedRoute.jsx**: A route guard component that checks for user authentication. If the user is not logged in, it redirects them to the login page.\n- **web/src/AppRoutes.jsx**: Defines the application's routing structure using react-router-dom, mapping paths to page components and protecting routes.\n- **web/src/App.jsx**: The root component of the React application. It wraps the entire app with context providers (like AuthProvider) and renders the router.\n- **web/src/main.jsx**: The main entry point for the frontend application. It renders the root App component into the DOM.\n",
+          "path": "architecture.md",
+          "type": "markdown"
+        }
+      ],
+      "artifacts": [
+        "api",
+        "api\\prisma",
+        "api\\src",
+        "api\\src\\config",
+        "api\\src\\controllers",
+        "api\\src\\db",
+        "api\\src\\middleware",
+        "api\\src\\routes",
+        "api\\src\\services",
+        "api\\src\\utils",
+        "web",
+        "web\\src",
+        "web\\src\\components",
+        "web\\src\\components\\auth",
+        "web\\src\\components\\common",
+        "web\\src\\components\\ui",
+        "web\\src\\contexts",
+        "web\\src\\hooks",
+        "web\\src\\pages",
+        "web\\src\\services",
+        "web\\src\\styles"
+      ],
+      "errors": [],
+      "timestamp": "2025-11-23T00:57:55.751094+05:30"
+    }
+  },
+  "awaiting_review": false
+}

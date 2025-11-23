@@ -367,6 +367,12 @@ CRITICAL: Respond with ONLY valid JSON matching the RequirementsAnalysis schema.
                     {"category": "performance", "description": "High-frequency transaction processing"}
                 ],
                 "tech_recommendations": {
+                    "backend": ["Java", "C#", "Go"],
+                    "frontend": ["React", "Angular"],
+                    "database": ["Oracle", "PostgreSQL", "Redis"],
+                    "infrastructure": ["AWS", "Azure", "Kubernetes"]
+                }
+            }
         # Create functional requirements from patterns
         functional_reqs = []
         for i, pattern in enumerate(functional_patterns[:5], 1):
